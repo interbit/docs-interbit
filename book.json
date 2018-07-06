@@ -8,12 +8,9 @@
         "exercises",
         "expandable-chapters-small",
         "prism",
-        "theme-interbit@../theme-interbit"
+        "theme-interbit@https://github.com/interbit/gitbook-plugin-theme-interbit.git",
+        "interbit@https://github.com/interbit/gitbook-plugin-interbit.git"
     ],
-    "variables": {
-        "themeInterbit": {
-        }
-    },
     "pluginsConfig": {
         "favicon":{
             "shortcut": "assets/img/favicon.ico"
