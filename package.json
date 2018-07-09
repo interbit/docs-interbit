@@ -1,0 +1,23 @@
+{
+  "name": "docs-interbit",
+  "version": "1.0.0",
+  "description": "Interbit SDK documentation",
+  "main": "-",
+  "dependencies": {
+    "gitbook-cli": "^2.3.2",
+    "express": "^4.16.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/interbit/docs-interbit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/interbit/docs-interbit/issues"
+  },
+  "homepage": {
+    "url": "https://github.com/interbit/docs-interbit"
+  },
+  "scripts": {
+    "build": "make book"
+  }
+}
