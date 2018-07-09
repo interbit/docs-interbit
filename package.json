@@ -18,6 +18,7 @@
     "url": "https://github.com/interbit/docs-interbit"
   },
   "scripts": {
+    "start": "node index.js",
     "build": "make book"
   }
 }
