@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "build": "echo 'here' && bash make.sh"
+    "postinstall": "bash make.sh"
   },
   "engines": {
     "npm": "6.1.0",
