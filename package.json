@@ -2,7 +2,7 @@
   "name": "docs-interbit",
   "version": "1.0.0",
   "description": "Interbit SDK documentation",
-  "main": "-",
+  "main": "index.js",
   "dependencies": {
     "gitbook-cli": "^2.3.2",
     "express": "^4.16.3"
