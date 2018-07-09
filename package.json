@@ -20,6 +20,10 @@
   },
   "scripts": {
     "start": "node index.js",
-    "build": "bash make.sh"
+    "build": "echo 'here' && bash make.sh"
+  },
+  "engines": {
+    "npm": "6.1.0",
+    "node": "10.4.1"
   }
 }
