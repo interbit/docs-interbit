@@ -20,7 +20,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "postinstall": "bash make.sh"
+    "build": "bash make.sh",
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "npm": "6.1.0",
