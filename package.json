@@ -20,6 +20,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "build": "make book"
+    "build": "bash make.sh"
   }
 }

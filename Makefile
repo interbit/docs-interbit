@@ -37,7 +37,7 @@ clean:
 
 # Remove artifacts that shouldn't be published.
 tidy:
-	rm -rf _book/Gemfile _book/Gemfile.lock _book/Makefile _book/_common _book/npm-debug.log _book/package.json _book/package-lock.json _book/index.js _book/local.js
+	rm -rf _book/Gemfile _book/Gemfile.lock _book/Makefile _book/make.sh _book/npm-debug.log _book/package.json _book/package-lock.json _book/index.js _book/local.js
 
 # 'test' the artifacts
 test: setup missed
