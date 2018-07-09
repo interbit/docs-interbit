@@ -3,6 +3,7 @@
 echo 'Building documentation, please wait... '
 
 # Install Asciidoctor and dependencies
+gem install bundler
 bundle install
 
 # Install and build gitbook
