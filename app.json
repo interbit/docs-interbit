@@ -1,0 +1,20 @@
+{
+  "name": "docs-interbit",
+  "description": "Interbit SDK documentation",
+  "scripts": {},
+  "env": {},
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
