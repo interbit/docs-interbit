@@ -21,6 +21,7 @@
   "scripts": {
     "start": "node index.js",
     "build": "bash make.sh",
+    "test": "node node_modules/gitbook-plugin-interbit/scripts/doc_checks.js",
     "heroku-postbuild": "npm run build"
   },
   "engines": {
