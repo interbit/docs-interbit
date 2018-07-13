@@ -40,7 +40,11 @@ tidy:
 	rm -rf _book/Gemfile _book/Gemfile.lock _book/Makefile _book/make.sh _book/npm-debug.log _book/package.json _book/package-lock.json _book/index.js _book/local.js
 
 # 'test' the artifacts
-test: setup missed
+test: setup doc_ci missed
+
+# run the doc CI checks
+doc_ci:
+	npm run test
 
 # Check for unconverted topics in output folder; means they're missing
 # from the TOC.
