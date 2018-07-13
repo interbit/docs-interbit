@@ -1,5 +1,5 @@
 task default: %w[test]
 
 task :test do
-  npm run test
+  system("npm run test")
 end
