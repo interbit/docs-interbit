@@ -106,6 +106,7 @@
       * [connect](reference/interbit-core/cli/connect.md)
       * [createChain](reference/interbit-core/cli/createChain.md)
       * [createGenesisBlock](reference/interbit-core/cli/createGenesisBlock.md)
+      * [destroyChain](reference/interbit-core/cli/destroyChain.md)
       * [loadChain](reference/interbit-core/cli/loadChain.md)
       * [generateKeyPair](reference/interbit-core/cli/generateKeyPair.md)
       * [getChain](reference/interbit-core/cli/getChain.md)
