@@ -268,11 +268,7 @@ is specified like this:
 
 [source,js]
 ----
-const consumeAction = startConsumeState({
-  provider: chainAChainID,
-  mount: ['public', 'likes'],
-  joinName: 'MeowMeowMeow'
-})
+{% include "code/chain_joins-slice.js" %}
 ----
 
 
