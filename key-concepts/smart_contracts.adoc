@@ -75,7 +75,8 @@ the action described above.
   }
 
 {% validation %}
-  assert(smartContract.incrementSum(state, action).sum === 10 && state.sum === 5)
+  assert(smartContract.incrementSum(state, action).sum === 10
+        && state.sum === 5)
 
 {% context %}
   let action = {

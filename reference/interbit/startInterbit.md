@@ -12,10 +12,17 @@ None.
 
 ## Returns
 
-*(Object)*: {
-  cli: *(Object)* A [cli](../interbit-core/cli/README.md) to use to interact with the Interbit node
-  hypervisor: *(Object)* A [hypervisor](../interbit-core/hypervisor/README.md) to use for hosting chains
-}
+An *(Object)* containing:
+
+- cli: *(Object)*
+
+  A [cli](../interbit-core/cli/README.md) to use to interact with the
+  Interbit node
+
+- hypervisor: *(Object)*
+
+  A [hypervisor](../interbit-core/hypervisor/README.md) to use for
+  hosting chains
 
 
 ## Example

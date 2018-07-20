@@ -1,0 +1,344 @@
+= Selectors
+
+CAUTION: Incomplete content.
+
+An object containing a set of selector functions for getting specific
+information from the middleware's redux state.
+
+== Object Properties
+
+. <<get_block_master>>
+. <<get_chain>>
+. <<get_chain_id>>
+. <<get_configured_chains>>
+. <<get_configured_peers>>
+. <<get_connection_status>>
+. <<get_covenant_hash>>
+. <<get_interbit_status>>
+. <<get_private_chain>>
+. <<get_private_chain_id>>
+. <<get_public_chain>>
+. <<get_public_chain_id>>
+. <<get_public_key>>
+. <<get_sponsor_config>>
+. <<is_chain_loaded>>
+. <<is_public_chain_loaded>>
+. <<immutable>>
+. <<interbit_at_root>>
+. <<from_store_root>>
+
+
+== Selector Function Definitions
+
+All selector functions share the following parameters:
+
+. `state` *(Object)*: The state slice from the redux store belonging to
+  the middleware
+
+. `options` *(Object)*: An options object for specifying selection rules
+..  `root` *(Object)*: The root of the state to select from.  Defaults
+    to the store root. You will probably not need to use it.
+
+
+[[get_block_master]]
+=== `getBlockMaster(state, { root , chainAlias })`
+
+Returns the blockMaster public key for a specified chain alias.
+
+==== Additional Options
+
+. `chainAlias` *(Object)*: The alias of the chain whose blockMaster we
+  are selecting
+
+
+==== Returns
+
+*(String)*: The public key belonging to the blockMaster for the
+specified chain
+
+
+[[get_chain]]
+=== `getChain`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_chain_id]]
+=== `getChainId`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_configured_chains]]
+=== `getConfiguredChains`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_configured_peers]]
+=== `getConfiguredPeers`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+==== Returns
+
+*(String)*:
+
+
+[[get_connection_status]]
+=== `getConnectionStatus`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_covenant_hash]]
+=== `getCovenantHash`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_interbit_status]]
+=== `getInterbitStatus`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_private_chain]]
+=== `getPrivateChain`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_private_chain_id]]
+=== `getPrivateChainId`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_public_chain]]
+=== `getPublicChain`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_public_chain_id]]
+=== `getPublicChainId`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_public_key]]
+=== `getPublicKey`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[get_sponsor_config]]
+=== `getSponsorConfig`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[is_chain_loaded]]
+=== `isChainLoaded`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[is_public_chain_loaded]]
+=== `isPublicChainLoaded`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[immutable]]
+=== `immutable`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[interbit_at_root]]
+=== `interbitAtRoot`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:
+
+
+[[from_store_root]]
+=== `fromStoreRoot`
+
+...
+
+
+==== Additional Options
+
+. `?` *(Object)*:
+
+
+==== Returns
+
+*(String)*:

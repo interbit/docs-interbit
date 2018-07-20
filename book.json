@@ -1,24 +1,29 @@
 {
-    "title": "Interbit",
-    "description": "Interbit SDK Documentation",
-    "plugins": [
-        "-sharing",
-        "-highlighting",
-        "favicon",
-        "exercises",
-        "expandable-chapters-small",
-        "prism",
-        "theme-interbit@https://github.com/interbit/gitbook-plugin-theme-interbit.git",
-        "interbit@https://github.com/interbit/gitbook-plugin-interbit.git"
-    ],
-    "pluginsConfig": {
-        "favicon":{
-            "shortcut": "assets/img/favicon.ico"
-        },
-        "prism": {
-          "css": [
-            "prismjs/themes/prism-okaidia.css"
-          ]
-        }
+  "title": "Interbit",
+  "description": "Interbit SDK Documentation",
+  "author": "The Interbit team",
+  "language": "en",
+  "structure": {
+    "readme": "index.adoc"
+  },
+  "plugins": [
+    "-sharing",
+    "-highlighting",
+    "favicon",
+    "exercises",
+    "expandable-chapters-small",
+    "prism",
+    "theme-interbit@https://github.com/interbit/gitbook-plugin-theme-interbit.git",
+    "interbit@https://github.com/interbit/gitbook-plugin-interbit.git"
+  ],
+  "pluginsConfig": {
+    "favicon":{
+      "shortcut": "assets/img/favicon.ico"
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-okaidia.css"
+      ]
     }
+  }
 }
