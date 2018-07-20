@@ -10,8 +10,7 @@ the following software:
 
 ## The Examples
 
-- [Initializing Interbit](./initialize.md)
-- [Destroying Chains](./destroy.md)
-- [The Template App Walk-through](./template.md)
-- [Determinism in Interbit](./determinism.md)
+- [Initializing Interbit](initialize.md)
+- [The Template App Walk-through](template.adoc)
+- [Determinism in Interbit](determinism.adoc)
 - [To-do List App](./to-do-list.md)

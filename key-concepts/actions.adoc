@@ -61,5 +61,6 @@ switch (action.type) {
 **Example**
 
 To see actions in practice, please see the actions in the
-link:/examples/to-do-list.md#the-actions[To-do List] example.
+link:/examples/to-do-list.md#modifying-the-private-covenant[To-do
+List] example.
 ======

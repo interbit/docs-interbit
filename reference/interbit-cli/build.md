@@ -1,27 +1,25 @@
 # `build`
 
-Builds an Interbit application from a [configuration](config.md) file.
+Builds an Interbit application from a [configuration](config.adoc) file.
 
 This script:
 
-- generates a [manifest](manifest.md) file based on the provided
-  [configuration](config.md)
+- generates a [manifest](manifest.adoc) file based on the provided
+  [configuration](config.adoc)
 
 - packs all covenants described in the configuration and outputs them to
   `dist/covenants`
 
-- updates the `index.html` files described in [configuration](config.md)
-  with the chain IDs that were resolved in the [manifest](manifest.md)
+- updates the `index.html` files described in
+  [configuration](config.adoc) with the chain IDs that were resolved in
+  the [manifest](manifest.adoc)
 
 Coming soon:
 
 - build your front end applications by executing the build steps
   provided
 
-- update only the index.html file from the completed application build
-
-- support an interbit root node and [cascading
-  deployment](../../chain-management/cascading-deployment.md)
+- update only the `index.html` file from the completed application build
 
 
 ## Options

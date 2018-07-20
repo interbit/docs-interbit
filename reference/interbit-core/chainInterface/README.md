@@ -5,7 +5,7 @@ whether they are your own chain, the hypervisor, or the cli.
 
 This chain interface contains 3 simple functions:
 - [getState](getState.md)
-- [dispatch](dispatch.md)
+- [dispatch](dispatch.adoc)
 - [subscribe](subscribe.md)
 
 There are a few ways to get a chain interface.

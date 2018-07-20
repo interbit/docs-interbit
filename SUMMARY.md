@@ -26,7 +26,7 @@
   * [Template App Walk-through](/examples/template.adoc)
   * [To-do List App](/examples/to-do-list.md)
 
-* [Architecture](/architecture/README.md)
+* [Architecture](/architecture/README.adoc)
   * [Chain Joins: How They Work](/architecture/chain_joins.adoc)
   * [Chain Topology](/architecture/topology/README.adoc)
     * [Key Considerations](/architecture/topology/considerations.adoc)

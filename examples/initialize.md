@@ -4,7 +4,7 @@ There are two ways to initialize a node: by command line and by code.
 
 If you are using the CLI or code it is recommended that you configure
 your network using an [Interbit configuration
-file](/reference/interbit-cli/config.md). This file enables you to
+file](/reference/interbit-cli/config.adoc). This file enables you to
 configure apps, peers, covenants, and chain joins all in one place.
 
 
@@ -22,7 +22,7 @@ the following software:
 Once you have setup your configuration file to your liking you can use
 the [`start`](/reference/interbit-cli/start.md) or
 [`build`](/reference/interbit-cli/build.md) and
-[`deploy`](/reference/interbit-cli/deploy.md) commands to start your
+[`deploy`](/reference/interbit-cli/deploy.adoc) commands to start your
 node.
 
 First, install the CLI in your project if you have not already. If you
@@ -78,7 +78,7 @@ npm i --save interbit
 ### Using the Package
 
 The package comes with a set of granular functions for starting a node
-as well as a handy dandy [deploy](../reference/interbit-cli/deploy.md)
+as well as a handy dandy [deploy](../reference/interbit-cli/deploy.adoc)
 function that does all of the work of applying covenants, starting and
 loading chains, and creating an interbit instance and cli to interact
 with.
@@ -110,16 +110,16 @@ Please check out the
 [`web-auth-endpoint`](https://github.com/interbit/interbit/blob/master/packages/web-auth-endpoint/src/node.js)
 package for an example of deploying a node in code. Please note that
 this package has used and
-[interbit.config.js](../reference/interbit-cli/config.md) file and built
-a [manifest](../reference/interbit-cli/manifest.md) file from the config
+[interbit.config.js](/reference/interbit-cli/config.adoc) file and built
+a [manifest](/reference/interbit-cli/manifest.adoc) file from the config
 prior to deploying the node in code.
 
 
 Further Documentation:
 - [start](../reference/interbit-cli/start.md)
 - [build](../reference/interbit-cli/build.md)
-- [deploy](../reference/interbit-cli/deploy.md)
-- [interbit.config.js](../reference/interbit-cli/config.md)
-- [interbit.manifest.json](../reference/interbit-cli/manifest.md)
+- [deploy](../reference/interbit-cli/deploy.adoc)
+- [interbit.config.js](../reference/interbit-cli/config.adoc)
+- [interbit.manifest.json](../reference/interbit-cli/manifest.adoc)
 - [deploy function](../reference/interbit/deploy.md)
 - [createChains](../reference/interbit/createChains.md)

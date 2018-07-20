@@ -21,7 +21,7 @@ Uses a manifest to deploy a blockchain node.
 
 ## Returns
 
-*(Object)*: A [cli](../interbit-core/cli/README.md) to use to interact
+*(Object)*: A [cli](../interbit-core/cli/README.adoc) to use to interact
 with the Interbit node
 
 

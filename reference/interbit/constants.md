@@ -13,10 +13,3 @@ A handy set of constants in an object to keep references simple
         type
     1.  `RECEIVE`: *(String)* A friendly constant for the receive
         actions join type
-
-## Tips
-
-- The [Root Chain](../../chain-management/cascading-deployment.md) is an
-  (unimplemented) feature that can handle deploying and updating your
-  entire network from built manifests. Coming soon to a blockchain near
-  you!

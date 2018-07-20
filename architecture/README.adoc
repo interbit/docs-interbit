@@ -1,0 +1,40 @@
+= Architecture
+
+Interbit’s design, architecture, and componentry use popular, modern
+technologies and patterns, ensuring that developers enjoy a familiar
+experience developing in a common programming language and have vibrant
+communities to draw upon for support.
+
+[CAUTION]
+=========
+**Incomplete content**
+
+- What about app architecture?
+- Multi layered validation
+- Syncing chain state with UI
+- Responding nicely to dispatches &amp; blocking times
+- What about multi-chain architecture?
+- Atoms &amp; Molecules
+- Considerations while architecting your molecule
+- Architecture/molecular design patterns
+- Existing implementations of these patterns (??)
+=========
+
+
+== Technology
+
+The major technologies used in Interbit (and applications powered by
+Interbit) are shown in the following diagram:
+
+image:img/technology-diagram.png["Interbit node diagram", 1125, 750,
+role="center"]
+
+
+== Redux
+
+Interbit is implemented using the Redux design pattern. The following
+diagram shows how the traditional Redux elements appear within an
+application powered by Interbit:
+
+image:img/application_design_pattern.png["The Design Pattern of an
+Interbit Application", 1125, 750, role="center"]

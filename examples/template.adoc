@@ -10,30 +10,31 @@ together through redirects.
 
 In this walk-through we cover:
 
-* [Version requirements](template.md#version-requirements)
+* <<requirements>>
 
-* [Application structure](template.md#application-structure)
+* <<structure>>
 ** Directory structure
 ** Chain architecture
 
-* [Sponsored Chains](template.md#sponsored-chains)
+* <<sponsored>>
 
-* [The Interbit Config](template.md#the-interbit-config)
+* <<configuration>>
 ** Static chains
 ** Covenants
 ** Joins
 ** Apps
 
-* [The Covenants](template.md#the-covenants)
+* <<covenants>>
 ** The Private Covenant
 ** The Public Covenant
 ** The Control Covenant
 
-* [The Application](template.md#the-application)
-** index.js
+* <<application>>
+** `index.js`
 ** Connecting the Chain to a UI Component
 
 
+[[requirements]]
 == Version Requirements
 
 To develop Interbit applications, your development environment will need
@@ -43,6 +44,7 @@ the following software:
 * link:https://nodejs.org/[NPM] 5.8 or higher
 
 
+[[structure]]
 == Application Structure
 
 This template comes with a lot of moving parts to help you bootstrap an
@@ -100,7 +102,7 @@ for. We will exclude `.env`, `.gitignore`, `CHANGELOG.md`,
 
 | `index.js`
 | The file that creates the Redux store, attaches the
-  link:../reference/interbit-middleware/README.md[Interbit middleware],
+  link:../reference/interbit-middleware/README.adoc[Interbit middleware],
   and runs the single-page application (SPA)
 
 | `registerServiceWorker.js`
@@ -109,7 +111,7 @@ for. We will exclude `.env`, `.gitignore`, `CHANGELOG.md`,
   worker]
 
 | `interbit.config.js`
-| The link:../reference/interbit-cli/config.md[Interbit configuration
+| The link:../reference/interbit-cli/config.adoc[Interbit configuration
   file]
 
 | `interbit.prod.config.js`
@@ -158,12 +160,13 @@ We use a process called chain sponsorship to perform this authorization.
 
 Further Reading:
 
-- link:../architecture/chain-architecture.md[Chain Architecture]
+- link:/architecture/topology/README.adoc[Chain Architecture]
 
 CAUTION: Incomplete content. In the future, we'll add a diagram showing
 the relationship between hypervisors, node, browser, and covenants.
 
 
+[[sponsored]]
 == Sponsored Chains
 
 A sponsored chain can request for a host to run the sponsored chain on
@@ -202,13 +205,14 @@ how the application works.
 
 Further Reading:
 
-- link:/reference/interbit-middleware/chainSponsorship.md[How Middleware
-  Sponsors Chains]
+- link:/reference/interbit-middleware/chainSponsorship.adoc[How
+  Middleware Sponsors Chains]
 
 CAUTION: We will be updating our documentation with a deep dive into
 sponsorship in the coming weeks.
 
 
+[[configuration]]
 == The Interbit Config
 
 The Interbit config determines how your node will run. The configuration
@@ -219,7 +223,7 @@ NOTE: When you update the config you will need to restart the Interbit
 node using `npm run interbit:start`
 
 
-== Configured Static Chains
+=== Configured Static Chains
 
 The static chains configured for our application are the public and
 control chains.
@@ -235,8 +239,7 @@ This example does not demonstrate creation of dynamic chains.
 
 Further Reading:
 
-- link:/reference/interbit-cli/config.md[Interbit Configuration File]
-- link:static-dynamic.md[Static and Dynamic Chains]
+- link:/reference/interbit-cli/config.adoc[Interbit Configuration File]
 
 
 === Configured Covenants
@@ -253,12 +256,12 @@ The
 link:https://github.com/interbit/interbit/tree/master/packages/interbit-template/src/interbit/control[control
 covenant] does not do much either, as the functionality required to
 sponsor chains comes with
-link:/reference/interbit-core/README.md[`interbit-core`]. When this
+link:/reference/interbit-core/README.adoc[`interbit-core`]. When this
 chain is initially deployed and receives a `SET_MANIFEST` action, which
 contains covenant hashes and chain IDs for the network, it sets up
 information about how it would like sponsored chains to apply for
 sponsorship. This is shared with the public chain via read join in the
-link:template.md#configured-joins[Interbit configuration].
+<<joins,Interbit configuration>>.
 
 The
 link:https://github.com/interbit/interbit/tree/master/packages/interbit-template/src/interbit/private[private
@@ -269,9 +272,9 @@ numbers together.
 Further Reading
 
 - link:/key-concepts/covenants.adoc[What is a Covenant]
-- link:covenants.md[Writing Covenants]
 
 
+[[joins]]
 === Configured Joins
 
 There are two joins configured for the template app. Both joins are a
@@ -322,9 +325,10 @@ information.
 
 Further Reading
 
-- link:/reference/interbit-cli/config.md#apps[Apps Config]
+- link:/reference/interbit-cli/config.adoc#apps[Apps Config]
 
 
+[[covenants]]
 == The Covenants
 
 The `src/interbit` folder contains the covenants that will run on the
@@ -407,6 +411,7 @@ The control chain only sets up information about sponsorship and shares
 it with the public chain.
 
 
+[[application]]
 == The Application
 
 The React application for this project was created using
@@ -476,7 +481,8 @@ public chain. This private chain will be attached to the redux store and
 automatically synced every time a block is formed by the middleware.
 
 Further Reading
-- link:/reference/interbit-middleware/README.md[interbit-middleware]
+
+- link:/reference/interbit-middleware/README.adoc[interbit-middleware]
 - link:https://github.com/facebook/create-react-app/[create-react-app]
 
 
@@ -571,8 +577,8 @@ interact directly with the chain, but instead can use the redux store.
 
 Further Reading
 
-- link:/reference/interbit-middleware/README.md[interbit-middleware]
+- link:/reference/interbit-middleware/README.adoc[interbit-middleware]
 - link:/key-concepts/actions.adoc[actions]
-- link:/reference/interbit-cli/manifest.md[Interbit Manifest File]
+- link:/reference/interbit-cli/manifest.adoc[Interbit Manifest File]
 - link:/reference/interbit-cli/build.md[build]
-- link:/reference/interbit-cli/deploy.md[deploy]
+- link:/reference/interbit-cli/deploy.adoc[deploy]

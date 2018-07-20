@@ -2,7 +2,8 @@
 
 The Interbit manifest file is a set of declarations about how a network
 will be deployed that is generated automatically by the
-link:build.md[build] step based on a link:config.md[configuration file].
+link:build.md[build] step based on a link:config.adoc[configuration
+file].
 
 It is a JSON file and should not be altered manually.
 

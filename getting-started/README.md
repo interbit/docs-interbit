@@ -12,5 +12,5 @@ using Interbit. The topics include:
 
 If you are looking for additional information, see the
 [Examples](/examples/README.md),
-[Architecture](/architecture/README.md), and
-[Reference](/reference/README.md) sections.
+[Architecture](/architecture/README.adoc), and
+[Reference](/reference/README.adoc) sections.

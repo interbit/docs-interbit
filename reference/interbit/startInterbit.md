@@ -1,7 +1,7 @@
 # `startInterbit()`
 
 Starts a [hypervisor](/key-concepts/hypervisor.adoc) and
-[cli](../interbit-core/cli/README.md) for hosting Interbit blockchains
+[cli](../interbit-core/cli/README.adoc) for hosting Interbit blockchains
 then returns both.
 
 
@@ -16,7 +16,7 @@ An *(Object)* containing:
 
 - cli: *(Object)*
 
-  A [cli](../interbit-core/cli/README.md) to use to interact with the
+  A [cli](../interbit-core/cli/README.adoc) to use to interact with the
   Interbit node
 
 - hypervisor: *(Object)*

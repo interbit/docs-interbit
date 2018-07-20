@@ -92,7 +92,7 @@ const config = {
 To establish a join via action dispatch, both the provider and consumer
 must use the same join name. Chain IDs must be used as the alias is only
 available in the configuration file and the
-link:/reference/interbit-middleware/README.md[`interbit-middleware`].
+link:/reference/interbit-middleware/README.adoc[`interbit-middleware`].
 
 [source,js]
 ----

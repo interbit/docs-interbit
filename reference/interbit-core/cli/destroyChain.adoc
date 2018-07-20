@@ -8,7 +8,7 @@ NOTE: Any chain-related data in the KV store does not get deleted
 currently.
 
 This function dispatches a
-link:../../interbit-covenant-utils/destroy.md[destroy] action into the
+link:../../interbit-covenant-utils/destroy.adoc[destroy] action into the
 hypervisor for the specified chain ID. This action can also be
 dispatched from user covenants.
 

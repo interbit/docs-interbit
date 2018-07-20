@@ -10,8 +10,8 @@ It is a Javascript file and can be altered at any time.
 
 It contains network information such as peers, validator public keys,
 and the different chains your network may run. It also contains a list
-of [covenants](/key-concepts/covenants.adoc) and which blockchains they
-run on.
+of link:/key-concepts/covenants.adoc[covenants] and which blockchains
+they run on.
 
 
 == Example
@@ -116,9 +116,6 @@ means that when the chain is redeployed, these chains will receive the
 manifest on `SET_MANIFEST` and forward the manifest to their children so
 that Interbit can apply necessary configuration changes.
 
-Refer to link:../../chain-management/cascading-deployment.md[Cascading
-Deployment] for more information.
-
 
 === Joins
 
@@ -189,6 +186,7 @@ the distribution of covenants across the network. This means no
 external, local, file references.
 
 
+[[apps]]
 == Apps
 
 [source,js]

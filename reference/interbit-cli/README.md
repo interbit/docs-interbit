@@ -22,11 +22,11 @@ things easier:
 
  - [start](start.md)
  - [build](build.md)
- - [deploy](deploy.md)
+ - [deploy](deploy.adoc)
  - [create](create.md)
 
 There are two important files used to manage the chain application
 lifecycle:
 
- - [Configuration](config.md)
- - [Manifest](manifest.md)
+ - [Configuration](config.adoc)
+ - [Manifest](manifest.adoc)

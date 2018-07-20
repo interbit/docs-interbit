@@ -9,7 +9,6 @@
   "plugins": [
     "-sharing",
     "-highlighting",
-    "favicon",
     "exercises",
     "expandable-chapters-small",
     "prism",
@@ -17,9 +16,6 @@
     "interbit@https://github.com/interbit/gitbook-plugin-interbit.git"
   ],
   "pluginsConfig": {
-    "favicon":{
-      "shortcut": "assets/img/favicon.ico"
-    },
     "prism": {
       "css": [
         "prismjs/themes/prism-okaidia.css"

@@ -34,10 +34,10 @@ the specific script/cli reference for supported options.
 - `location` *(string)*: The working directory for this function/script
 
 - `manifest` *(Object)*: The contents of the loaded
-  [manifest](../interbit-cli/manifest.md) file
+  [manifest](../interbit-cli/manifest.adoc) file
 
 - `config` *(Object)*: The contents of the loaded
-  [config](../interbit-cli/config.md) file
+  [config](../interbit-cli/config.adoc) file
 
 - `port` *(number)*: The port for Interbit to communicate on
 
