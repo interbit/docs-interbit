@@ -18,8 +18,5 @@ no guarantee of data preservation, uptime, stability, or security -- the
 environment is provided "as is" with no express or implied warranty.
 
 We will be updating this environment regularly -- adding functionality,
-applications, and addressing issues. Our
-link:http://slack.test-interbit.io/[Slack community] is open for
-reporting issues, feedback, and announcements of updates to the
-platform.
+applications, and addressing issues.
 =========
