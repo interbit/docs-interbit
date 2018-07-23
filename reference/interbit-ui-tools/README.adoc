@@ -1,0 +1,6 @@
+= Interbit UI Tools
+
+A set of UI tools including the interbit middleware for connecting
+chains to a GUI and using them with react and redux.
+
+CAUTION: Incomplete content.

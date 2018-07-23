@@ -19,4 +19,4 @@ Chain joins are essential to any discussion of chain topology. For more
 information, see:
 
 * link:/key-concepts/chain_joins.adoc[Chain Joins]
-* link:chain_joins.adoc[Chain Joins: How They Work]
+* link:../chain_joins.adoc[Chain Joins: How They Work]

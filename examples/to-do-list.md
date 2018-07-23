@@ -6,7 +6,7 @@ add items to the to-do list, edit existing items, and toggle the
 completed state of items.
 
 This application was created using the Interbit [Template
-app](template.md), and what follows is a description of the app and how
+app](template.adoc), and what follows is a description of the app and how
 to recreate it from the Template. The To-do List uses the same Interbit
 configuration as the Template. As such, to-do items are added to the
 user's private chain.
@@ -77,12 +77,11 @@ chain actions.
 
 If you look in the `packages/app-todo-list` directory, you will see a
 basic application built on Interbit. Refer to the [Template
-docs](template.md#application-structure) for detailed information on
-these directories and files. This document only covers the changes we
-made to the Template files to build our To-do List app. Specifically, we
-take a closer look at the private chain actions in
-`src/interbit/private`, the tests in
-`src/tests/privateCovenant.test.js`,
+docs](template.adoc#structure) for detailed information on these
+directories and files. This document only covers the changes we made to
+the Template files to build our To-do List app. Specifically, we take a
+closer look at the private chain actions in `src/interbit/private`, the
+tests in `src/tests/privateCovenant.test.js`,
 `src/adapters/privateChainAdapter.js`, and the React components in
 `src/components`.
 
@@ -100,9 +99,9 @@ Directory | Purpose
 `tests`                   | Jest tests
 `App.js`                  | The main React component that loads the SPA
 `exports.js`              | A file to export anything that may be needed outside of this project (Ex. covenant action creators)
-`index.js`                | The file that creates the Redux store, attaches the [Interbit middleware](/reference/interbit-middleware/README.md), and runs the SPA
+`index.js`                | The file that creates the Redux store, attaches the [Interbit middleware](/reference/interbit-middleware/README.adoc), and runs the SPA
 `registerServiceWorker.js` | A file used by create-react-app to register a [service worker](https://developers.google.com/web/fundamentals/primers/service-workers/)
-`interbit.config.js`      | The [Interbit configuration file](/reference/interbit-cli/config.md)
+`interbit.config.js`      | The [Interbit configuration file](/reference/interbit-cli/config.adoc)
 `interbit.prod.config.js` | The production environment interbit configuration file
 `keyPair.js`              | A file to import a public private key pair from environment variables when in production
 `static.json`             | Used to serve a single page application (SPA) in Heroku. This describes where to fallback if routes are not matched (Returning 404)

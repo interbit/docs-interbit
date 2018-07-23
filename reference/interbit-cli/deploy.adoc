@@ -1,0 +1,34 @@
+= `deploy`
+
+Deploys an application.
+
+NOTE: Hosting the static `index.html` is a separate concern handled
+elsewhere. Deploy does not deploy your front-end application -- it only
+deploys your blockchain nodes.
+
+Deploy tells the local hypervisor to host the chains described in the
+provided manifest file.
+
+
+== Options
+
+. `--manifest` *(Filepath)*: an Interbit manifest file used for
+  deployment instructions. If none is provided it will be read from
+  `{--artifacts}/interbit.manifest.json`.
+
+. `--artifacts` *(Filepath)*: a directory of build artifacts to deploy.
+  Should contain a manifest file and packed covenants. If none is given
+  the current working directory is used.
+
+. `--port` *(number)*: The port number interbit will communicate on.
+
+. `--key-pair` *(filepath)*: a Javascript or JSON file exporting a key
+  pair to be used to boot the hypervisor. If none is provided, a random
+  key pair is generated, which may not be permissioned on the chain
+  network.
+
+
+== Usage
+
+[source,bash]
+interbit deploy --manifest [interbitManifestFile] --artifacts [buildArtifactsLocation] --port 8888 --key-pair [pathToKeys]

@@ -1,19 +1,21 @@
 # `redispatches()`
 
-Adds an action from within a reducer to the redispatch queue to be processed by the reducer later.
+Adds an action from within a reducer to the redispatch queue to be
+processed by the reducer later.
 
-#### Arguments
+## Arguments
 
-1. `state` *(Object)*: the state to attach the action to
-2. `redispatchAction` *(Object)*: The action to redispatch
+1. `state` *(Object)*: The state to attach the action to.
+
+2. `redispatchAction` *(Object)*: The action to redispatch.
 
 
-#### Returns
+## Returns
 
 *(Object)*: State
 
 
-#### Example
+## Example
 
 ```js
 const { redispatch } = require('interbit-covenant-utils')

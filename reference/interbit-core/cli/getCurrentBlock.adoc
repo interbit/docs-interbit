@@ -1,0 +1,26 @@
+= `getCurrentBlock()`
+
+CAUTION: Incomplete content.
+
+...
+
+
+== Arguments
+
+. `?` *(Object)*: ?
+
+
+== Returns
+
+*(Object)*: ?
+
+
+== Example
+
+[source,js]
+----
+const hypervisor = interbit.createHypervisor()
+const cli = interbit.createCli(hypervisor)
+
+cli.getCurrentBlock()
+----

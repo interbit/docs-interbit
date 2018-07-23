@@ -17,9 +17,9 @@ This means that privacy is not a core feature of this topology; privacy
 would only be somewhat achievable via obfuscation or anonymization.
 
 With multiple blockchains,
-link:/key-concepts/permission_model.adoc[fine-grained access controls],
-and the ability to be link:chain_joins.adoc#slices[selective about what
-data is shared], true privacy can be achieved using the Interbit
+link:../permission_model.adoc[fine-grained access controls],
+and the ability to be link:../chain_joins.adoc#slices[selective about
+what data is shared], true privacy can be achieved using the Interbit
 platform.
 
 For example, if a user has a private blockchain containing all of their

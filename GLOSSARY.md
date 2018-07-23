@@ -16,7 +16,9 @@ See [Redux Basics - Action Creators](https://redux.js.org/docs/basics/Actions.ht
 
 ## Action
 
-Actions are payloads of information that send data. They are the only source of information. Actions are sent to the blockchain via `.dispatch()` where they are interpreted by a Smart Contract.
+Actions are payloads of information that send data. They are the only
+source of information. Actions are sent to the blockchain via
+`.dispatch()` where they are interpreted by a Smart Contract.
 
 See Key Concept entry for [Actions](/key-concepts/actions.adoc).
 

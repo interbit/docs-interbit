@@ -1,0 +1,36 @@
+= `subscribe(callback)`
+
+CAUTION: Incomplete content. This may or may not return an unsubscribe
+function.
+
+Subscribes to state changes from the hypervisor chain. When the
+hypervisor state changes, the callback passed into params will be
+called.
+
+
+== Arguments
+
+. `callback` *(Function)*: A callback with no parameters.
+
+
+== Returns
+
+???
+
+
+== Example
+
+[source,js]
+----
+const hypervisor = interbit.createHypervisor()
+
+hypervisor.subscribe(() => {
+  // State has changed, do something.
+})
+----
+
+
+== Tips
+
+* To get the state from within the callback, you must call the
+* `chain.getState()` function.
