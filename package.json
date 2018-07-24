@@ -2,6 +2,7 @@
   "name": "docs-interbit",
   "version": "1.0.0",
   "description": "Interbit SDK documentation",
+  "license": "MIT",
   "main": "index.js",
   "dependencies": {
     "gitbook-cli": "^2.3.2",
