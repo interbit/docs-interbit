@@ -7,8 +7,7 @@ reliability of blockchain technology with much less work and
 maintenance.
 
 The Interbit Software Development Kit (SDK) enables developers to get
-building Interbit powered apps in minutes, not hours. Please let us know
-how your journey is going at our Slack community.
+building Interbit powered apps in minutes, not hours.
 
 [CAUTION]
 =========
