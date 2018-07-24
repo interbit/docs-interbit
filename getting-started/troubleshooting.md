@@ -1,8 +1,8 @@
-# Support
+# Troubleshooting
 
-This section describes a few trouble-shooting suggestions that may help you
-should problems occur. If not, contact us for assistance on our [Slack
-Channel](https://interbitdev.slack.com).
+This section describes a few troubleshooting suggestions that may help you
+should problems occur. If not, feel free to file issues on our GitHub
+repo: https://github.com/interbit/interbit
 
 * Double check the version requirements at the top of this page.
 
@@ -24,7 +24,7 @@ Channel](https://interbitdev.slack.com).
       rm -f package-lock.json
       ```
 
-  1.  Repeat the [dependency installation](install.md#dependencies) and [module
-      build](install.md#modules) steps.
+  1.  Repeat the [dependency installation](install.md#dependencies) and
+      [module build](install.md#modules) steps.
 
   1.  [Run your app](run.md) again.

@@ -8,7 +8,7 @@ using Interbit. The topics include:
 * [Install the Interbit SDK](install.md)
 * [Create your first Interbit application](create.md)
 * [Run your Interbit application](run.md)
-* [Support information](support.md)
+* [Troubleshooting](troubleshooting.md)
 
 If you are looking for additional information, see the
 [Examples](/examples/README.md),
