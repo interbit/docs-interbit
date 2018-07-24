@@ -118,4 +118,3 @@
       * [subscribe](reference/interbit-core/cli/subscribe.adoc)
 * [Report bugs](bugs.md)
 * [Glossary](GLOSSARY.md)
-
