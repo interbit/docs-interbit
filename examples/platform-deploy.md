@@ -25,7 +25,7 @@ directory is ignored by .git.
 1. Create a `/secrets/platform-deploy.sh` file with the following content
 ```
 #!/bin/bash
-# Secrets for Accounts App GitHub OAuth chain
+# Secrets for accounts app GitHub OAuth chain
 export GITHUB_CLIENT_ID=""
 export GITHUB_CLIENT_SECRET=""
 export GITHUB_REDIRECT_URL=""
@@ -40,8 +40,8 @@ export CONNECT_TO_PEERS="localhost:8888"
 1. Copy the `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, and 
 `GITHUB_REDIRECT_URL` 
 values from the GitHub OAuth app you just created. 
-1. The `PUBLIC_KEY` and `PRIVATE_KEY` values make up the Interbit keypair for 
-`platform-deploy`. A new keypair can be generated with the 
+1. The `PUBLIC_KEY` and `PRIVATE_KEY` values make up the Interbit key pair for 
+`platform-deploy`. A new key pair can be generated with the 
 `interbit key --filename my-platform-keys.json` command.  
 
 ### Running `platform-deploy` locally, in dev-mode
@@ -51,7 +51,7 @@ values from the GitHub OAuth app you just created.
 npm i
 npm run build:modules
 ```
-1. Source the secretes file and generate the Interbit manifest file
+1. Source the secrets file and generate the Interbit manifest file
 ```
 . platform-deploy.sh
 cd packages/platform-deploy

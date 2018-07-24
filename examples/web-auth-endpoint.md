@@ -3,7 +3,7 @@
 The `packages/web-auth-endpoint` package provides an example of how to 
 authenticate a user via GitHub in the accounts application 
 (`packages/app-account`). This example works in concert with 
-[Platform Deploy](platform-deploy.md) and the Accounts Application.
+[Platform Deploy](platform-deploy.md) and the accounts app.
 
 
 ## Running `web-auth-endpoint` locally
@@ -29,8 +29,8 @@ export CONNECT_TO_PEERS="localhost:5025"
 ```
 1. The `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` are the same as in your 
 `secrets/platform-deploy.sh` file.
-1. The `PUBLIC_KEY` and `PRIVATE_KEY` values make up the Interbit keypair for 
-`web-auth-endpoint`. A new keypair can be generated with the 
+1. The `PUBLIC_KEY` and `PRIVATE_KEY` values make up the Interbit key pair for 
+`web-auth-endpoint`. A new key pair can be generated with the 
 `interbit key --filename my-web-auth-keys.json` command.  
 
 ### Run `web-auth-endpoint` locally
@@ -45,7 +45,7 @@ cd packages/web-auth-endpoint
 npm start
 ```
 
-### Start the Accounts Application
+### Start the accounts app
 
 1. Open another terminal shell and start the application.
 ```
@@ -53,6 +53,6 @@ cd packages/app-account
 npm start
 ```
 
-Your browser should open the Accounts Application in a new tab at 
+Your browser should open the accounts app in a new tab at 
 `http://localhost:3025`. Here you can create a new Interbit account connected to 
 your GitHub profile. 
