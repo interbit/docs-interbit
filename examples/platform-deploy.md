@@ -15,7 +15,7 @@ between Interbit applications.
 Developer settings. 
 1. Under OAuth Apps, create a new OAuth App and give it any application name, 
 e.g. Interbit Test App
-1. The Authorization callback URL is http://localhost:8888/oauth/github
+1. The Authorization callback URL is `http://localhost:8888/oauth/github`
 1. Click the Register Application button.
 
 ### Set up a secrets file with GitHub tokens and node keys

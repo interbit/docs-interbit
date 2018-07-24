@@ -54,5 +54,5 @@ npm start
 ```
 
 Your browser should open the Accounts Application in a new tab at 
-http://localhost:3025. Here you can create a new Interbit account connected to 
+`http://localhost:3025`. Here you can create a new Interbit account connected to 
 your GitHub profile. 
