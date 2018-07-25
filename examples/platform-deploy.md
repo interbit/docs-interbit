@@ -42,7 +42,7 @@ export CONNECT_TO_PEERS="localhost:8888"
 values from the GitHub OAuth app you just created. 
 1. The `PUBLIC_KEY` and `PRIVATE_KEY` values make up the Interbit key pair for 
 `platform-deploy`. A new key pair can be generated with the 
-`interbit key --filename my-platform-keys.json` command.  
+`interbit keys --filename my-platform-keys.json` command.  
 
 ### Running `platform-deploy` locally, in dev-mode
 

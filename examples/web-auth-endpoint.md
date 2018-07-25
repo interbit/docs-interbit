@@ -31,7 +31,7 @@ export CONNECT_TO_PEERS="localhost:5025"
 `secrets/platform-deploy.sh` file.
 1. The `PUBLIC_KEY` and `PRIVATE_KEY` values make up the Interbit key pair for 
 `web-auth-endpoint`. A new key pair can be generated with the 
-`interbit key --filename my-web-auth-keys.json` command.  
+`interbit keys --filename my-web-auth-keys.json` command.  
 
 ### Run `web-auth-endpoint` locally
 
