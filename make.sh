@@ -2,6 +2,9 @@
 
 echo 'Building documentation, please wait... '
 
+# Make sure Ruby dependencies installed
+bundle install || echo "Ruby dependencies failed to install; make sure Bundler is installed!"
+
 # Install and build gitbook
 gitbook install
 gitbook build
