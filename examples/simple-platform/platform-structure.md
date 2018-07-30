@@ -30,13 +30,13 @@ When the `platform-deploy` package is built, it:
 `packages/app-account/interbit.config.js` and 
 `packages/interbit-template/interbit.config.js`. These files specify peer 
 nodes, static chains, and chain join configurations. See the [Template App 
-Walk-through](template.adoc) for a detailed explanation of the template app's 
+Walk-through](../template.adoc) for a detailed explanation of the template app's 
 chain architecture and 
 - generates a manifest file at 
 `packages/platform-deploy/platform/interbit.manifest.json`. See 
-[Interbit CLI Manifest](../reference/interbit-cli/manifest.adoc).
+[Interbit CLI Manifest](../../reference/interbit-cli/manifest.adoc).
 - creates hashed covenant files for the accounts and template app covenants. 
-See [Covenants](../key-concepts/covenants.adoc).
+See [Covenants](../../key-concepts/covenants.adoc).
 
 The `web-auth-endpoint` config file is the same as the `app-account` config 
 file. 

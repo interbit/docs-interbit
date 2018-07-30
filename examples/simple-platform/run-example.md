@@ -14,7 +14,8 @@ Developer settings.
 1. Under OAuth Apps, create a new OAuth App and give it any application name, 
 e.g. Interbit Test App.
 1. The Authorization callback URL is `http://localhost:8888/oauth/github`.
-1. Click the Register Application button. Leave this browser tab open as we will copy values from here in the steps below.
+1. Click the Register Application button. Leave this browser tab open as we 
+will copy values from here in the steps below.
 
 ### Generate a set of private and public keys for `platform-deploy` and `web-auth-endpoint`
 
@@ -138,6 +139,6 @@ We've now started the browser nodes for the accounts and template apps. Your
 browser should open a tab at `http://localhost:3025` with the accounts app and 
 at `http://localhost:3000` with the template app. 
 
-In the following section, we go over the user flow for creating an account by 
-authenticating with GitHub, and how to authorize another app to connect to 
-your account chain.
+In the next [section](user-walk-through.md),  we go over the user flow for 
+creating an account by authenticating with GitHub, and how to authorize 
+another app to connect to your account chain.
