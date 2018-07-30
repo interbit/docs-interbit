@@ -25,8 +25,10 @@
   * [Determinism](/examples/determinism.adoc)
   * [Template App Walk-through](/examples/template.adoc)
   * [To-do List App](/examples/to-do-list.md)
-  * [Deploying an Interbit Platform](/examples/platform-deploy.md)
-  * [User Authentication with GitHub (web-auth-endpoint)](/examples/web-auth-endpoint.md)
+  * [A Simple Interbit Platform](/examples/simple-platform/README.md)
+    * [Platform Structure](/examples/simple-platform/platform-structure.md)
+    * [Running the Example Locally](/examples/simple-platform/run-example.md)
+    * [User Walk-through](/examples/simple-platform/user-walk-through.md)
 
 * [Architecture](/architecture/README.adoc)
   * [Chain Joins: How They Work](/architecture/chain_joins.adoc)

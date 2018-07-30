@@ -14,5 +14,4 @@ the following software:
 - [The Template App Walk-through](template.adoc)
 - [Determinism in Interbit](determinism.adoc)
 - [To-do List App](./to-do-list.md)
-- [Deploying an Interbit Platform](platform-deploy.md)
-- [User Authentication with GitHub (web-auth-endpoint)](web-auth-endpoint.md)
+- [A Simple Interbit Platform](simple-platform/README.md)
