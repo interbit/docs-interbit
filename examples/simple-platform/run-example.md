@@ -100,12 +100,12 @@ npm start
 
 Our package script runs a post-install step which builds all the modules in 
 the Interbit repo. The build step for `platform-deploy` creates a new manifest 
-file with the newly generated keys and hashed covenant files. The build step 
+file using the newly generated keys and hashed covenant files. The build step 
 also updates the chain IDs for the other modules, including `app-account` and 
 `interbit-template`. 
 
-The `start` command spins up the `platform-deploy` server node, which listens 
-for incoming connections from the `web-auth-endpoint` server node and the 
+The `start` command spins up the `platform-deploy` node, which listens for 
+incoming connections from the `web-auth-endpoint` node and the 
 `app-account` and `interbit-template` browser nodes. 
 
 Leave this terminal shell open. 
@@ -135,10 +135,13 @@ cd packages/interbit-template
 npm start
 ```
 
-We've now started the browser nodes for the accounts and template apps. Your 
-browser should open a tab at `http://localhost:3025` with the accounts app and 
-at `http://localhost:3000` with the template app. 
+We've now started the webpack development servers which serve our React apps. 
+Your browser should open a tab at `http://localhost:3025` with the accounts 
+app and at `http://localhost:3000` with the template app. When these tabs
+open, the React apps will boot Interbit nodes to connect to the 
+`platform-deploy` and `web-auth-endpoint` peer nodes running in the other 
+terminal windows. 
 
-In the next [section](user-walk-through.md),  we go over the user flow for 
+In the [next section](user-walk-through.md),  we go over the user flow for 
 creating an account by authenticating with GitHub, and how to authorize 
 another app to connect to your account chain.
