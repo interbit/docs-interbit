@@ -1,8 +1,9 @@
 # Platform structure
 
-Our platform has two React applications: `app-account` and 
+Our example has two React applications: `app-account` and 
 `interbit-template`. These apps are served in the user's browser as any other 
-React app would be. Either there is a static bundle served in a production environment, or they are served from their own webpack servers in development 
+React app would be. Either there is a static bundle served in a production 
+environment, or they are served from their own webpack servers in development 
 mode. Each React app starts an Interbit node locally, in the browser. The 
 platform also runs an Interbit node each for the `platform-deploy` and 
 `web-auth-endpoint` hypervisors. 
@@ -20,12 +21,11 @@ It also runs an Express instance that fields the http requests coming from
 GitHub during an OAuth loop. 
 
 These two nodes are peers. During the GitHub OAuth loop, OAuth requests 
-from  GitHub are received by the Express instance. An action is dispatched to 
-the GitHub chain into the `web-auth-endpoint` hypervisor and shared with the 
-`platform-deploy` hypervisor. The `app-account` control chain sees the new 
-action and makes a new block on the user's private account chain. This new 
-block is then propagated throughout the network and is updated on the 
-`web-auth-endpoint` node. 
+from  GitHub are received by the Express instance. The Express instance uses 
+the Interbit CLI to dispatch an action to all peer nodes on the network, and 
+each node processes the action deterministically, thereby guaranteeing that 
+the chain state is the same on all nodes. The connection between nodes is 
+managed by both hypervisors. 
 
 When the `platform-deploy` package is built, it:
 - uses a config file that is a union of the config files at 
