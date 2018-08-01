@@ -26,8 +26,8 @@
   * [Template App Walk-through](/examples/template.adoc)
   * [To-do List App](/examples/to-do-list.md)
   * [A Simple Interbit Platform](/examples/simple-platform/README.md)
-    * [Platform Structure](/examples/simple-platform/platform-structure.md)
-    * [Running the Example Locally](/examples/simple-platform/run-example.md)
+    * [Platform Structure](/examples/simple-platform/structure.md)
+    * [Run the Example Locally](/examples/simple-platform/run.md)
     * [User Walk-through](/examples/simple-platform/user-walk-through.md)
 
 * [Architecture](/architecture/README.adoc)

@@ -15,6 +15,6 @@ The goal of this exmaple is to demonstrate how to request and share user profile
 
 The example is divided into the following documents:
 
-- [Platform Structure](platform-structure.md)
-- [Running the Example Locally](run-example.md)
+- [Platform Structure](structure.md)
+- [Run the Example Locally](run.md)
 - [User Walk-Through](user-walk-through.md)
