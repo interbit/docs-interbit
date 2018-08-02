@@ -16,6 +16,7 @@
   * [Application State](/key-concepts/state.adoc)
   * [Smart Contracts](/key-concepts/smart_contracts.adoc)
   * [Root Saga](/key-concepts/sagas.adoc)
+  * [Determinism](/key-concepts/determinism.adoc)
   * [Chain Joins](/key-concepts/chain_joins.adoc)
   * [Configuration and Manifest File](/key-concepts/configuration.adoc)
   * [Hypervisor](/key-concepts/hypervisor.adoc)
