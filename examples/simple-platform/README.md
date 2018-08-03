@@ -1,38 +1,46 @@
-# A Simple Interbit Platform 
+# A Simple Interbit Platform
 
-Before we dive into our Interbit platform example, let's take a step back and 
-define the ecosystem of Interbit applications. We are concerned with two types 
-of apps: Interbit platform apps and apps built on the platform. 
+Before we dive into our Interbit platform example, let's take a step back and
+define the ecosystem of Interbit applications. We are concerned with two types
+of apps: Interbit platform apps and apps built on the platform.
 
-By platform apps, we mean apps intended to make Interbit app development 
-easier by solving common problems such as user identity management, payment 
-processing, and hosting. These apps make up the Interbit platform. They may 
-not provide much value to the user on their own - after all, how useful is a 
-payment processing app if there is nothing to pay for? However, they allow 
-developers to concentrate their efforts on solving app-specific problems 
-instead of reinventing the wheel. Apps of the second type of are those built 
-by developers that use the functionality provided by the platform.
+By platform apps, we mean apps intended to make Interbit app development easier
+by solving common problems, such as user identity management, payment
+processing, and hosting. These apps make up the Interbit platform. They may
+not provide much value to the user on their own &mdash; after all, how useful
+is a payment processing app if there is nothing to pay for? However, they allow
+developers to concentrate their efforts on solving app-specific problems
+instead of reinventing the wheel.
 
-This example has one platform app, `packages/app-account`, which provides user 
-authentication and identity management functionality. We also have a 
-[template app](../template.adoc), `packages/interbit-template`. This app 
-doesn't do much but is a starting point for creating your own Interbit 
-applications. 
+Apps of the second type of are those built by developers that use the
+functionality provided by the platform.
 
-The goal of this example is to demonstrate how to request and share user 
-profile information from outside the accounts app. We configure the platform 
-and template app so that a user grants read access to their private accounts 
-chain from the template app. In order to demonstrate this, we also create a 
-user account that is authenticated via GitHub. Specifically, we go over:
+The following example includes a platform app called the Accounts app,
+`packages/app-account` &mdash; providing user authentication and identity
+management functionality &mdash; and a [Template app](../template.adoc),
+`packages/interbit-template` &mdash; a simple starting point for creating your
+own Interbit apps.
 
-- the platform structure: configuration of the apps' chain joins and peers
-- chain hosting for our apps and the GitHub OAuth loop with 
-`packages/platform-deploy` and `packages/web-auth-endpoint`
-- how to run the example locally
-- a walk-through of the accounts and templates apps' user interface to create 
-an account and authorize profile information sharing
+The goal of this example is to demonstrate how to request and share user
+profile information from outside the Accounts app. To achieve this goal, we
+cover:
 
-The example is divided into the following documents:
+- How to configure the platform and Template app so that a user can grant read
+access to their private accounts chain from the Template app
+- How to create a user account that is authenticated via GitHub so that the
+user has a private accounts chain to share
+
+Specifically, we:
+
+- Give an overview of the platform structure by:
+  - describing how the apps' chain joins and peers are configured
+  - describing the chain hosting for our apps and the GitHub OAuth loop with
+the `packages/platform-deploy` and `packages/web-auth-endpoint` hypervisors
+- Give instructions on how to run the example locally
+- Give a walk-through of the accounts and templates apps' user interfaces to
+create an account, and authorize profile information sharing
+
+The example is divided into the following topics:
 
 - [Platform Structure](structure.md)
 - [Run the Example Locally](run.md)
