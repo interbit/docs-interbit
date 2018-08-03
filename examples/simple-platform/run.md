@@ -58,7 +58,7 @@ for `platform-deploy` and `web-auth-endpoint`, respectively, with:
 
 1. Create a `secrets` directory at the root of the Interbit repository.
 
-   The `secrects` directory is included in this repository's `.gitignore` file
+   The `secrets` directory is included in this repository's `.gitignore` file
 and is not tracked by git. We don't want to commit the files we are going to
 add here because they include private keys for our Interbit nodes.
 

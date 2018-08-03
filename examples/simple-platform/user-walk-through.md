@@ -35,7 +35,8 @@ information. You can also verify that the OAuth flow was successful if you see
 your GitHub username appear in the header.
 
    You have now created an Interbit account. You can make changes to your
-personal account information and see how the new blocks are added to your private account chain with each change.
+personal account information and see how the new blocks are added to your
+private account chain with each change.
 
 1. Verify that your user account information is on the private chain. Navigate
 to the **Block Explorer** page and expand the `profile` object property in the
