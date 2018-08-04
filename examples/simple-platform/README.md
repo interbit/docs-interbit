@@ -2,7 +2,7 @@
 
 Before we dive into our Interbit platform example, let's take a step back and
 define the ecosystem of Interbit applications. We are concerned with two types
-of apps: Interbit platform apps and apps built on the platform.
+of apps: Interbit platform apps, and apps built on the platform.
 
 By platform apps, we mean apps intended to make Interbit app development easier
 by solving common problems, such as user identity management, payment
@@ -26,19 +26,19 @@ profile information from outside the Accounts app. To achieve this goal, we
 cover:
 
 - How to configure the platform and Template app so that a user can grant read
-access to their private accounts chain from the Template app
+access to their private accounts chain from the Template app.
 - How to create a user account that is authenticated via GitHub so that the
-user has a private accounts chain to share
+user has a private accounts chain to share.
 
 Specifically, we:
 
 - Give an overview of the platform structure by:
-  - describing how the apps' chain joins and peers are configured
-  - describing the chain hosting for our apps and the GitHub OAuth loop with
-the `packages/platform-deploy` and `packages/web-auth-endpoint` hypervisors
-- Give instructions on how to run the example locally
+  - describing how the apps' chain joins and peers are configured,
+  - describing the chain hosting for our apps and the GitHub OAuth flow with
+the `packages/platform-deploy` and `packages/web-auth-endpoint` hypervisors.
+- Give instructions on how to run the example locally.
 - Give a walk-through of the accounts and templates apps' user interfaces to
-create an account, and authorize profile information sharing
+create an account, and authorize profile information sharing.
 
 The example is divided into the following topics:
 

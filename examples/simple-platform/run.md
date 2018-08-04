@@ -1,8 +1,8 @@
-# Run the Platform Example Locally
+# Run the Example Locally
 
 ## Setup
 
-### Create a GitHub development application for the Accounts app OAuth process
+### Create a GitHub development application for the Accounts app OAuth flow
 
 The Accounts app supports account creation and authentication via GitHub only.
 In order to complete an OAuth flow with GitHub as the identity provider, you
@@ -16,7 +16,7 @@ need to create a new GitHub OAuth app and configure it to connect to the
 1. Click the **New OAuth App** button to create a new OAuth app and configure
 it.
 
-1. In the **Application name** field, give the app a name of your choosing,
+1. In the **Application name** field, give the app a name of your choice,
 e.g. `Interbit Test App`.
 
 1. Fill in the **Homepage URL** field with any URL. Any URL will do since we
@@ -30,13 +30,13 @@ running the `web-auth-endpoint` node locally.
 
 1.  Click the **Register application** to finish creating the OAuth app.
 
-1. Leave this browser tab open as we are going to copy values from this tab in
+    Leave this browser tab open as we are going to copy values from this tab in
 subsequent steps.
 
 
 ### Generate a set of private and public keys for the `platform-deploy` and `web-auth-endpoint` hypervisors
 
-1. Open a terminal and install `interbit-cli` with:
+1. Open a terminal and install `interbit-cli`:
 
     ```sh
     npm i -g interbit-cli
@@ -54,9 +54,9 @@ for `platform-deploy` and `web-auth-endpoint`, respectively, with:
   public and private key pairs.
 
 
-### Set up environment variables for `platform deploy`
+### Set up environment variables for `platform-deploy`
 
-1. Create a `secrets` directory at the root of the Interbit repository.
+1. Create a `secrets` directory at the root of the `interbit` repository.
 
    The `secrets` directory is included in this repository's `.gitignore` file
 and is not tracked by git. We don't want to commit the files we are going to
@@ -113,8 +113,8 @@ the `platform-deploy.sh` file.
     ```
 
 1. Copy the values for the `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` fields
-from the GitHub OAuth app you just created. These values are the same as in
-your `platform-deploy.sh` file.
+from the GitHub OAuth app you just created (in the open browser tab). These
+values are the same as in your `platform-deploy.sh` file.
 
 1. Copy the values for the `PUBLIC_KEY` and `PRIVATE_KEY` fields from the
 `web-auth-endpoint-keys.json` file, and paste them into the respective fields
@@ -130,12 +130,12 @@ in the `web-auth-endpoint.sh` file.
 
    This file must be deleted when new Interbit key pairs are generated (as we
 did in our setup). If there is a pre-existing manifest, the genesis blocks
-will not be overwritten and our new keys will not work. Note that when we
+are not be overwritten and our new keys do not work. Note that when we
 generate a new manifest, we create new genesis blocks which results in new
 chain IDs (which are hashes of the genesis blocks).
 
 1. Open a terminal and run the following commands from the `interbit`
-repo's root:
+repository's root:
 
     ```sh
     npm i
@@ -145,10 +145,10 @@ repo's root:
     ```
 
     Our package script runs a post-install step which builds all of the
-modules in the Interbit repo. The build step for `platform-deploy` creates a
-new manifest file using the newly-generated keys and hashed covenant files.
-The build step also updates the chain IDs for the other modules, including
-`app-account` and `interbit-template`.
+modules in the Interbit repository. The build step for `platform-deploy`
+creates a new manifest file using the newly-generated keys and hashed covenant
+files. The build step also updates the chain IDs for the other modules,
+including `app-account` and `interbit-template`.
 
     The `start` command spins up the `platform-deploy` node, which listens for
 incoming connections from the `web-auth-endpoint` node and the `app-account`
@@ -160,7 +160,7 @@ and `interbit-template` browser nodes.
 ### Start the Web Auth Endpoint hypervisor on a node
 
 1. Open a new terminal and run the following commands from the `interbit`
-repo's root:
+repository's root:
 
     ```sh
     source secrets/web-auth-endpoint.sh
@@ -174,7 +174,7 @@ repo's root:
 ### Start the Accounts and Template apps
 
 1. In a new terminal (the third), run the following commands from the
-`interbit` repo root:
+`interbit` repository root:
 
     ```sh
     cd packages/app-account
@@ -184,7 +184,7 @@ repo's root:
     Leave this terminal open.
 
 1. In a new terminal (the fourth), run the following commands from the
-`interbit` repo root:
+`interbit` repository root:
 
     ```sh
     cd packages/interbit-template
@@ -195,8 +195,8 @@ repo's root:
 
 We have now started the webpack development servers which serve our React apps.
 Your browser should open a tab at `http://localhost:3025` with the Accounts
-app and at `http://localhost:3000` with the Template app. When these tabs
-open, the React apps boot Interbit nodes to connect to the
+app, and another tab at `http://localhost:3000` with the Template app. When
+these tabs open, the React apps start Interbit nodes to connect to the
 `platform-deploy` and `web-auth-endpoint` peer nodes running in the
 terminals.
 
