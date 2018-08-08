@@ -8,7 +8,7 @@
   * [Install the Interbit SDK](getting-started/install.md)
   * [Create your first Interbit app](getting-started/create.md)
   * [Run your Interbit app](getting-started/run.md)
-  * [Support](getting-started/support.md)
+  * [Troubleshooting](getting-started/troubleshooting.md)
 
 * [Key Concepts](/key-concepts/README.adoc)
   * [Covenants](/key-concepts/covenants.adoc)
@@ -120,5 +120,5 @@
       * [snapshot](reference/interbit-core/cli/snapshot.md)
       * [startChain](reference/interbit-core/cli/startChain.md)
       * [subscribe](reference/interbit-core/cli/subscribe.adoc)
-* [Support](support/README.md)
+* [Report bugs](bugs.md)
 * [Glossary](GLOSSARY.md)
