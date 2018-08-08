@@ -34,13 +34,25 @@ running the `web-auth-endpoint` node locally.
 subsequent steps.
 
 
-### Generate a set of private and public keys for the `platform-deploy` and `web-auth-endpoint` hypervisors
+### Clone the `interbit` repository and install `interbit-cli`
 
-1. Open a terminal and install `interbit-cli`:
+1. Open a terminal and clone the `interbit` repository from GitHub:
+
+    ```sh
+    git clone https://github.com/interbit/interbit.git
+    ```
+
+1. Install `interbit-cli`:
 
     ```sh
     npm i -g interbit-cli
     ```
+
+    This will install the [Interbit CLI](/reference/interbit-cli/README.md)
+globally.
+
+
+### Generate a set of private and public keys for the `platform-deploy` and `web-auth-endpoint` hypervisors
 
 1. From the root of the `interbit` repository, generate an Interbit key pair
 for `platform-deploy` and `web-auth-endpoint`, respectively, with:
@@ -50,7 +62,7 @@ for `platform-deploy` and `web-auth-endpoint`, respectively, with:
     interbit keys --filename web-auth-endpoint-keys.json
     ```
 
-  This creates two new files at the root of the Interbit repository with your
+  This creates two new files at the root of the `interbit` repository with your
   public and private key pairs.
 
 
@@ -121,6 +133,59 @@ values are the same as in your `platform-deploy.sh` file.
 in the `web-auth-endpoint.sh` file.
 
 
+### Update the configuration file for the Accounts app
+
+1. Navigate to the Accounts app directory:
+
+    ```sh
+    cd ../packages/app-account
+    ```
+
+1. Open the file `interbit.config.js`. The first few lines of this file are:
+
+    ```js
+    const path = require('path')
+    const chainAliases = require('./src/constants/chainAliases')
+    const { controlActionTypes } = require('./src/constants/actionTypes')
+
+    const PUB_KEY = ''
+    const WEB_AUTH_PUB_KEY = ''
+
+    const config = {
+        ...
+    ```
+
+1. Copy the public key value from the `platform-deploy-keys.json` file and
+paste it into the `PUB_KEY` variable in `interbit.config.js`.
+
+1. Copy the public key value from the `web-auth-endpoint-keys.json` file and
+paste it into the `WEB_AUTH_PUB_KEY` variable in `interbit.config.js`.
+
+
+### Update the configuration file for the Template app
+
+1. Navigate to the Template app directory:
+
+    ```sh
+    cd ../interbit-template
+    ```
+
+1. Open the file `interbit.config.js`. The first few lines of this file are:
+
+    ```js
+    const path = require('path')
+    const chainAliases = require('./src/constants/chainAliases')
+
+    const PUBLIC_KEY = ''
+
+    const config = {
+        ...
+    ```
+
+1. Copy the public key value from the `platform-deploy-keys.json` file and
+paste it into the `PUBLIC_KEY` variable in `interbit.config.js`.
+
+
 ## Start the platform
 
 ### Build and start the `platform-deploy` node
@@ -141,11 +206,12 @@ repository's root:
     npm i
     source secrets/platform-deploy.sh
     cd packages/platform-deploy
+    npm run build:dev
     npm start
     ```
 
     Our package script runs a post-install step which builds all of the
-modules in the Interbit repository. The build step for `platform-deploy`
+modules in the Interbit repository. The `build:dev` step for `platform-deploy`
 creates a new manifest file using the newly-generated keys and hashed covenant
 files. The build step also updates the chain IDs for the other modules,
 including `app-account` and `interbit-template`.
