@@ -7,10 +7,11 @@ Determinism (in software development)::
 Determinism is an important concept to understand before developing an
 Interbit application.
 
-A blockchain is a distributed database representing a current state.
-Multiple nodes cooperate in a network to provide the distribution of the
-database, and maintain the blockchain's state. Previously recorded state
-is immutable, and new state is added to the blockchain via consensus.
+A blockchain is a data structure that maintains data and logic in a
+_state_, including all historical changes. Multiple nodes cooperate in a
+network to make a blockchain robust by distributing and maintaining the
+blockchain's state. Previously recorded data/logic is immutable, and new
+data/logic is added to the blockchain via consensus.
 
 Consensus is the mechanism used to decide which state changes -- or
 _actions_ are valid. Typical blockchains use mechanisms such as Proof of
@@ -22,15 +23,14 @@ public key, changes to the blockchain's state can be made under a user's
 authority.
 
 This means that only one node needs to decide whether an action is
-valid. Once an action is deemed valid, it is dispatched to all nodes and
+valid. Once an action is deemed valid, it is distributed to all nodes and
 each node executes the blockchain's link:smart_contracts.adoc[smart
 contract] to change their copy of the state in the same way.
 
 This is where determinism is involved: for all nodes to arrive at the
-same state, each node must start from the initial state (or a known
+same state, each node must start from the same initial state (or a known
 blockchain state), execute the same smart contracts with the same inputs
-in the same order, and get the same results from each smart contract
-method.
+in the same order, and produce the same result.
 
 If the smart contract processing is not deterministic, then there could
 be differences in the state across the supporting nodes. If this were
@@ -38,27 +38,26 @@ allowed to happen, the blockchain would be split -- or _forked_ -- into
 multiple, distinct blockchains that would be incompatible with each
 other.
 
-An action that is non-deterministic is called a _side effect_. One
-example would be an action to "store the current date and time". Even
-though each node receives a dispatched action over a short time period,
-they do not receive actions simultaneously, and their ability to execute
-the smart contract can vary. The side effect of this action is that each
-node could end up recording a different date and time.
+For example, if the smart contract attempts to store the current date
+and time in the blockchain, each node could record a different date and
+time because the distribution of actions and each node's processing
+speed can vary.
 
 The strategy to use in this case is have your app first determine the
 current date and time, and then dispatch an action using this determined
-information. In many cases, side effects can be avoided by using this
-strategy.
+information. In many cases, this strategy is all that's required to keep
+your blockchain deterministic.
 
 There are several classes of processing that are inherently
-non-deterministic and produce side effects:
+non-deterministic or may produce _side effects_ (observable effects
+outside of the blockchain):
 
 - Time
 - Randomness
 - File operations
 - API calls
 
-For these cases, the strategy to use is called a link:sagas.adoc[saga].
+For these cases, the strategy to use is called a link:sagas.adoc[_saga_].
 A saga is a list of one or more steps that need to be executed to
 collect information to achieve a larger goal.
 
@@ -71,11 +70,11 @@ not useful to reserve a hotel and rental vehicle if you cannot reserve a
 flight.
 
 A saga could process each of the reservation requests, retrying if any
-of the service providers is temporarily unavailable, and -- once all of the
-requests are complete -- dispatch the booked trip to the blockchain. If
-the saga was interrupted during processing, the trip also would not be
-booked.
+of the service providers is temporarily unavailable, and -- once all of
+the requests are complete -- dispatch the booked trip to the blockchain.
+If the saga was interrupted during processing, the trip also would not
+be booked.
 
-However you implement your smart contract, determinism is the number one
-consideration! Failure is okay, provided that it fails the same way each
-time.
+However your blockchain's smart contract is implemented, determinism is
+the number one consideration! Failure is okay, provided that it fails
+the same way each time.
