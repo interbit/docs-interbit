@@ -54,20 +54,6 @@ globally.
 
 ### Generate a set of private and public keys for the `platform-deploy` and `web-auth-endpoint` hypervisors
 
-1. From the root of the `interbit` repository, generate an Interbit key pair
-for `platform-deploy` and `web-auth-endpoint`, respectively, with:
-
-    ```sh
-    interbit keys --filename platform-deploy-keys.json
-    interbit keys --filename web-auth-endpoint-keys.json
-    ```
-
-  This creates two new files at the root of the `interbit` repository with your
-  public and private key pairs.
-
-
-### Set up environment variables for `platform-deploy`
-
 1. Create a `secrets` directory at the root of the `interbit` repository.
 
    The `secrets` directory is included in this repository's `.gitignore` file
@@ -80,7 +66,22 @@ add here because they include private keys for our Interbit nodes.
     cd secrets
     ```
 
-1. Create the file `platform-deploy.sh` with the following content:
+1. Generate an Interbit key pair for `platform-deploy` and `web-auth-endpoint`,
+respectively, with:
+
+    ```sh
+    interbit keys --filename platform-deploy-keys.json
+    interbit keys --filename web-auth-endpoint-keys.json
+    ```
+
+  This creates two new files at the root of the `interbit` repository with your
+  public and private key pairs.
+
+
+### Set up environment variables for `platform-deploy`
+
+1. Create the file `platform-deploy.sh` in the `secrets` directory with the
+following content:
 
     ```bash
     #!/bin/bash
@@ -109,7 +110,8 @@ the `platform-deploy.sh` file.
 
 ### Set up environment variables for `web-auth-endpoint`
 
-1. Create the file `web-auth-endpoint.sh` with the following content:
+1. Create the file `web-auth-endpoint.sh` in the `secrets` directory with the
+following content:
 
     ```bash
     #!/bin/bash
