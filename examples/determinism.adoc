@@ -17,63 +17,22 @@ the following software:
 - link:https://nodejs.org[Node.js] 8.6 or higher
 - link:https://nodejs.org[NPM] 5.8 or higher
 
+
 == The Example
 
-This example covers the topic of determinism in Smart Contract
-development. Determinism in software development means that given a
-particular state and a specific set of input, the result will always be
-the same.  This is an important concept to understand before developing
-an Interbit application.
-
-Determinism is very important when writing smart contracts.
-
-In order for a blockchain to maintain Application State across multiple
-nodes the smart contract absolutely must be written deterministically.
-If there are any side-effects, or some non-deterministic process is
-used, then the different nodes of a blockchain may arrive at a different
-resulting Application State, which would cause a fork in their chain.
-
-Determinism is essential for all nodes to have a shared application
-state. Application state is the cumulative result of initial Application
-State used to initialize the chain and state changes caused by Smart
-Contracts processing actions in sequence. Nodes do not process data
-simultaneously. For all nodes to arrive at the same application state,
-each node must start from the initial application state (or a known
-blockchain state), execute the same smart contracts with the same inputs
-in the same order, and get the same results from each smart contract
-method, given the same inputs.
-
-The consensus mechanism can only order the actions and is not
-responsible for making sure that each node processing the actions gets
-the same results from their inputs. It is the Smart Contract that
-processes the Actions and because of this it must always output the same
-result if it is given the same inputs. For example, a smart contract
-cannot call `Date.now()` because if node A has a clock difference of 5
-seconds from node B then they will end up with a different time that an
-event occurred.
-
-There are several things that are inherently non-deterministic and must
-not be called from within your Smart Contracts. Notably
-non-deterministic operations include:
-
-* Time
-* Randomness
-* File operations
-* API calls
-
-This example will cover inserting a randomly generated number into state
-to be used in a simple implementation of Odd or Even.
-
-
-== Examples
+This example demonstrates a strategy for applying
+link:/key-concepts/determinism.adoc[determinism] to the task of
+inserting a randomly generated number into a blockchain's state, using a
+simple implementation of Odd or Even.
 
 We can handle generating randomness in an Interbit application in 2 ways:
 
-. Generate a random number outside of the blockchain and dispatch the
-  result to the chain
-
 . Use a pseudo-random number generator inside of the smart contract
-  with a seed value stored in state
+  with a seed value stored in state.
+
+. Generate a random number outside of the blockchain and dispatch the
+  result to the chain.
+
 
 === Pseudo Randomness Dispatched to Chain
 
