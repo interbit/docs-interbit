@@ -102,7 +102,7 @@ for. We will exclude `.env`, `.gitignore`, `CHANGELOG.md`,
 
 | `index.js`
 | The file that creates the Redux store, attaches the
-  link:../reference/interbit-middleware/README.adoc[Interbit middleware],
+  link:../reference/interbit-ui-tools/README.adoc[Interbit middleware],
   and runs the single-page application (SPA)
 
 | `registerServiceWorker.js`
@@ -205,7 +205,7 @@ how the application works.
 
 Further Reading:
 
-- link:/reference/interbit-middleware/chainSponsorship.adoc[How
+- link:/reference/interbit-ui-tools/chainSponsorship.adoc[How
   Middleware Sponsors Chains]
 
 CAUTION: We will be updating our documentation with a deep dive into
@@ -255,13 +255,12 @@ supports no actions at all.
 The
 link:https://github.com/interbit/interbit/tree/master/packages/interbit-template/src/interbit/control[control
 covenant] does not do much either, as the functionality required to
-sponsor chains comes with
-link:/reference/interbit-core/README.adoc[`interbit-core`]. When this
-chain is initially deployed and receives a `SET_MANIFEST` action, which
-contains covenant hashes and chain IDs for the network, it sets up
-information about how it would like sponsored chains to apply for
-sponsorship. This is shared with the public chain via read join in the
-<<joins,Interbit configuration>>.
+sponsor chains comes with `interbit-core`. When this chain is initially
+deployed and receives a `SET_MANIFEST` action, which contains covenant
+hashes and chain IDs for the network, it sets up information about how
+it would like sponsored chains to apply for sponsorship. This is shared
+with the public chain via read join in the <<joins,Interbit
+configuration>>.
 
 The
 link:https://github.com/interbit/interbit/tree/master/packages/interbit-template/src/interbit/private[private
@@ -482,7 +481,7 @@ automatically synced every time a block is formed by the middleware.
 
 Further Reading
 
-- link:/reference/interbit-middleware/README.adoc[interbit-middleware]
+- link:/reference/interbit-ui-tools/README.adoc[interbit-ui-tools]
 - link:https://github.com/facebook/create-react-app/[create-react-app]
 
 
@@ -558,7 +557,7 @@ by the chain.
 
 Further Reading
 
-- link:/reference/interbit-middleware/chainDispatch.md[chainDispatch]
+- link:/reference/interbit-ui-tools/chainDispatch.md[chainDispatch]
 - link:https://hackernoon.com/currying-in-js-d9ddc64f162e[Function
   Currying]
 
@@ -577,7 +576,7 @@ interact directly with the chain, but instead can use the redux store.
 
 Further Reading
 
-- link:/reference/interbit-middleware/README.adoc[interbit-middleware]
+- link:/reference/interbit-ui-tools/README.adoc[interbit-ui-tools]
 - link:/key-concepts/actions.adoc[actions]
 - link:/reference/interbit-cli/manifest.adoc[Interbit Manifest File]
 - link:/reference/interbit-cli/build.md[build]
