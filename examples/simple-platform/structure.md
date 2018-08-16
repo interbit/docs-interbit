@@ -2,7 +2,7 @@
 
 Our example has two React applications: `app-account` and `interbit-template`.
 Each app starts its own Interbit node within the browser, making these truly
-"serverless" apps. The Interbit nodes within the browser communicate with the
+_serverless_ apps. The Interbit nodes within the browser communicate with the
 `platform-deploy` and `web-auth-endpoint` hypervisors, to coordinate consensus
 as actions are dispatched to the respective blockchains.
 
@@ -26,15 +26,18 @@ chain state is the same on all nodes. The connection between nodes is managed
 by both hypervisors.
 
 When the `platform-deploy` package is built, it:
+
 - Uses a config file that is a union of the config files at
 `packages/app-account/interbit.config.js` and
 `packages/interbit-template/interbit.config.js`. These files specify peer
 nodes, static chains, and chain join configurations. See the [Template App
 Walk-through](../template.adoc) for a detailed explanation of the template
 app's chain architecture.
+
 - Generates a manifest file at
 `packages/platform-deploy/platform/interbit.manifest.json`. See
 [Interbit CLI Manifest](/reference/interbit-cli/manifest.adoc).
+
 - Creates hashed covenant files for the Accounts and Template app covenants.
 See [Covenants](/key-concepts/covenants.adoc).
 

@@ -1,8 +1,13 @@
 # User Walk-through of the Example
 
+Before starting the user walk-through, follow the steps in the
+[previous section](run.md) to set up and run the Accounts and Template apps
+locally.
+
 ## Create an account and complete the OAuth flow with GitHub
 
-1. Open the accounts app in your browser at `http://localhost:3025`.
+1. Open the browser tab that the Accounts app is running in. The URL for
+the Accounts app is `http://localhost:3025`.
 
 1. Open the browser's developer tools to the console tab and verify that you
 see the `interbit-middleware/CHAIN_BLOCKING` status logged to the console for
@@ -56,7 +61,8 @@ Now that we have created a user account on the Accounts app, we can authorize
 the `interbit-template` app to read your name and email from your private
 accounts chain.
 
-1. Open the Template app in your browser at `http://localhost:3000`.
+1. Open the browser tab that the Template app is running in. The URL for the
+Template app is `http://localhost:3000`.
 
 1. Open the browser developer console and verify that the `templatePrivate`
 chain is ready for new blocks by looking for the
@@ -67,9 +73,14 @@ the **Block Explorer** page and check that the `sharedProfile` property in the
 `templatePrivate` chain state is empty.
 
 1. Make a chain authorization request from the Template app to the Accounts
-app. Click the **Connect to Profile** link in the header to navigate to the
-`/cauth/request` page, and click the **Request cAuth** button. The browser
-redirects you to the Accounts app and you should see the following message:
+app. Specifically:
+
+   1. Click the **Connect to Profile** link in the header to navigate to the
+`/cauth/request` page.
+
+   1. Click the **Request cAuth** button on the `/cauth/request` page. The
+browser redirects you to the Accounts app and you should see the following
+message:
 `Service templatePrivate wants to access the following identity information`.
 
    The `templatePrivate` chain is requesting a read join with the

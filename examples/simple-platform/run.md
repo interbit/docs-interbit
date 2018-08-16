@@ -19,7 +19,7 @@ it.
 1. In the **Application name** field, give the app a name of your choice,
 e.g. `Interbit Test App`.
 
-1. Fill in the **Homepage URL** field with any URL. Any URL will do since we
+1. Fill in the **Homepage URL** field with any URL. Any URL works since we
 are running the example locally.
 
 1. Fill in the **Authorization callback URL** field with
@@ -48,7 +48,7 @@ subsequent steps.
     npm i -g interbit-cli
     ```
 
-    This will install the [Interbit CLI](/reference/interbit-cli/README.md)
+    This installs the [Interbit CLI](/reference/interbit-cli/README.md)
 globally.
 
 
@@ -98,10 +98,17 @@ following content:
     export CONNECT_TO_PEERS="localhost:8888"
     ```
 
-1. Copy the values for the `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, and
-`GITHUB_REDIRECT_URL` fields from the GitHub OAuth app you just created (in the
-open browser tab), and paste them into the respective fields in the
-`platform-deploy.sh` file.
+1. Refer to the browser tab with the settings for the GitHub OAuth app we
+created, and copy values from GitHub and paste them into the
+`platform-deploy.sh` file. Specifically:
+
+   1. Paste the `Client ID` value into the `GITHUB_CLIENT_ID` definition.
+
+   1. Paste the `Client Secret` value into the `GITHUB_CLIENT_SECRET`
+definition.
+
+   1. Paste the `Authorization callback URL` value into the
+`GITHUB_REDIRECT_URL` definition.
 
 1. Copy the values for the `PUBLIC_KEY` and `PRIVATE_KEY` fields from the
 `platform-deploy-keys.json` file, and paste them into the respective fields in
@@ -126,9 +133,16 @@ following content:
     export CONNECT_TO_PEERS="localhost:5025"
     ```
 
-1. Copy the values for the `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` fields
-from the GitHub OAuth app you just created (in the open browser tab). These
-values are the same as in your `platform-deploy.sh` file.
+1. Refer to the browser tab with the settings for the GitHub OAuth app we
+created, and copy values from GitHub and paste them into the
+`web-auth-endpoint.sh` file. Specifically:
+
+   1. Paste the `Client ID` value into the `GITHUB_CLIENT_ID` definition.
+
+   1. Paste the `Client Secret` value into the `GITHUB_CLIENT_SECRET`
+definition.
+
+   These values are the same as in your `platform-deploy.sh` file.
 
 1. Copy the values for the `PUBLIC_KEY` and `PRIVATE_KEY` fields from the
 `web-auth-endpoint-keys.json` file, and paste them into the respective fields
@@ -158,10 +172,10 @@ in the `web-auth-endpoint.sh` file.
     ```
 
 1. Copy the public key value from the `platform-deploy-keys.json` file and
-paste it into the `PUB_KEY` variable in `interbit.config.js`.
+paste it into the `PUB_KEY` definition in `interbit.config.js`.
 
 1. Copy the public key value from the `web-auth-endpoint-keys.json` file and
-paste it into the `WEB_AUTH_PUB_KEY` variable in `interbit.config.js`.
+paste it into the `WEB_AUTH_PUB_KEY` definition in `interbit.config.js`.
 
 
 ### Update the configuration file for the Template app
@@ -185,7 +199,7 @@ paste it into the `WEB_AUTH_PUB_KEY` variable in `interbit.config.js`.
     ```
 
 1. Copy the public key value from the `platform-deploy-keys.json` file and
-paste it into the `PUBLIC_KEY` variable in `interbit.config.js`.
+paste it into the `PUBLIC_KEY` definition in `interbit.config.js`.
 
 
 ## Start the platform
@@ -197,7 +211,7 @@ paste it into the `PUBLIC_KEY` variable in `interbit.config.js`.
 
    This file must be deleted when new Interbit key pairs are generated (as we
 did in our setup). If there is a pre-existing manifest, the genesis blocks
-are not be overwritten and our new keys do not work. Note that when we
+are not overwritten and our new keys do not work. Note that when we
 generate a new manifest, we create new genesis blocks which results in new
 chain IDs (which are hashes of the genesis blocks).
 
@@ -251,6 +265,10 @@ repository's root:
 
     Leave this terminal open.
 
+    Your browser opens a tab at `http://localhost:3025` with the Accounts app.
+This React app starts an Interbit node to connect to the `platform-deploy` and
+`web-auth-endpoint` peer nodes running in the first two terminals.
+
 1. In a new terminal (the fourth), run the following commands from the
 `interbit` repository root:
 
@@ -259,14 +277,9 @@ repository's root:
     npm start
     ```
 
-    Leave this terminal open.
-
-We have now started the webpack development servers which serve our React apps.
-Your browser should open a tab at `http://localhost:3025` with the Accounts
-app, and another tab at `http://localhost:3000` with the Template app. When
-these tabs open, the React apps start Interbit nodes to connect to the
-`platform-deploy` and `web-auth-endpoint` peer nodes running in the
-terminals.
+    Leave this terminal open. Your browser opens a tab at `http://localhost:3000`
+with the Template app. This React app starts an Interbit node to connect to the
+`platform-deploy` peer node.
 
 In the [next section](user-walk-through.md), we describe the user flow for
 creating an account by authenticating with GitHub, and how to authorize
