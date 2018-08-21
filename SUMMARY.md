@@ -26,6 +26,11 @@
   * [Determinism](/examples/determinism.adoc)
   * [Template App Walk-through](/examples/template.adoc)
   * [To-do List App](/examples/to-do-list.md)
+  * [A Simple Interbit Platform](/examples/simple-platform/README.adoc)
+    * [Platform Structure](/examples/simple-platform/structure.adoc)
+    * [Configure the Example](/examples/simple-platform/configure.adoc)
+    * [Run the Example Locally](/examples/simple-platform/run.adoc)
+    * [Platform Operation](/examples/simple-platform/operation.adoc)
 
 * [Architecture](/architecture/README.adoc)
   * [Chain Joins: How They Work](/architecture/chain_joins.adoc)
