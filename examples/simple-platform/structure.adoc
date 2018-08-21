@@ -37,7 +37,7 @@ When the `platform-deploy` package is built, it:
   `packages/interbit-template/interbit.config.js`. These files specify
   peer nodes, static chains, and chain join configurations. See the
   link:../template.adoc[Template App Walk-through] for a detailed
-  explanation of the template app's chain architecture.
+  explanation of the Template app's chain architecture.
 
 - Generates a manifest file at
   `packages/platform-deploy/platform/interbit.manifest.json`. See

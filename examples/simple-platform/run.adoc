@@ -1,7 +1,7 @@
 = Run the Example Locally
 
-This section describes how to start all four apps that are used in this
-example.
+This section describes how to start the `platform-deploy` and
+`web-auth-endpoint` nodes and the Accounts and Template apps.
 
 NOTE: The following procedures assume that you are continuing from
 link:configure.adoc[Configure the Example].
@@ -34,13 +34,21 @@ Account and Template apps' browser nodes.
 +
 IMPORTANT: Leave this terminal open.
 
-. Wait 3 minutes.
+. Wait for `platform-deploy` to fully initialize.
 +
-As of mid-August 2018, the `platform-deploy` node can take several
-minutes to create the required blockchains, as it waits to see if any
-peers are already hosting the blockchains.
+Once you see the following line, `platform-deploy` is fully initialized
+and you can move on to the next step:
++
+`ROOT SAGA: watching for app-account-github-kyc/OAUTH_CALLBACK_SAGA`
++
+[NOTE]
+======
+As of mid-August 2018, the `platform-deploy` node can take 2-3 minutes
+to create the required blockchains, as it waits to see if any peers are
+already hosting the blockchains.
 +
 This is the only step where a delay is imposed.
+======
 
 
 == Start the `web-auth-endpoint`  node
@@ -104,6 +112,7 @@ This React app starts an Interbit node to connect to the
 
 == Startup complete
 
-All four apps are now running. See the link:operation.adoc[next section]
-for the steps to create an account by authenticating with GitHub, and to
-authorize another app to connect to your account chain.
+Both nodes and both apps are now running. See the
+link:operation.adoc[next section] for the steps to create an account by
+authenticating with GitHub, and to authorize another app to connect to
+your account chain.

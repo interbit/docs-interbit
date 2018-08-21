@@ -30,7 +30,7 @@
     * [Platform Structure](/examples/simple-platform/structure.adoc)
     * [Configure the Example](/examples/simple-platform/configure.adoc)
     * [Run the Example Locally](/examples/simple-platform/run.adoc)
-    * [Platform operation](/examples/simple-platform/operation.adoc)
+    * [Platform Operation](/examples/simple-platform/operation.adoc)
 
 * [Architecture](/architecture/README.adoc)
   * [Chain Joins: How They Work](/architecture/chain_joins.adoc)

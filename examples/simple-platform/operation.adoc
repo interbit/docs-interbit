@@ -1,4 +1,4 @@
-= Platform operation
+= Platform Operation
 
 This section describes how to use the Accounts and Template apps,
 demonstrating how to use GitHub as an identity provider to create your
@@ -104,7 +104,7 @@ in the Accounts app, showing the shared status is empty", 1280, 629,
 role="frame"]
 
 
-== Allow the template app to connect to your private account chain
+== Allow the Template app to connect to your private account chain
 
 Now that we have created a user account on the Accounts app, we can
 authorize the `interbit-template` app to read your name and email from
@@ -224,3 +224,17 @@ chain.
 image:img/screen-accounts_app-be-shared-connected.png["The Block
 Explorer screen in the Accounts app, showing the shared profile now
 contains populated data", 1280, 581, role="frame"]
+
+
+== Example complete
+
+Congratulations! You have successfully completed this example. To recap,
+the example has demonstrated:
+
+- the structure of coordinated Interbit nodes and apps,
+- configuration of nodes and apps,
+- how to start nodes and apps,
+- how those coordinated nodes and apps work in practice.
+
+Now that you have a working example, you have a foundation to tinker and
+learn further.

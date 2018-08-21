@@ -76,7 +76,7 @@ nodes.
 [source,bash]
 cd secrets
 
-. Generate Interbit key pairs
+. Generate Interbit key pairs.
 +
 Both the `platform-deploy` and `web-auth-endpoint` apps require public
 and private keys. The following commands generate them and store them in
@@ -118,8 +118,10 @@ export CONNECT_TO_PEERS="localhost:8888"
 . Copy the `Client Secret` value from the GitHub browser tab and paste
   it into the `GITHUB_CLIENT_SECRET` definition in `platform-deploy.sh`.
 
-. In `Authorization callback URL` definition in `platform-deploy.sh`,
-  specify: `http://localhost:8888/oauth/github`.
+. In the `GITHUB_REDIRECT_URL` definition in `platform-deploy.sh`,
+  specify: `http://localhost:8888/oauth/github`. This should be the same
+  URL provided in the Authorization callback URL field to the GitHub
+  OAuth app configuration.
 
 . Copy the `publicKey` value from `platform-deploy-keys.json` and paste
   it into the `PUBLIC_KEY` definition in `platform-deploy.sh`.
@@ -248,4 +250,5 @@ rm platform/interbit.manifest.json
 == Configuration complete
 
 At this point, all of the apps are configured. See the
-link:run.adoc[next section] to see how to start all four applications.
+link:run.adoc[next section] to see how to start the `platform-deploy`
+and `web-auth-endpoint` nodes and the Accounts and Template apps.

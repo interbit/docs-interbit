@@ -38,8 +38,8 @@ Specifically, we:
 
 - Give an overview of the platform structure by:
 
--- describing how the apps' chain joins and peers are configured,
--- describing the chain hosting for our apps and the GitHub OAuth flow
+** describing how the apps' chain joins and peers are configured,
+** describing the chain hosting for our apps and the GitHub OAuth flow
    with the `packages/platform-deploy` and `packages/web-auth-endpoint`
    hypervisors.
 
@@ -54,4 +54,4 @@ The example is divided into the following topics:
 - link:structure.adoc[Platform Structure]
 - link:configure.adoc[Configure the Example]
 - link:run.adoc[Run the Example Locally]
-- link:operation.adoc[Platform operation]
+- link:operation.adoc[Platform Operation]
