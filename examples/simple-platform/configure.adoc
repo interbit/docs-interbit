@@ -1,0 +1,254 @@
+= Configure the Example
+
+This section describes how to configure the example.
+
+== Create a GitHub OAuth application
+
+The Accounts app supports account creation and authentication via GitHub
+only. In order to complete an OAuth flow with GitHub as the identity
+provider, you need to create a new GitHub OAuth app and configure it to
+connect to the `web-auth-endpoint` node.
+
+. Visit link:https://github.com/[github.com] and log into your account.
++
+image:img/screen-github-home.png["The GitHub home page", 1280, 311,
+role="frame"]
+
+. Navigate to Settings > Developer Settings > OAuth Apps.
++
+image:img/screen-github-oauth_apps.png["The OAuth apps screen on
+GitHub", 1280, 303, role="frame"]
+
+. image:img/button-github-register_new_app.png["The Register a new
+  application button on GitHub", 207, 34, role="right"]
+  Click the **Register a new application** button. The **Register a new
+  OAuth application** screen is displayed:
++
+image:img/screen-github-register_oauth.png["The Register a new OAuth
+application screen on GitHub", 1280, 623, role="frame"]
+
+. In the **Application name** field, enter a name of your choice. For
+  example, `Interbit Test App`.
+
+. In the **Homepage URL** field, enter a URL. Any URL works since we are
+  running the example locally.
+
+. In the **Authorization callback URL** field, enter
+  `http://localhost:8888/oauth/github`.
++
+NOTE: The callback URL is case sensitive, and the port specified is for
+running the `web-auth-endpoint` node locally.
+
+. image:img/button-github-register_app.png["The Register app button on
+  GitHub", 163, 34, role="right"]
+  Click the **Register application** button to finish creating the OAuth
+  app.
++
+IMPORTANT: Leave this browser tab open as we are going to copy values
+from this tab in subsequent steps.
+
+
+== Clone the `interbit` repository and install `interbit-cli`
+
+. Open a terminal and clone the `interbit` repository from GitHub:
++
+[source,bash]
+git clone https://github.com/interbit/interbit.git
+
+. Install the link:/reference/interbit-cli/README.md[`interbit-cli`]
+  package globally:
++
+[source,bash]
+npm i -g interbit-cli
+
+
+== Generate a set of private and public keys for the `platform-deploy` and `web-auth-endpoint` hypervisors
+
+. Create a `secrets` directory at the root of the `interbit` repository.
++
+The `secrets` directory is included in this repository's `.gitignore`
+file and is not tracked by git. We don't want to commit the files we are
+going to add here because they include private keys for our Interbit
+nodes.
+
+. Change the current working directory to the `secrets` directory:
++
+[source,bash]
+cd secrets
+
+. Generate Interbit key pairs.
++
+Both the `platform-deploy` and `web-auth-endpoint` apps require public
+and private keys. The following commands generate them and store them in
+JSON files:
++
+[source,bash]
+interbit keys --filename platform-deploy-keys.json
+interbit keys --filename web-auth-endpoint-keys.json
+
+
+== Configure environment variables for `platform-deploy`
+
+. Create the file `platform-deploy.sh` in the `secrets` directory with
+  the following content:
++
+[source,bash]
+----
+#!/bin/bash
+# Secrets for Accounts app GitHub OAuth chain
+export GITHUB_CLIENT_ID=""
+export GITHUB_CLIENT_SECRET=""
+export GITHUB_REDIRECT_URL=""
+export OAUTH_CALLBACK_URL="http://localhost:3025/account/oauth/gitHub"
+# Key pair for the platform node
+export PUBLIC_KEY=""
+export PRIVATE_KEY=""
+# Peer list override
+export PORT=5025
+export CONNECT_TO_PEERS="localhost:8888"
+----
+
+. Update the configuration in `platform-deploy.sh`:
++
+--
+[loweralpha]
+. Copy the `Client ID` value from the GitHub browser tab and paste it
+  into the `GITHUB_CLIENT_ID` definition in `platform-deploy.sh`.
+
+. Copy the `Client Secret` value from the GitHub browser tab and paste
+  it into the `GITHUB_CLIENT_SECRET` definition in `platform-deploy.sh`.
+
+. In the `GITHUB_REDIRECT_URL` definition in `platform-deploy.sh`,
+  specify: `http://localhost:8888/oauth/github`. This should be the same
+  URL provided in the Authorization callback URL field to the GitHub
+  OAuth app configuration.
+
+. Copy the `publicKey` value from `platform-deploy-keys.json` and paste
+  it into the `PUBLIC_KEY` definition in `platform-deploy.sh`.
+
+. Copy the `privateKey` value from `platform-deploy-keys.json` and paste
+  it into the `PRIVATE_KEY` definition in `platform-deploy.sh`.
+--
+
+. Save the updated `platform-deploy.sh` file.
+
+
+== Configure environment variables for `web-auth-endpoint`
+
+. Create the file `web-auth-endpoint.sh` in the `secrets` directory with
+  the following content:
++
+[source,bash]
+----
+#!/bin/bash
+# Secrets for Accounts app GitHub OAuth chain
+export GITHUB_CLIENT_ID=""
+export GITHUB_CLIENT_SECRET=""
+# Key pair for the web auth node
+export PUBLIC_KEY=""
+export PRIVATE_KEY=""
+# Peer list override
+export PORT=8888
+export CONNECT_TO_PEERS="localhost:5025"
+----
+
+. Update the configuration in `web-auth-endpoint.sh`:
++
+--
+[loweralpha]
+. Copy the `Client ID` value from the GitHub browser tab and paste it
+  into the `GITHUB_CLIENT_ID` definition in `web-auth-endpoint.sh`.
+
+. Copy the `Client Secret` value from the GitHub browser tab and paste
+  it into the `GITHUB_CLIENT_SECRET` definition in
+  `web-auth-endpoint.sh`.
+
+. Copy the `publicKey` value from `web-auth-endpoint-keys.json` and paste
+  it into the `PUBLIC_KEY` definition in `web-auth-endpoint.sh`.
+
+. Copy the `privateKey` value from `web-auth-endpoint-keys.json` and paste
+  it into the `PRIVATE_KEY` definition in `web-auth-endpoint.sh`.
+--
+
+. Save the updated `web-auth-endpoint.sh` file.
+
+
+== Update the configuration file for the Accounts app
+
+. Navigate to the Accounts app directory:
++
+[source,bash]
+cd ../packages/app-account
+
+. Open the file `interbit.config.js`. The first few lines of this file
+  are:
++
+[source,js]
+----
+const path = require('path')
+const chainAliases = require('./src/constants/chainAliases')
+const { controlActionTypes } = require('./src/constants/actionTypes')
+
+const PUB_KEY = ''
+const WEB_AUTH_PUB_KEY = ''
+
+const config = {
+    ...
+----
+
+. Copy the `publicKey` value from `platform-deploy-keys.json` and paste
+  it into the `PUB_KEY` definition in `interbit.config.js`.
+
+. Copy the `publicKey` value from `web-auth-endpoint-keys.json` and
+  paste it into the `WEB_AUTH_PUB_KEY` definition in
+  `interbit.config.js`.
+
+. Save the updated `interbit.config.js` file.
+
+
+== Update the configuration file for the Template app
+
+. Navigate to the Template app directory:
++
+[source,bash]
+cd ../interbit-template
+
+. Open the file `interbit.config.js`. The first few lines of this file
+  are:
++
+[source,js]
+----
+const path = require('path')
+const chainAliases = require('./src/constants/chainAliases')
+
+const PUBLIC_KEY = ''
+
+const config = {
+    ...
+----
+
+. Copy the `publicKey` value from `platform-deploy-keys.json` and paste
+  it into the `PUBLIC_KEY` definition in `interbit.config.js`.
+
+. Save the updated `interbit.config.js` file.
+
+== Delete the `platform-deploy` manifest file
+
+The manifest file must be deleted when new Interbit key pairs are
+generated, as we did in our setup. If there is a pre-existing manifest,
+the genesis blocks are not overwritten and our new keys do not work.
+Note that when we generate a new manifest, we create new genesis blocks
+which results in new chain IDs (which are hashes of the genesis blocks).
+
+[source,bash]
+----
+cd ../platform-deploy
+rm platform/interbit.manifest.json
+----
+
+
+== Configuration complete
+
+At this point, all of the apps are configured. See the
+link:run.adoc[next section] to see how to start the `platform-deploy`
+and `web-auth-endpoint` nodes and the Accounts and Template apps.

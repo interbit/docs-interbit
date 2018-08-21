@@ -132,16 +132,10 @@ provides a cleaner, more granular way to manage access control than
 blockchain access via keys.
 
 A read join is authorized on the provider blockchain with an
-link:/reference/interbit-covenant-utils/startProvideState.md[`@@interbit/START_PROVIDE_STATE`]
-action and on the receiver blockchain by an
-link:/reference/interbit-covenant-utils/startConsumeState.md[`@@interbit/START_CONSUME_STATE`].
-Once both actions have been recorded -- or _blocked_ -- to both
-blockchains, the state is shared.
+`@@interbit/START_PROVIDE_STATE` action and on the receiver blockchain
+by an `@@interbit/START_CONSUME_STATE`.  Once both actions have been
+recorded -- or _blocked_ -- to both blockchains, the state is shared.
 
 A write join is authorized on the sender blockchain with an
-link:/reference/interbit-covenant-utils/authorizeSendActions.md[`@@interbit/AUTHORIZE_SEND_ACTIONS`]
-action and on the receiver blockchain with an
-link:/reference/interbit-covenant-utils/authorizeReceiveActions.md[`@@interbit/AUTHORIZE_RECEIVE_ACTIONS`]
-action.
-
-
+`@@interbit/AUTHORIZE_SEND_ACTIONS` action and on the receiver
+blockchain with an `@@interbit/AUTHORIZE_RECEIVE_ACTIONS` action.

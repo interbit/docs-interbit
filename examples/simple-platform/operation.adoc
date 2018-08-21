@@ -1,0 +1,240 @@
+= Platform Operation
+
+This section describes how to use the Accounts and Template apps,
+demonstrating how to use GitHub as an identity provider to create your
+own blockchain-based account, and how to authorize access from another
+app.
+
+NOTE: The following procedure assumes that you have performed the steps
+described in the link:configure.adoc[Configure the Example] and
+link:run.adoc[Run the Example Locally] sections.
+
+
+== Create an account via GitHub OAuth
+
+. Open the browser tab displaying the Accounts app.
++
+The URL for the Accounts app is `http://localhost:3025`.
++
+image:img/screen-accounts_app.png["The Accounts app", 1280, 541,
+role="frame"]
+
+. Open the browser's developer tools and select the console tab.
++
+Verify that you see the `interbit-middleware/CHAIN_BLOCKING` status
+logged to the console for the `accountsPrivate` chain.
++
+image:img/screen-accounts_app-console.png["The Accounts app with the
+browser's developer console open", 1280, 676, role="frame"]
++
+NOTE: If you do not see `interbit-middleware/CHAIN_BLOCKING`, but you do
+see `interbit-middleware: reducer() Object`, reload the page.
++
+The Interbit middleware prints a number of messages to the console so
+that you can see, for instance, when chains have loaded and actions have
+been dispatched. The Accounts app is fully up and running when you see
+the above message. At this point, you can dispatch actions to your
+`accountsPrivate` chain.
+
+. Navigate to the `create-account` page by clicking on the **Create
+  Account / Sign in** link in the page header. The **Create account**
+  screen is displayed:
++
+image:img/screen-accounts_app-create.png["The Create account screen in
+the Accounts app", 1280, 601, role="frame"]
+
+. image:img/button-create_account.png["The Create Account button", 195,
+  48, role="right"]
+  Click the **Create Account** button. A dialog appears with a
+  disclaimer, asking you to confirm that you're aware that the Interbit
+  platform is experimental:
++
+image:img/screen-accounts_app-test_dialog.png["The Interbit dialog",
+1280, 634, role="frame"]
+
+. image:img/button-continue.png["The Create Account button", 147,
+  48, role="right"]
+  Check the **I acknowledge that I have read and understood this
+  disclaimer** checkbox, then click the **Continue** button. The
+  GitHub authorization screen is displayed:
++
+image:img/screen-github-authorize.png["The GitHub authorization screen",
+1280, 639, role="frame"]
++
+NOTE: If you are not already signed in to your GitHub account, you would
+see a GitHub login screen first.
+
+. image:img/button-github-authorize.png["The GitHub Authorize button",
+  448, 34, role="right"]
+  Review the request for access, then click the **Authorize _username_**
+  button. Once the authorization is complete, the **My Account** screen
+  is displayed:
++
+image:img/screen-accounts_app-my_account.png["The My Account screen in
+the Accounts app", 1280, 465, role="frame"]
++
+When you see **Signed-in** at the right of the page header, you know
+that authentication is successful.
+
+Congratulations! You have created an Interbit account. You can make
+changes to your personal account information and see how the new blocks
+are added to your `accountsPrivate` chain with each change.
+
+
+=== Additional verification steps
+
+. Verify that your user account information is on the private chain.
+  Navigate to the **Block Explorer** page and expand the `profile`
+  object property in the `accountsPrivate` chain.
++
+image:img/screen-accounts_app-be-ghi.png["The Block Explorer screen in
+the Accounts app, showing the GitHub identity", 1280, 629, role="frame"]
++
+If you have not made any changes to your user profile information, you
+should see the that the `name` and `gitHub-identity` properties have
+values and that your GitHub profile information is stored in
+`gitHub-identity`.
+
+. Verify that your user account information is not yet shared with any
+  other apps by checking that the `shared` property in the
+  `accountsPrivate` chain state is empty.
++
+image:img/screen-accounts_app-be-shared.png["The Block Explorer screen
+in the Accounts app, showing the shared status is empty", 1280, 629,
+role="frame"]
+
+
+== Allow the Template app to connect to your private account chain
+
+Now that we have created a user account on the Accounts app, we can
+authorize the `interbit-template` app to read your name and email from
+your private accounts chain.
+
+. Open the browser tab displaying the Template app.
++
+The URL for the Template app is `http://localhost:3000`.
++
+image:img/screen-template_app.png["The Template app", 1280, 703,
+role="frame"]
+
+. Open the browser's developer tools and select the console tab.
++
+Verify that you see the `interbit-middleware/CHAIN_BLOCKING` status
+logged to the console for the `templatePrivate` chain.
++
+image:img/screen-template_app-console.png["The Template app with the
+browser's developer console open", 1280, 675, role="frame"]
++
+NOTE: If you do not see `interbit-middleware/CHAIN_BLOCKING`, but you do
+see `interbit-middleware: reducer() Object`, reload the page.
+
+. Verify that no data is shared on the `templatePrivate` chain.
++
+Navigate to the **Block Explorer** page and check that the
+`sharedProfile` property in the `templatePrivate` chain state is empty.
++
+image:img/screen-template_app-be.png["The Block Explorer screen in the
+Template app, showing that no data is shared", 1280, 659, role="frame"]
+
+. Click the **Connect to Profile** link in the header to navigate to the
+  `/cauth/request` page.
++
+image:img/screen-template_app-connect.png["The Start the cAuth loop page
+in the Template app", 1280, 224, role="frame"]
+
+. image:img/button-request_cauth.png["The Request cAuth button", 116,
+  34, role="right"]
+  Click the **Request cAuth** button on the `/cauth/request` page.
++
+**At this point, you are redirected to the Accounts app.**
++
+The Accounts app's authorization screen is displayed:
++
+image:img/screen-accounts_app-authorize.png["The authorization screen in
+the Accounts app", 1280, 710, role="frame"]
++
+The `templatePrivate` chain is requesting a read join with the
+`accountsPrivate` chain for the `name` and `email` profile fields. Joins
+can be configured so that only specific fields are shared. Since the
+`email` field does not yet exist, you are given the opportunity to
+create and populate the field.
+
+. Click the **Add email** link, enter an email address, then click the
+**Save** button.
++
+image:img/form-accounts_app-email.png["The email form in the Accounts
+app", 645, 377, role="frame"]
++
+The authorization screen updates, and the **Accept** button becomes
+active:
++
+image:img/form-accounts_app-filled.png["The authorization form in the
+Accounts app", 645, 279, role="frame"]
++
+Using the browser's developer console, you can verify that the
+`accountsPrivate` chain has a new block, and that the email address has
+been added to the profile.
+
+
+. [[step_authorize]]image:img/button-accept.png["The Accept button", 133,
+  48, role="right"]
+  Authorize the request for information by clicking the **Accept**
+  button.
++
+**At this point, you are redirected to the Template app.**
++
+In the Template app and should see a message stating `Complete the cAuth
+loop` with a profile identifier of the form `PROFILE-****`.
++
+image:img/screen-template_app-complete_cauth.png["The Complete the cAuth
+loop screen in the Template app", 1280, 268, role="frame"]
+
+. image:img/button-complete_cauth.png["The Complete cAuth button", 126,
+  34, role="right"]
+  Complete the chain authorization flow by clicking the **Complete
+  cAuth** button.
++
+The button click dispatches an action to the `templatePrivate` chain and
+updates the state with the shared profile information.
+
+
+=== Additional verification steps
+
+. Verify that the `templatePrivate` chain state has the newly-shared
+profile information. Navigate to the **Block Explorer** and expand the
+`sharedProfile` property.
++
+image:img/screen-template_app-be-shared.png["The Block Explorer screen
+in the Template app, showing that the profile is now shared", 1280,
+659, role="frame"]
++
+The `name` and `email` fields are populated with the values entered from
+the Accounts app.
++
+The `accountsPrivate` and `templatePrivate` chains are now joined.
+Whenever any updates to the user's name or email occur in the Accounts
+app, these changes are automatically reflected in the `templatePrivate`
+chain.
+
+. Verify that the chain join on the `accountsPrivate` chain. From the
+  **Block Explorer** in the Accounts app, expand the `shared` property
+  and check that there is an entry with the same profile identifier as
+  in <<step_authorize,the authorization step>>.
++
+image:img/screen-accounts_app-be-shared-connected.png["The Block
+Explorer screen in the Accounts app, showing the shared profile now
+contains populated data", 1280, 581, role="frame"]
+
+
+== Example complete
+
+Congratulations! You have successfully completed this example. To recap,
+the example has demonstrated:
+
+- the structure of coordinated Interbit nodes and apps,
+- configuration of nodes and apps,
+- how to start nodes and apps,
+- how those coordinated nodes and apps work in practice.
+
+Now that you have a working example, you have a foundation to tinker and
+learn further.
