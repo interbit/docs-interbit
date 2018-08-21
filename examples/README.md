@@ -14,4 +14,4 @@ the following software:
 - [The Template App Walk-through](template.adoc)
 - [Determinism in Interbit](determinism.adoc)
 - [To-do List App](./to-do-list.md)
-- [A Simple Interbit Platform](simple-platform/README.md)
+- [A Simple Interbit Platform](simple-platform/README.adoc)
