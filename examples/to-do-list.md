@@ -99,7 +99,7 @@ Directory | Purpose
 `tests`                   | Jest tests
 `App.js`                  | The main React component that loads the SPA
 `exports.js`              | A file to export anything that may be needed outside of this project (Ex. covenant action creators)
-`index.js`                | The file that creates the Redux store, attaches the [Interbit middleware](/reference/interbit-middleware/README.adoc), and runs the SPA
+`index.js`                | The file that creates the Redux store, attaches the [Interbit middleware](/reference/interbit-ui-tools/README.adoc), and runs the SPA
 `registerServiceWorker.js` | A file used by create-react-app to register a [service worker](https://developers.google.com/web/fundamentals/primers/service-workers/)
 `interbit.config.js`      | The [Interbit configuration file](/reference/interbit-cli/config.adoc)
 `interbit.prod.config.js` | The production environment interbit configuration file
@@ -168,7 +168,7 @@ module.exports = actionTypes
 <div class="filename">action.js</div>
 
 We define the [action
-creators](/reference/interbit-middleware/actionCreators.md) here, each with
+creators](/reference/interbit-ui-tools/actionCreators.md) here, each with
 an action type (e.g. `ADD_TODO`) and a payload.
 
 ```js

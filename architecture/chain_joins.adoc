@@ -35,9 +35,7 @@ There are two ways to join Interbit blockchains together:
 When creating a join, both sides must agree on the join name, and both
 sides must dispatch a corresponding action. Sender and receiver action
 types correspond, and consumer and provider action types correspond.
-These actions can also be
-link:/reference/interbit-covenant-utils/redispatch.md[redispatched] from
-within a smart contract.
+These actions can also be redispatched from within a smart contract.
 
 
 [[via_configuration]]
@@ -92,7 +90,7 @@ const config = {
 To establish a join via action dispatch, both the provider and consumer
 must use the same join name. Chain IDs must be used as the alias is only
 available in the configuration file and the
-link:/reference/interbit-middleware/README.adoc[`interbit-middleware`].
+link:/reference/interbit-ui-tools/README.adoc[`interbit-middleware`].
 
 [source,js]
 ----
@@ -276,15 +274,10 @@ is specified like this:
 == Authorization
 
 A read join is authorized on the provider blockchain with an
-link:/reference/interbit-covenant-utils/startProvideState.md[`@@interbit/START_PROVIDE_STATE`]
-action and on the receiver blockchain by an
-link:/reference/interbit-covenant-utils/startConsumeState.md[`@@interbit/START_CONSUME_STATE`].
-Once both actions have been recorded -- or _blocked_ -- to both
-blockchains, the state is shared.
+`@@interbit/START_PROVIDE_STATE` action and on the receiver blockchain
+by an `@@interbit/START_CONSUME_STATE`.  Once both actions have been
+recorded -- or _blocked_ -- to both blockchains, the state is shared.
 
 A write join is authorized on the sender blockchain with an
-link:/reference/interbit-covenant-utils/authorizeSendActions.md[`@@interbit/AUTHORIZE_SEND_ACTIONS`]
-action and on the receiver blockchain with an
-link:/reference/interbit-covenant-utils/authorizeReceiveActions.md[`@@interbit/AUTHORIZE_RECEIVE_ACTIONS`]
-action.
-
+`@@interbit/AUTHORIZE_SEND_ACTIONS` action and on the receiver
+blockchain with an `@@interbit/AUTHORIZE_RECEIVE_ACTIONS` action.
