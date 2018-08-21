@@ -11,7 +11,7 @@ image:img/platform-deploy.png["The Platform structure", 932, 438,
 role="center zoom"]
 
 The `platform-deploy` node hosts the Accounts and Template chains. (See
-link:/reference/interbit-middleware/chainSponsorship.adoc[Chain
+link:/reference/interbit-ui-tools/chainSponsorship.adoc[Chain
 Sponsorship] for more information on hosting chains.)  This node is the
 block master and thus is responsible for adding new blocks to the
 application chains. There is no requirement for the Accounts and
