@@ -1,8 +1,6 @@
 node_modules
-lerna-debug.log
 npm-debug.log
-packages/*/node_modules
-packages/*/npm-debug.log
+_interbit
 **/db-*
 **/_book
 **/build
