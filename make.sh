@@ -2,6 +2,9 @@
 
 echo 'Building documentation, please wait... '
 
+# Make sure that node dependencies installed
+npm i
+
 # Make sure Ruby dependencies installed
 bundle install || echo "Ruby dependencies failed to install; make sure Bundler is installed!"
 
