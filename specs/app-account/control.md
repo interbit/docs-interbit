@@ -27,11 +27,18 @@ Private chains are created using chain sponsorship and are child chains of the C
 
 ### Joins
 
-#### providing
+#### provide
 
-| Path                                                  | consumer             |
-|:-                                                     |:-                    |
-| `privateChainHosting`/`shared`/_[privateChainAlias]_  | _[publicChainAlias]_ |
+| Name | consumer | Path |
+|:-    |:-        |:-    |
+| `HOSTING_SPONSOR`  | _[publicChainAlias]_ | `privateChainHosting`/`shared`/_[privateChainAlias]_ |
+| `CONTROL_CHAIN_ID` | _[githubChainAlias]_ | `interbit`/`chainId` |
+
+#### receive actions from
+
+| Sender | Authorized action |
+|:-      |:-                 |
+| _[githubChainAlias]_ | `ADD_KEY_TO_SPONSORED_CHAIN` |
 
 ### Actions
 
@@ -44,15 +51,15 @@ The `root covenant` `SET_MANIFEST` action is called after system startup and to 
 
 #### payload
 
-* `manifest` Fully resolved system manifest including mapping of covenent aliases to covenenant hashes. Manifest selector provides covenant hash for _[PrivateChainCovenantAlias]_.
+* `manifest` Fully resolved system manifest including mapping of covenent aliases to covenenant hashes. Manifest selector provides covenant hash for _[privateCovenantAlias]_.
 
 #### state change
 
-`privateChainHosting`/`shared`/_[privateChainAlias]_: Object containing
+At `privateChainHosting`/`shared`/_[privateChainAlias]_:
 
 * `blockMaster` The block master public key for new user profile chains
 * `sponsorChainId` This chain's ID
-* `covenantHash` Covenant hash for _[privateChainCovenantAlias]_
+* `covenantHash` Covenant hash for _[privateCovenantAlias]_
 
 #### side effect calls
 
@@ -60,19 +67,19 @@ none
 
 ### errors
 
-none
+* `no such covenant` _[privateCovenantAlias]_ is not defined as a manifest covenent.
 
 ### tests
 
 1. `privateChainHosting` is updated
-1. Value of `blockmaster` is the current chain's `blockmaster`
-1. Value of `sponsorChainId` is the current chain's `chainId`
-1. Value of `covenentHash` is the covenent hash associated with the private chain alias
-1. `privateChainHosting` is updated in the corresponding public chain
+1. Value of `blockmaster` is this chain's `blockmaster`
+1. Value of `sponsorChainId` is this chain's `chainId`
+1. Value of `covenentHash` is the covenent hash for _[privateCovenantAlias]_
+1. `privateChainHosting` is updated in _[publicChainAlias]_
 
 ### b. `ADD_KEY_TO_SPONSORED_CHAIN`
 
-Called from `oAuth covenent` when user completes authentication from a 2nd device, to add the public key for the new device to the private chain ACL.
+Called from `oAuth covenant` when user completes authentication from a 2nd device, to add the public key for the new device to the private chain ACL.
 
 #### payload
 
@@ -93,6 +100,7 @@ Remote redispatch `ADD_TO_ACL` to child chain
 
 * `not sponsored`: when `sponsoredChainId` is not a child of this chain
 * `unauthorized`: when Control chain does not have `root` access to `sponsoredChainId`
+* `unauthorized`: when sender not authorized to dispatch `ADD_KEY_TO_SPONSORED_CHAIN`
 
 ### tests
 
