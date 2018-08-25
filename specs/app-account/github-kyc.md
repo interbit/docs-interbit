@@ -71,9 +71,7 @@ Private chains are created using chain sponsorship and are child chains of the C
 ### a. `CONFIGURE_OAUTH_APP`
 
 ### b. `OAUTH_CALLBACK`
-Called by web server listening to redirects from the oAuth provider (`web-auth-endpoint`) to complete oAuth authentication and to obtain user profile information from the oAuth provider. During authentication, oAuth providers generate a temporary, single-use code that has to be exchanged for an access token.
-
-
+Called by web server listening to redirects from the oAuth provider (`web-auth-endpoint`) to run side-effects that complete oAuth authentication and obtain user profile information from the oAuth provider.
 
 #### payload
 
@@ -98,7 +96,26 @@ Called by web server listening to redirects from the oAuth provider (`web-auth-e
 
 ### c. `UPDATE_PROFILE`
 
+#### payload
+
+* `privateChainId`: User's private chain ID.
+* `profile`: User's profile information obtained from the OAuth provider. Includes a unique ID and user name and may include other properties.
+
+#### state change
+
+`profiles`/_`[privateChainId]`_/`sharedProfile`: contains `profile`.
+
 ### d. `REGISTER_PRIVATE_CHAIN`
+
+#### payload
+
+* `privateChainId`: User's private chain ID.
+* `userId`: Unique user identifier from the profile.
+* `publicKey`: the public key for the user's device
+
+#### state change
+
+`users`/_`[userId]`_: contains the `privateChainId` and an array of associated public keys initially conytaining just `publicKey`.
 
 ### e. `UPDATE_PRIVATE_CHAIN_ACL`
 
