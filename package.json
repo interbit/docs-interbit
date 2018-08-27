@@ -7,6 +7,7 @@
   "dependencies": {
     "gitbook-cli": "^2.3.2",
     "express": "^4.16.3",
+    "jsdoc": "^3.5.5",
     "heroku-ssl-redirect": "^0.0.4"
   },
   "repository": {
