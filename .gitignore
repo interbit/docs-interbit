@@ -1,11 +1,13 @@
 node_modules
 npm-debug.log
 _interbit
+apiadoc
 **/db-*
 **/_book
 **/build
 **/.lock
 **/dist
+**/.DS_Store
 
 # Vim ignores
 [._]*.s[a-v][a-z]

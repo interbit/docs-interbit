@@ -1,0 +1,3 @@
+= formatDate()
+
+{% include "/apiadoc/interbit-ui-components/formatDate.adoc" %}
