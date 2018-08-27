@@ -79,7 +79,7 @@ none
 
 ### b. `ADD_KEY_TO_SPONSORED_CHAIN`
 
-Called from `oAuth covenant` when user completes authentication from a 2nd device, to add the public key for the new device to the private chain ACL.
+Called from `OAuth covenant` when user completes authentication from a 2nd device, to add the public key for the new device to the private chain ACL.
 
 #### payload
 

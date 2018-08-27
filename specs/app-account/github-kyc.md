@@ -68,7 +68,24 @@ The first time a user authenticates using OAuth, the current private chain is re
 
 ### a. `CONFIGURE_OAUTH_APP`
 
+Updates the OAuth request parameter configuration that is shared with the public chain
+
+#### payload
+
+* `oldClientId`: current client ID for the OAuth application
+* `newClientId`: new client ID for the OAuth application
+* `redirectUrl`: application URL where users are sent after authorization
+* `scope`: OAuth access permissions requested at login
+* `allowSignup`: can unauthenticated users sign-up for a new account
+
+#### state changes
+
+`oauth`/`shared`/`params`: updated `clientId`, `redirectUrl`, `scope` and `allowSignup`
+
+#### errors
+
 ### b. `OAUTH_CALLBACK`
+
 Called by the `web-auth-endpoint` web server that listens to redirects from the OAuth provider. Triggers side-effects that complete OAuth authentication and obtain user profile information from the OAuth provider.
 
 #### payload
@@ -93,6 +110,7 @@ Called by the `web-auth-endpoint` web server that listens to redirects from the 
 #### tests
 
 ### c. `OAUTH_CALLBACK_SAGA`
+
 Manages side-effects that complete OAuth authentication and obtain user profile information from the OAuth provider.
 
 #### payload
@@ -146,7 +164,7 @@ Dispatched by `OAUTH_CALLBACK_SAGA` to refresh the user profile data
 
 #### state change
 
-`users`/_`[userId]`_: contains the `privateChainId` and an array of associated public keys initially conytaining just `publicKey`.
+`users`/_`[userId]`_: contains the `privateChainId` and an array of associated public keys initially containing just `publicKey`.
 
 ### f. `UPDATE_PRIVATE_CHAIN_ACL`
 
@@ -160,7 +178,11 @@ Dispatched by `OAUTH_CALLBACK_SAGA` to add 2nd device public key to private chai
 
 #### state change
 
+`users`/_`[userId]`_/`publicKeys`: contains `publicKey`.
+
 #### side effect calls
+
+`ADD_KEY_TO_SPONSORED_CHAIN`: when `publicKey` is not present in `users`/_`[userId]`_/`publicKeys`, `ADD_KEY_TO_SPONSORED_CHAIN` is dispatched remotely to the PPC control chain, which then redispatches `ADD_TO_ACL` to the private chain.
 
 #### errors
 
