@@ -1,6 +1,6 @@
 # PPC Public
 
-> Status: incomplete <br>
+> Status: incomplete
 
 ## Purpose
 

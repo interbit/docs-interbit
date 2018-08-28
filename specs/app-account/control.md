@@ -1,9 +1,10 @@
 # PPC Control
 
-> Status: incomplete <br>
+> Status: incomplete
+>
 > Dependencies: [`interbit covenant tools`](link-to-spec), [`root covenant`](link-to-spec), [`manifest selectors`](link-to-spec)
-> Callers: [`oAuth covenant`](./github-kyc.md)
-> Join consumers: [`public`](./public.md)
+> Callers: [`OAuth Provider`](./github-kyc.md)
+> Join consumers: [`PPC Public`](./public.md), [`OAuth Provider`](./github-kyc.md)
 
 ## Purpose
 

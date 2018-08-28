@@ -1,6 +1,7 @@
 # my-account
 
-> Status: incomplete <br>
+> Status: incomplete
+>
 > Dependencies: [`${Name} covenant`](link-to-spec), [`${Name} covenant`](link-to-spec), ...
 
 ## Purpose

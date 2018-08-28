@@ -1,6 +1,7 @@
 # OAuth Provider Covenant
 
-> Status: incomplete <br>
+> Status: incomplete
+>
 > Dependencies: [`interbit covenant tools`](link-to-spec)
 > Callers: [`web-auth-endpoint`](link-to-spec)
 > Join consumers: [`PPC Public`](./public.md), [`PPC Private`](./my-account.md)
