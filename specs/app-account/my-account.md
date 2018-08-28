@@ -5,32 +5,61 @@
 > Dependencies: [`${Name} covenant`](link-to-spec), [`${Name} covenant`](link-to-spec), ...
 
 ## Purpose
-This covenant manages users' personal information.
+This covenant manages users' personal information on their private accounts chain.
 
 It implements functionality for:
-
 * updating personal profile information
-* chain authorization, for secure information sharing with other chains
+* resetting personal profile information back to the initial state
+* chain authorization, for secure profile information sharing with other chains
+* authenticating with a third party provider
+
 
 ## Interface
-List of actios(stories) that can be sent from applications or sent in by other covenants (without mentioning the actual sender). Document them like public methods on a class.
+
+### State slices
+
+| State slice                                  | Usage |
+|:-                                            |:-     |
+| `profile`                                    | User's private profile information |
+| `profile`/`alias`                            | User's alias |
+| `profile`/`email`                            | User's email address |
+| `profile`/`name`                             | User's full name, initial value is `anonymous user` |
+| `shared`/_[consumerChainId]_/`sharedProfile` | Profile tokens shared via read join with _[consumerChainId]_  |
+| `authenticationRequests`/_[requestId]_       | Current OAuth requests initiated by the Accounts app to a third party OAuth provider  |
+
 
 ### Selectors
 | Selector         | Purpose                                                   |
 |:-                |:-                                                         |
 | none             |                                                           |
 
+### Joins
+
+#### consume
+
+| Name               | Provider | Mount path | Description |
+|:-                  |:-        |:-          |:-           |
+| _[uniqueJoinName]_ | _[providerChainId]_, e.g. `accountsGithubAuth` | `profile`/_[tokenName]_ |
+Consumes third party OAuth profile information from the provider |
+
+#### provide
+
+| Name | Consumer | Shared Path | Description |
+|:-    |:-        |:-           |:-           |
+| _[uniqueJoinName]_ | _[consumerChainId]_ | `shared`/_[consumerChainId]_/`sharedProfile` | Provides shared profile information to a third party application |
+
+
 ### Actions
 - [`UPDATE_PROFILE`](#a-update_profile)
-- [`SHARE_PROFILE_TOKENS`](#b-generate_key_pair)
-- [`STOP_SHARING`](#c-generate_secret)
-- [`RESET_PROFILE`](#d-decrypt_value)
-- [`START_AUTHENTICATION`](#e-sign_value)
-- [`CANCEL_AUTHENTICATION`](#f-verify_signature)
-- [`COMPLETE_AUTHENTICATION`](#f-verify_signature)
+- [`SHARE_PROFILE_TOKENS`](#b-share_profile_tokens)
+- [`STOP_SHARING`](#c-stop_sharing)
+- [`RESET_PROFILE`](#d-reset_profile)
+- [`START_AUTHENTICATION`](#e-start_authentication)
+- [`CANCEL_AUTHENTICATION`](#f-cancel_authentication)
+- [`COMPLETE_AUTHENTICATION`](#g-complete_authentication)
 
 ### a. `UPDATE_PROFILE`
-Called from the accounts application to persist property changes made by the user.
+Called from the Accounts app to persist property changes made by the user.
 
 #### payload
 * `alias` (optional) User alias
