@@ -19,5 +19,21 @@
 |interbit-covenant-tools/cAuthConsumerCovenant|CAuth|Not started
 |interbit-covenant-tools/coreCovenant|Join creation, ACL management|Not started
 |interbit-covenant-tools/rootCovenant|Deployment, Blob storage|Not started
+|interbit-template/||Not started
 
+## CLI/Script Specifications
 
+| Command | Description | Spec status |
+|:-       |:-           |:-           |
+|**start**|Starts node from config file|Not started
+|**build**|Builds a manifest from a config file|Not started
+|**deploy**|Starts node from manifest|Not started
+|**create**|Creates an `interbit` application from a template|Not started
+|**keys**|Generates a valid key pair|Not started
+
+## Priorities for Specification
+
+1. Accounts
+1. Template
+1. CLI/Script
+1. TBD
