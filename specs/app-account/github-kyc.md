@@ -1,9 +1,9 @@
-# OAuth Covenant
+# OAuth Provider Covenant
 
 > Status: incomplete <br>
 > Dependencies: [`interbit covenant tools`](link-to-spec)
 > Callers: [`web-auth-endpoint`](link-to-spec)
-> Join consumers: [`control`](./control.md)
+> Join consumers: [`PPC Public`](./public.md), [`PPC Private`](./my-account.md)
 
 ## Purpose
 
@@ -18,6 +18,19 @@ The first time a user authenticates using OAuth, the current private chain is re
 
 ## Interface
 
+### State slices
+
+| State slice | Usage |
+|:-           |:-     |
+|`oAuth`|OAuth provider configuration
+|`oAuth`/`shared`|OAuth configuration needed by applications to initiate OAuth flow, shared with _`PPC Public`_
+|`profiles`|Most recent user profiles for authenticated users
+|`profiles`_/_`privateChainId`_/`sharedProfile`|User`s profile information, refreshed when the user last authenticated
+|`users`|OAuth users who have previously authenticated.
+|`users`/_`userId`_/_`privateChainId`_|Maps OAuth provider user ID to a specific private chain
+|`users`/_`userId`_/`publicKeys`|Public keys of user`s devices with write access to the private chain
+|`authenticationRequests`|Current OAuth authentication requests. Used by `web-auth-endpoint` to prevent re-entrant calls.
+
 ### Selectors
 
 | Selector         | Purpose                                                   |
@@ -26,7 +39,7 @@ The first time a user authenticates using OAuth, the current private chain is re
 |`tokenUrl`|OAuth provider URL for exchanging the temporary `code` from the OAuth redirect with a permanent access token
 |`profileUrl`|OAuth provider URL for retrieving user profile information after authentication
 |`redirectUrl`|`interbit` application URL where users are sent after authorization
-|`clientId`|OAuth application client ID. The corresponding `clientSecret` is not exposed.
+|`clientId`|OAuth application client ID. The corresponding `clientSecret` is configured from an environment variable at runtime and is not part of state.
 |`scope`|access permissions the user will be requested to grant the application
 |`allowSignup`|if unauthenticated users will be given the option to sign-up during the authentication flow
 |`params`|gets the URL parameters `interbit` applications need to pass to the OAuth provider to initiate OAuth
@@ -38,19 +51,20 @@ The first time a user authenticates using OAuth, the current private chain is re
 
 | Name | Provider | Mount path |
 |:-    |:-        |:-          |
-| `CONTROL_CHAIN_ID` | _[controlChainAlias]_ | `controlChainId` |
+| `CONTROL_CHAIN_ID` | _`PPC Control`_ | `controlChainId` |
 
 #### provide
 
 | Name | Consumer | Shared Path |
 |:-    |:-        |:-           |
-| `OAUTH-CONFIG-GITHUB` | _[publicChainAlias]_ | `oAuth`/`shared` |
+|`OAUTH-CONFIG-`_`PROVIDER`_ | _`PPC Public`_  | `oAuth`/`shared`
+|_`PROVIDER`_`-`_`{UUID}`_   | _`PPC Private`_ | `profiles`/_`privateChainId`_/`sharedProfile`
 
 #### send action to
 
 | Receiver | Actions authorized by receiver |
 |:-        |:-                              |
-| _[controlChainAlias]_ | `ADD_KEY_TO_SPONSORED_CHAIN` |
+| _`PPC Control`_ | `ADD_KEY_TO_SPONSORED_CHAIN` |
 
 ### Actions
 
@@ -98,7 +112,7 @@ Called by the `web-auth-endpoint` web server that listens to redirects from the 
 
 #### state changes
 
-`authenticationRequests`/_`[requestId]`_: contains value of `temporaryToken`
+`authenticationRequests`/_`requestId`_: contains value of `temporaryToken`
 
 #### side effect calls
 
@@ -141,6 +155,11 @@ none
 
 #### tests
 
+1. `REGISTER_PRIVATE_CHAIN`, `UPDATE_PROFILE`, `@@interbit/START_PROVIDE_STATE` and `AUTH_SUCEEDED` actions are dispatched when a user authenticates for the first time.
+1. `UPDATE_PROFILE` and `AUTH_SUCEEDED` actions are dispatched when a user authenticates for the second time from the same device.
+1. `UPDATE_PRIVATE_CHAIN_ACL`, `UPDATE_PROFILE` and `AUTH_SUCEEDED` actions are dispatched when a user authenticates on a second device for the first time.
+1. `UPDATE_PRIVATE_CHAIN_ACL`, `UPDATE_PROFILE` and `AUTH_SUCEEDED` actions are dispatched when a user regenerates their key pair, then authenticates again.
+
 ### d. `UPDATE_PROFILE`
 
 Dispatched by `OAUTH_CALLBACK_SAGA` to refresh the user profile data
@@ -152,7 +171,12 @@ Dispatched by `OAUTH_CALLBACK_SAGA` to refresh the user profile data
 
 #### state change
 
-`profiles`/_`[privateChainId]`_/`sharedProfile`: contains `profile`.
+`profiles`/_`privateChainId`_/`sharedProfile`: contains `profile`.
+
+#### tests
+
+1. New profile is added
+1. Existing profile is updated
 
 ### e. `REGISTER_PRIVATE_CHAIN`
 
@@ -164,7 +188,8 @@ Dispatched by `OAUTH_CALLBACK_SAGA` to refresh the user profile data
 
 #### state change
 
-`users`/_`[userId]`_: contains the `privateChainId` and an array of associated public keys initially containing just `publicKey`.
+`users`/_`userId`_: contains `privateChainId`.
+`users`/_`userId`_/`publicKeys`: contains `publicKey`.
 
 ### f. `UPDATE_PRIVATE_CHAIN_ACL`
 
@@ -178,11 +203,11 @@ Dispatched by `OAUTH_CALLBACK_SAGA` to add 2nd device public key to private chai
 
 #### state change
 
-`users`/_`[userId]`_/`publicKeys`: contains `publicKey`.
+`users`/_`userId`_/`publicKeys`: contains `publicKey`.
 
 #### side effect calls
 
-`ADD_KEY_TO_SPONSORED_CHAIN`: when `publicKey` is not present in `users`/_`[userId]`_/`publicKeys`, `ADD_KEY_TO_SPONSORED_CHAIN` is dispatched remotely to the PPC control chain, which then redispatches `ADD_TO_ACL` to the private chain.
+1. `ADD_KEY_TO_SPONSORED_CHAIN`: when `publicKey` is not present in `users`/_`userId`_/`publicKeys`, dispatch `ADD_KEY_TO_SPONSORED_CHAIN` remotely to `PPC Control`. `PPC Control` then redispatches `ADD_TO_ACL` to `privateChainId` to update the ACL.
 
 #### errors
 
@@ -223,7 +248,7 @@ none
 
 #### state change
 
-`authenticationRequests`/_`[requestId]`_: contains value of `temporaryToken`
+`authenticationRequests`/_`requestId`_: contains value of `temporaryToken`
 
 ### i. `AUTH_SUCEEDED`
 

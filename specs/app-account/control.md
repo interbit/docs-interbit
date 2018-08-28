@@ -7,7 +7,7 @@
 
 ## Purpose
 
-This covenant is the Control part of the Public/Private/Control pattern. It extends the `root covenant` and implements additional features required for:
+This covenant is the **Control** part of the **Public/Private/Control (PPC)** pattern. It extends the `root covenant` and implements additional features required for:
 
 * creating new private chains
 * configuring private chains
@@ -18,6 +18,12 @@ This covenant is the Control part of the Public/Private/Control pattern. It exte
 Private chains are created using chain sponsorship and are child chains of the Control chain. Using child chains automatically provides the Control chain with root access for chain management.
 
 ## Interface
+
+### State slices
+
+| State slice | Usage |
+|:-           |:-     |
+|`privateChainHosting`/`shared`/_`privateChainAlias`_|configuration required to create a genesis block for a new private chain, including `blockMaster`, `sponsorChainId` and `covenantHash`
 
 ### Selectors
 
@@ -31,14 +37,14 @@ Private chains are created using chain sponsorship and are child chains of the C
 
 | Name | consumer | Path |
 |:-    |:-        |:-    |
-| `HOSTING_SPONSOR`  | _[publicChainAlias]_ | `privateChainHosting`/`shared`/_[privateChainAlias]_ |
-| `CONTROL_CHAIN_ID` | _[githubChainAlias]_ | `interbit`/`chainId` |
+| `HOSTING_SPONSOR`  | _`PPC Public`_ | `privateChainHosting`/`shared`/_`privateChainAlias`_ |
+| `CONTROL_CHAIN_ID` | _`github Provider`_ | `interbit`/`chainId` |
 
 #### receive actions from
 
 | Sender | Authorized action |
 |:-      |:-                 |
-| _[githubChainAlias]_ | `ADD_KEY_TO_SPONSORED_CHAIN` |
+| _`github Provider`_ | `ADD_KEY_TO_SPONSORED_CHAIN` |
 
 ### Actions
 
@@ -51,15 +57,15 @@ The `root covenant` `SET_MANIFEST` action is called after system startup and to 
 
 #### payload
 
-* `manifest` Fully resolved system manifest including mapping of covenent aliases to covenenant hashes. Manifest selector provides covenant hash for _[privateCovenantAlias]_.
+* `manifest` Fully resolved system manifest including mapping of covenent aliases to covenenant hashes. Manifest selector provides covenant hash for _`privateCovenantAlias`_.
 
 #### state change
 
-At `privateChainHosting`/`shared`/_[privateChainAlias]_:
+At `privateChainHosting`/`shared`/_`privateChainAlias`_:
 
 * `blockMaster` The block master public key for new user profile chains
 * `sponsorChainId` This chain's ID
-* `covenantHash` Covenant hash for _[privateCovenantAlias]_
+* `covenantHash` Covenant hash for _`privateCovenantAlias`_
 
 #### side effect calls
 
@@ -67,15 +73,15 @@ none
 
 ### errors
 
-* `no such covenant` _[privateCovenantAlias]_ is not defined as a manifest covenent.
+* `no such covenant` _`privateCovenantAlias`_ is not defined as a manifest covenent.
 
 ### tests
 
 1. `privateChainHosting` is updated
 1. Value of `blockmaster` is this chain's `blockmaster`
 1. Value of `sponsorChainId` is this chain's `chainId`
-1. Value of `covenentHash` is the covenent hash for _[privateCovenantAlias]_
-1. `privateChainHosting` is updated in _[publicChainAlias]_
+1. Value of `covenentHash` is the covenent hash for _`privateCovenantAlias`_
+1. `privateChainHosting` is updated in _`publicChainAlias`_
 
 ### b. `ADD_KEY_TO_SPONSORED_CHAIN`
 
@@ -84,7 +90,7 @@ Called from `OAuth covenant` when user completes authentication from a 2nd devic
 #### payload
 
 * `sponsoredChainId` The chainId of a private child chain
-* `role` The ACL role to authorize. For oAuth the role will be _[oAuth provider]_-_[user Id]_ and is unique for each provider / user combination.
+* `role` The ACL role to authorize. For oAuth the role will be _`oAuth provider`_-_`user Id`_ and is unique for each provider / user combination.
 * `authorizedActions` The action to authorize or `*` for all.
 * `publicKey` The public key to authorize
 
