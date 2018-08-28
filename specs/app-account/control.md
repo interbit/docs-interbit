@@ -74,7 +74,7 @@ none
 
 ### errors
 
-* `no such covenant` _`privateCovenantAlias`_ is not defined as a manifest covenent.
+* `no such covenant`: _`privateCovenantAlias`_ is not defined as a manifest covenent.
 
 ### tests
 
@@ -86,12 +86,12 @@ none
 
 ### b. `ADD_KEY_TO_SPONSORED_CHAIN`
 
-Called from `OAuth covenant` when user completes authentication from a 2nd device, to add the public key for the new device to the private chain ACL.
+Called from `OAuth Provider` when user completes authentication from a 2nd device or regenerates their public key, to add the new public key to the private chain ACL.
 
 #### payload
 
-* `sponsoredChainId` The chainId of a private child chain
-* `role` The ACL role to authorize. For oAuth the role will be _`oAuth provider`_-_`user Id`_ and is unique for each provider / user combination.
+* `sponsoredChainId` The chain ID of a private child chain
+* `role` The ACL role to authorize. For oAuth the role will be _`Provider`_-_`userId`_ and is unique for each provider / user combination.
 * `authorizedActions` The action to authorize or `*` for all.
 * `publicKey` The public key to authorize
 
