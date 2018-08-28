@@ -39,13 +39,13 @@ Private chains are created using chain sponsorship and are child chains of the C
 | Name | consumer | Path |
 |:-    |:-        |:-    |
 | `HOSTING_SPONSOR`  | _`PPC Public`_ | `privateChainHosting`/`shared`/_`privateChainAlias`_ |
-| `CONTROL_CHAIN_ID` | _`github Provider`_ | `interbit`/`chainId` |
+| `CONTROL_CHAIN_ID` | _`OAuth Provider`_ | `interbit`/`chainId` |
 
 #### receive actions from
 
 | Sender | Authorized action |
 |:-      |:-                 |
-| _`github Provider`_ | `ADD_KEY_TO_SPONSORED_CHAIN` |
+| _`OAuth Provider`_ | `ADD_KEY_TO_SPONSORED_CHAIN` |
 
 ### Actions
 
