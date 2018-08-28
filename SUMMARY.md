@@ -68,5 +68,14 @@
     * [rootSaga](reference/interbit-ui-tools/rootSaga.md)
     * [Selectors](reference/interbit-ui-tools/selectors.adoc)
     * [Chain Sponsorship](reference/interbit-ui-tools/chainSponsorship.adoc)
+
+* [Specs](specs/README.md)
+  * [Format](specs/format.md)
+  * [FAQ](specs/Spec_FAQ.md)
+  * [app-account](specs/app-account/README.md)
+    * [control](specs/app-account/control.md)
+    * [github-kyc](specs/app-account/github-kyc.md)
+    * [my-account](specs/app-account/my-account.md)
+
 * [Report bugs](bugs.md)
 * [Glossary](GLOSSARY.md)
