@@ -39,8 +39,7 @@ It implements functionality for:
 
 | Name               | Provider | Mount path | Description |
 |:-                  |:-        |:-          |:-           |
-| _[uniqueJoinName]_ | _[providerChainId]_, e.g. `accountsGithubAuth` | `profile`/_[tokenName]_ |
-Consumes third party OAuth profile information from the provider |
+| _[uniqueJoinName]_ | _[providerChainId]_, e.g. `accountsGithubAuth` | `profile`/_[tokenName]_ |Consumes third party OAuth profile information from the provider |
 
 #### provide
 
