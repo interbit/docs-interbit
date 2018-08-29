@@ -76,6 +76,10 @@
     * [control](specs/app-account/control.md)
     * [github-kyc](specs/app-account/github-kyc.md)
     * [my-account](specs/app-account/my-account.md)
+  * [interbit-template](specs/interbit-template/README.md)
+    * [control](specs/interbit-template/control.md)
+    * [private](specs/interbit-template/private.md)
+    * [public](specs/interbit-template/public.md)
 
 * [Report bugs](bugs.md)
 * [Glossary](GLOSSARY.md)
