@@ -1,0 +1,3 @@
+= deployCovenants()
+
+{% include "/apiadoc/interbit/deployCovenants.adoc" %}

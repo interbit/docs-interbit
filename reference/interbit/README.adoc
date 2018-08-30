@@ -1,0 +1,71 @@
+= Interbit
+
+Interbit offers the same features as the `interbit-cli` but in small
+functions requireable for programmatically managing your chains.
+
+The `interbit` package contains function to help you to:
+
+- gather `interbit-cli` specific command line arguments
+- start Interbit nodes
+- create chains
+- link:configureChains.adoc[configure chains]
+- link:configureJoins.adoc[configure joins]
+- manage covenants
+- connect to peers
+- and so much more!
+
+Reference:
+- link:/examples/initialize.md[An Example]
+- link:https://github.com/interbit/interbit/blob/master/packages/interbit/src/index.js[The Exports]
+- link:https://www.npmjs.com/package/interbit[The Package]
+
+
+== Options
+
+The main functions available in `interbit` all accept a uniform
+`options` object that correspond to the CLI options used in the
+link:../interbit-cli/README.md[`interbit-cli`] package.
+
+Some options are not supported in every script and will be ignored. See
+the specific script/cli reference for supported options.
+
+[horizontal]
+[.api.p]`keyPair` [.api.t]__Object__::
+A keypair object to boot the hypervisor with.
++
+--
+[horizontal]
+[.api.p]`publicKey` [.api.t]__String__::
+The public key.
+
+[.api.p]`privateKey` [.api.t]__String__::
+The private key.
+--
+
+[.api.p]`location` [.api.t]__String__::
+The working directory for this function/script.
+
+[.api.p]`manifest` [.api.t]__Object__::
+The contents of the loaded link:../interbit-cli/manifest.adoc[manifest]
+file.
+
+[.api.p]`config` [.api.t]__Object__::
+The contents of the loaded link:../interbit-cli/config.adoc[config]
+file.
+
+[.api.p]`port` [.api.t]__Number__::
+The port for Interbit to communicate on.
+
+[.api.p]`dbPath` [.api.t]__String__::
+The path to the database Interbit is using for this node.
+
+[.api.p]`connect` [.api.t]__Boolean__::
+Whether this node is simply connecting to other already running
+instances, or should do the deployment configuration of joins/covenants
+etc. itself.
+
+[.api.p]`isWatchModeEnabled` [.api.t]__Boolean__ [.api.d]**Default=true**::
+Whether watch mode is enabled. Defaults to true.
+
+[.api.p]`isDevModeEnabled` [.api.t]__Boolean__::
+Whether dev mode is enabled. Defaults to false.

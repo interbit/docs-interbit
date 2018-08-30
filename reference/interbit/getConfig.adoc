@@ -1,0 +1,3 @@
+= getConfig()
+
+{% include "/apiadoc/interbit/getConfig.adoc" %}

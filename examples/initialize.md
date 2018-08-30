@@ -121,5 +121,5 @@ Further Documentation:
 - [deploy](../reference/interbit-cli/deploy.adoc)
 - [interbit.config.js](../reference/interbit-cli/config.adoc)
 - [interbit.manifest.json](../reference/interbit-cli/manifest.adoc)
-- [deploy function](../reference/interbit/deploy.md)
-- [createChains](../reference/interbit/createChains.md)
+- [deploy function](../reference/interbit/deploy.adoc)
+- [createChains](../reference/interbit/createChains.adoc)

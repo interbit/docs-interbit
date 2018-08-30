@@ -1,0 +1,6 @@
+{
+  SEND,
+  RECEIVE,
+  PROVIDE,
+  CONSUME
+}

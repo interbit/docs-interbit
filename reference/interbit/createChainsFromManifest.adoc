@@ -1,3 +1,10 @@
 = createChainsFromManifest()
 
 {% include "/apiadoc/interbit/createChainsFromManifest.adoc" %}
+
+== Example
+
+[source,js]
+----
+{% include "createChainsFromManifest.js" %}
+----

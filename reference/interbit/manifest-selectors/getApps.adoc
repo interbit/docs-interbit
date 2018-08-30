@@ -1,0 +1,15 @@
+= getApps()
+
+== [.signature]__getApps(manifest)__
+
+== Parameters
+
+[horizontal]
+[.api.p]`manifest` [.api.t]__Object__::
+The manifest to select from.
+
+== Returns
+
+[horizontal]
+[.api.t]__Object__::
+The apps available in this manifest.

@@ -1,0 +1,3 @@
+= generateDeploymentDetails()
+
+{% include "/apiadoc/interbit/generateDeploymentDetails.adoc" %}

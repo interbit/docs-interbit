@@ -1,0 +1,9 @@
+= joinTypes
+
+An object of constants specifying join types that are available within
+interbit.
+
+[source,js]
+----
+{% include "joinTypes.js" %}
+----

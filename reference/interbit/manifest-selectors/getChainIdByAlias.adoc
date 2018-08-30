@@ -1,0 +1,18 @@
+= getChainIdByAlias()
+
+== [.signature]__getChainIdByAlias(chainAlias, manifest)__
+
+== Parameters
+
+[horizontal]
+[.api.p]`chainAlias` [.api.t]__String__::
+The alias of the chain to select for.
+
+[.api.p]`manifest` [.api.t]__Object__::
+The manifest to select from.
+
+== Returns
+
+[horizontal]
+[.api.t]__String__::
+The Chain ID of the chain that was specified by alias.

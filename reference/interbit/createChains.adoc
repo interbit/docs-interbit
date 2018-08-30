@@ -1,0 +1,6 @@
+= `createChains`
+
+An object containing two functions:
+
+* link:createChainsFromManifest.adoc[createChainsFromManifest()]
+* link:createChainsFromConfig.adoc[createChainsFromConfig()]
