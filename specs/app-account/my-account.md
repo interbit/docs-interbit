@@ -2,7 +2,7 @@
 
 > Status: incomplete
 >
-> Dependencies: [`${Name} covenant`](link-to-spec), [`${Name} covenant`](link-to-spec), ...
+> Dependencies: [`interbit-covenant-tools`](#)
 
 ## Purpose
 This covenant manages users' personal information on their private accounts chain.
@@ -29,9 +29,7 @@ It implements functionality for:
 
 
 ### Selectors
-| Selector         | Purpose                                                   |
-|:-                |:-                                                         |
-| none             |                                                           |
+None
 
 ### Joins
 
