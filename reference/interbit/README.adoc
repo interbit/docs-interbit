@@ -15,6 +15,7 @@ The `interbit` package contains function to help you to:
 - and so much more!
 
 Reference:
+
 - link:/examples/initialize.md[An Example]
 - link:https://github.com/interbit/interbit/blob/master/packages/interbit/src/index.js[The Exports]
 - link:https://www.npmjs.com/package/interbit[The Package]
