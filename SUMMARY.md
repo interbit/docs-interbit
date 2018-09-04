@@ -49,7 +49,7 @@
     * [startInterbit()](reference/interbit/startInterbit.md)
     * [validateConfig()](reference/interbit/validateConfig.md)
   * [interbit-cli](reference/interbit-cli/README.md)
-    * [build](reference/interbit-cli/build.md)
+    * [build](reference/interbit-cli/build.adoc)
     * [configuration file](reference/interbit-cli/config.adoc)
     * [create](reference/interbit-cli/create.md)
     * [deploy](reference/interbit-cli/deploy.adoc)
