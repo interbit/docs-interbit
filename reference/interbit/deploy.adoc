@@ -1,0 +1,55 @@
+= deploy()
+
+== [.signature]__deploy(options)__
+
+Uses a manifest to deploy a blockchain node.
+
+== Parameters
+
+[horizontal]
+[.api.p]`options` [.api.t]__Object__::
+An object containing information about how to deploy the manifest.
+Defaults will be used if no options are given.
++
+--
+[horizontal]
+[.api.p]`manifest` [.api.t]__Object__::
+A manifest that will be used for configuration to start the chain.
+
+[.api.p]`keyPair` [.api.t]__Object__::
+A keypair that will be used to create the hypervisor.
++
+====
+[horizontal]
+[.api.p]`publicKey` [.api.t]__String__::
+A PGP public key string.
+
+[.api.p]`privateKey` [.api.t]__String__::
+A PGP public key string.
+====
+
+[.api.p]`location` [.api.t]__String__::
+The directory location to work from. If none is given, the current
+working directory (`cwd`) is used.
+
+[.api.p]`port` [.api.t]__Integer__::
+the port that the interbit cli will listen on.
+
+[.api.p]`connect` [.api.t]__Boolean__::
+If this node is connecting to an existing chain. Do not supply the
+option to configure joins, covenants and keys.
+--
+
+== Returns
+
+[horizontal]
+[.api.t]__Object__::
+A cli object, which can be used to interact with the Interbit node.
+
+
+== Example
+
+[source,js]
+----
+{% include "deploy.js" %}
+----

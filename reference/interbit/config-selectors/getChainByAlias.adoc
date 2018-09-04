@@ -1,0 +1,19 @@
+= getChainByAlias()
+
+== [.signature]__getChainByAlias(chainAlias, config)__
+
+== Parameters
+
+[horizontal]
+[.api.p]`chainAlias` [.api.t]__String__::
+The chain alias of the chain to find.
+
+[.api.p]`config` [.api.t]__Object__::
+The configuration to select from.
+
+
+== Returns
+
+[horizontal]
+[.api.t]__Object__::
+The configuration for the chain that was selected

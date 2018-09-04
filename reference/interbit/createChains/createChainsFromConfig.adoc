@@ -1,0 +1,10 @@
+= createChainsFromConfig()
+
+{% include "/apiadoc/interbit/createChainsFromConfig.adoc" %}
+
+== Example
+
+[source,js]
+----
+{% include "createChainsFromConfig.js" %}
+----

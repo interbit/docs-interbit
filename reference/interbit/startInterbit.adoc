@@ -1,0 +1,10 @@
+= startInterbit()
+
+{% include "/apiadoc/interbit/startInterbit.adoc" %}
+
+
+== Example
+
+[source,js]
+const { startInterbit } = require('interbit')
+const { cli, hypervisor } = await startInterbit()

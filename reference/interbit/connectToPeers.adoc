@@ -1,0 +1,3 @@
+= connectToPeers()
+
+{% include "/apiadoc/interbit/connectToPeers.adoc" %}

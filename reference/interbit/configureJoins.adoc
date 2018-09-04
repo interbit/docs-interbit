@@ -1,0 +1,3 @@
+= configureJoins()
+
+{% include "/apiadoc/interbit/configureJoins.adoc" %}

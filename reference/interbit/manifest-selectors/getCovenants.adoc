@@ -1,0 +1,15 @@
+= getCovenants()
+
+== [.signature]__getCovenants(manifest)__
+
+== Parameters
+
+[horizontal]
+[.api.p]`manifest` [.api.t]__Object__::
+The manifest to select from.
+
+== Returns
+
+[horizontal]
+[.api.t]__Object__::
+The covenant hashes that were generated for this manifest.

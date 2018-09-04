@@ -1,0 +1,26 @@
+= Manifest Selectors
+
+A set of selectors for getting information from a properly formatted
+configuration file.
+
+
+== Functions Available
+
+- link:getApps.adoc[`getApps`]
+- link:getChains.adoc[`getChains`]
+- link:getCovenants.adoc[`getCovenants`]
+- link:getGenesisBlocks.adoc[`getGenesisBlocks`]
+- link:getPeers.adoc[`getPeers`]
+- link:getBlockMasterByAlias.adoc[`getBlockMasterByAlias`]
+- link:getChainIdByAlias.adoc[`getChainIdByAlias`]
+- link:getCovenantHashByAlias.adoc[`getCovenantHashByAlias`]
+- link:getGenesisBlockByAlias.adoc[`getGenesisBlockByAlias`]
+- link:getRootChildren.adoc[`getRootChildren`]
+
+
+== Tips
+
+- The manifest file is separate from the manifested chain configuration.
+  The manifest is setup as subsets of manifest so that chains further
+  down the manifest tree with fewer permissions can easily be passed
+  only the parts of the manifest that concern them by their parents.

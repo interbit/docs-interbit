@@ -1,0 +1,3 @@
+= updateIndexHtmls()
+
+{% include "/apiadoc/interbit/updateIndexHtmls.adoc" %}

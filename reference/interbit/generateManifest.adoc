@@ -1,0 +1,3 @@
+= generateManifest()
+
+{% include "/apiadoc/interbit/generateManifest.adoc" %}
