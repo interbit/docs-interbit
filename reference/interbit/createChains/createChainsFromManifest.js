@@ -1,3 +1,3 @@
 const { createChains: { createChainsFromManifest } } = require('interbit')
 
-const { ??? } = await createChainsFromManifest(cli, manifest)
+await createChainsFromManifest(cli, manifest)

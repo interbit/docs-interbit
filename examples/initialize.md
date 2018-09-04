@@ -122,4 +122,4 @@ Further Documentation:
 - [interbit.config.js](../reference/interbit-cli/config.adoc)
 - [interbit.manifest.json](../reference/interbit-cli/manifest.adoc)
 - [deploy function](../reference/interbit/deploy.adoc)
-- [createChains](../reference/interbit/createChains.adoc)
+- [createChains](../reference/interbit/createChains/README.adoc)
