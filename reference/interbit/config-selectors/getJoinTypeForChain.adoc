@@ -1,0 +1,31 @@
+= getJoinTypeForChain()
+
+== [.signature]__getJoinTypeForChain(chainAlias, joinType, config)__
+
+Gets a specific type of join configuration from config for the chain
+specified by alias.
+
+== Parameters
+
+[horizontal]
+[.api.p]`chainAlias` [.api.t]__String__::
+The chain alias of the chain to find a join configuration for.
+
+[.api.p]`joinType` [.api.t]__String__::
+A valid link:joinTypes.adoc[join type] as a string, for the join type
+to select. One of:
++
+[source,js]
+----
+{% include "joinTypes.js" %}
+----
+
+[.api.p]`config` [.api.t]__Object__::
+The configuration to select from.
+
+== Returns
+
+[horizontal]
+[.api.t]__Object__::
+The join configuration of a specific type for the chain that
+was selected.

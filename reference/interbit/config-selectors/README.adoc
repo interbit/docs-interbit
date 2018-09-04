@@ -1,0 +1,21 @@
+= Configuration Selectors
+
+A set of selectors for getting information from a properly formatted
+configuration file.
+
+== Functions available
+
+- link:getAdminValidators.adoc[`getAdminValidators`]
+- link:getApps.adoc[`getApps`]
+- link:getChains.adoc[`getChains`]
+- link:getChainByAlias.adoc[`getChainByAlias`]
+- link:getChainCovenant.adoc[`getChainCovenant`]
+- link:getChainJoins.adoc[`getChainJoins`]
+- link:getChainValidators.adoc[`getChainValidators`]
+- link:getJoinTypeForChain.adoc[`getJoinTypeForChain`]
+- link:getCovenants.adoc[`getCovenants`]
+- link:getPeers.adoc[`getPeers`]
+
+== Objects available
+
+- link:joinTypes.adoc[`joinTypes`]

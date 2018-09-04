@@ -1,0 +1,15 @@
+= getAdminValidators()
+
+== [.signature]__getAdminValidators(config)__
+
+== Parameters
+
+[horizontal]
+[.api.p]`config` [.api.t]__Object__::
+The configuration to select from.
+
+== Returns
+
+[horizontal]
+[.api.t]__Object__::
+The admin validator public keys.

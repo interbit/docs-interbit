@@ -1,0 +1,3 @@
+= validate
+
+{% include "/apiadoc/interbit-covenant-tools/validate.adoc" %}

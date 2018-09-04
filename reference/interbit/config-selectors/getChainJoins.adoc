@@ -1,0 +1,18 @@
+= getChainJoins()
+
+== [.signature]__getChainJoins(chainAlias, config)__
+
+== Parameters
+
+[horizontal]
+[.api.p]`chainAlias` [.api.t]__String__::
+The chain alias of the chain to find a join configuration for.
+
+[.api.p]`config` [.api.t]__Object__::
+The configuration to select from.
+
+== Returns
+
+[horizontal]
+[.api.t]__Object__::
+The join configuration for the chain that was selected.

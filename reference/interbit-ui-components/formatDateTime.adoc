@@ -1,0 +1,3 @@
+= formatDateTime()
+
+{% include "/apiadoc/interbit-ui-components/formatDateTime.adoc" %}

@@ -1,0 +1,15 @@
+= getPeers()
+
+== [.signature]__getPeers(manifest)__
+
+== Parameters
+
+[horizontal]
+[.api.p]`manifest` [.api.t]__Object__::
+The manifest to select from.
+
+== Returns
+
+[horizontal]
+[.api.t]__Object__::
+The peers list for nodes that will be deployed from this manifest.

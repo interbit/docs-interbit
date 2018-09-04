@@ -1,0 +1,28 @@
+= validateConfig()
+
+== [.signature]__validateConfig(config)__
+
+Validates a configuration file.
+
+== Parameters
+
+[horizontal]
+[.api.p]**config** [.api.t]**Object**::
+The contents of the configuration file as a JSON object.
+
+== Returns
+
+[horizontal]
+[.api.t]**Boolean**::
+True if the file was valid.
+
+== Throws
+
+An `Error` with a message describing the configuration invalidity.
+
+== Example
+
+[source,js]
+----
+{% include "validateConfig.js" %}
+----

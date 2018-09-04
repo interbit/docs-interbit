@@ -1,0 +1,16 @@
+= getRootChildren()
+
+== [.signature]__getRootChildren(manifest)__
+
+== Parameters
+
+[horizontal]
+[.api.p]`manifest` [.api.t]__Object__::
+The manifest to select from.
+
+== Returns
+
+[horizontal]
+[.api.t]__Object__::
+All of the chains specified in the chainManifest that are not the root
+chain.

@@ -1,0 +1,3 @@
+= setRootChainManifest()
+
+{% include "/apiadoc/interbit/setRootChainManifest.adoc" %}

@@ -1,0 +1,15 @@
+= getGenesisBlocks()
+
+== [.signature]__getGenesisBlocks(manifest)__
+
+== Parameters
+
+[horizontal]
+[.api.p]`manifest` [.api.t]__Object__::
+The manifest to select from.
+
+== Returns
+
+[horizontal]
+[.api.t]__Object__::
+The genesis blocks that were generated for this manifest.
