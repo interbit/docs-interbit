@@ -37,7 +37,7 @@ directory, in the current directory.
 The path to an link:manifest.adoc[Interbit manifest file].
 +
 When not provided, the command looks for the file `interbit.manifest.js`
-in the same directory specifed by the `--artifacts` option, and then in
+in the same directory specified by the `--artifacts` option, and then in
 the current directory. If no manifest file is found, an error is
 displayed. The manifest file must be a valid Interbit manifest file, or
 an error is displayed.
