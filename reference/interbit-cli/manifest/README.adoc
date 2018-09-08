@@ -2,8 +2,8 @@
 
 The Interbit manifest file is a set of declarations about how a network
 will be deployed that is generated automatically by the
-link:build.md[build] step based on a link:config.adoc[configuration
-file].
+link:../build.adoc[build] step based on a
+link:../config/README.adoc[configuration file].
 
 It is a JSON file and should not be altered manually.
 
@@ -44,9 +44,9 @@ The covenants section of the manifest contains references to the packed
 covenant files and the covenant hashes.
 
 The packed covenants in the dist folder after running interbit-cli's
-link:build.md[build] are meant to be a snapshot and should not be built
-without also rebuilding the manifest. If you rebuild them the hashes
-will not correspond and the covenants will not be applied to your
+link:../build.adoc[build] are meant to be a snapshot and should not be
+built without also rebuilding the manifest. If you rebuild them the
+hashes will not correspond and the covenants will not be applied to your
 chains.
 
 
@@ -83,5 +83,5 @@ of what a manifest file could look like:
 
 [source,json]
 ----
-{% include "code/manifest.js" %}
+{% include "manifest.js" %}
 ----

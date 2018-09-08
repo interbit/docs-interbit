@@ -1,30 +1,30 @@
 = `build`
 
 A command-line command that prepares a deployable, fully-resolved,
-Interbit network specification from an link:config.adoc[Interbit
+Interbit network specification from an link:config/README.adoc[Interbit
 configuration file].
 
 
 == Syntax
 
 [listing,subs="quotes"]
-interbit **build** --config [_configFilePath_] \
-               --manifest [_manifestFilePath_] \
-               --artifacts [_outputDir_]
+interbit **build** [--config _configFilePath_] \
+               [--manifest _manifestFilePath_] \
+               [--artifacts _outputDir_]
 
 
 == Options
 
 [horizontal]
-[.api.p]`--config` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=interbit.config.js**::
-The path to an link:config.adoc[Interbit configuration file].
+[.api.p]`--config` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=./interbit.config.js**::
+The path to an link:config/README.adoc[Interbit configuration file].
 +
 When not provided, the command looks for the file `interbit.config.js`
 in the current directory. If no configuration file is found, an error
 is displayed. The configuration file must be a valid Interbit
 configuration file, or an error is displayed.
 
-[.api.p]`--artifacts` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=dist**::
+[.api.p]`--artifacts` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=./dist**::
 The path where the build artifacts should be stored.
 +
 The path is created if it does not already exist. If the path cannot be
@@ -33,8 +33,8 @@ created, an error is displayed.
 When not provided, the command outputs artifacts to the `dist`
 directory, in the current directory.
 
-[.api.p]`--manifest` [.api.t]__Filepath__ [.api.o]**Optional** [.api.d]**Default=interbit.manifest.js**::
-The path to an link:manifest.adoc[Interbit manifest file].
+[.api.p]`--manifest` [.api.t]__Filepath__ [.api.o]**Optional** [.api.d]**Default=./interbit.manifest.js**::
+The path to an link:manifest/README.adoc[Interbit manifest file].
 +
 When not provided, the command looks for the file `interbit.manifest.js`
 in the same directory specified by the `--artifacts` option, and then in
@@ -54,16 +54,16 @@ __Fully-resolved__ means that:
 
 This command:
 
-- generates a link:manifest.adoc[manifest] file based on the provided
-  link:config.adoc[configuration],
+- generates a link:manifest/README.adoc[manifest] file based on the
+  provided link:config/README.adoc[configuration],
 
 - packs all covenants described in the configuration and outputs them to
   `dist/covenants`,
 
 - updates the `index.html` files described in
-  link:config.adoc[configuration] with the chain IDs that were resolved
-  in the link:manifest.adoc[manifest]. This allows browser nodes to
-  connect to the associated blockchain networks.
+  link:config/README.adoc[configuration] with the chain IDs that were
+  resolved in the link:manifest/README.adoc[manifest]. This allows
+  browser nodes to connect to the associated blockchain networks.
 
 Coming soon:
 

@@ -1,0 +1,122 @@
+= The `staticChain` configuration object
+
+The `staticChain` configuration object appears within an
+link:README.adoc[Interbit configuration file]. It describes the
+configuration for a static block chain (one that is created and deployed
+when an Interbit network is created, and persists for the duration of
+the network (unless explicitly removed by an administrator), including
+the covenant to apply, any child blockchains to permission, the list of
+validators (including the block master), and the join configuration.
+
+[source,js]
+----
+{% include "staticChain.js" %}
+----
+
+The above example includes two `staticChain` configuration objects, so
+that you can see the relationships involved for the chain joins
+configuration.
+
+
+== Properties
+
+[horizontal]
+[.api.p]`covenant` [.api.t]__String__ [.api.r]**Required**::
+Say something nice...
+
+[.api.p]`childChains` [.api.t]__Array__ [.api.o]**Optional**::
+A list of child blockchains. Each child is a string that expresses a
+configured chain alias within the same link:README.adoc[Interbit
+configuration file].
++
+A blockchain with child chains is called the _parent_ chain; it is
+responsible for sending each child chain an appropriate portion of the
+link:../manifest/README.adoc[manifest] during deployment, so that the
+child chains can apply updates. The parent chain can also access
+configuration information for its child chains within the manifest that
+it receives. Child chains cannot access configuration information for
+its parent chain.
+
+[.api.p]`config` [.api.t]__Object__ [.api.r]**Required**::
+Describes the primary configuration for this static chain.
++
+--
+[horizontal]
+[.api.p]`validators` [.api.t]__Array__ [.api.r]**Required**::
+The list of validator nodes that administer this static blockchain. Each
+entry in the list is the public key string of the respective
+validator. The first validator in the list if the _block master_ for
+this static blockchain. Any additional validators are given the _root_
+role in the blockchain access control list (ACL), and can perform any
+action.
++
+Interbit blockchains use Proof of Authority (PoA) consensus, so the
+block master_ node approves or ignores all blockchain updates and forms
+all new blocks.
+
+[.api.p]`joins` [.api.t]__Object__ [.api.o]**Optional**::
+Describes the join configuration between static chains. See the
+link:joins.adoc[joins configuration object] for details.
+--
+
+
+
+== childChains
+
+[CAUTION]
+=========
+**Feature Unimplemented**: This part of config supports an unimplemented
+feature.
+=========
+
+The chains that are children of this chain. Being children of this chain
+means that when the chain is redeployed, these chains will receive the
+manifest on `SET_MANIFEST` and forward the manifest to their children so
+that Interbit can apply necessary configuration changes.
+
+
+== Joins
+
+[source,js]
+----
+{
+  staticChains: {
+    chainA: {
+      config: {
+        joins: {
+          receiveActionsFrom: [{
+            alias: 'chainB',
+            authorizedActions: ['DO_A_THING']
+          }],
+          consume: [{
+            alias: 'chainB',
+            path: ['state', 'props', 'path'],
+            joinName: 'FRIENDLY_NEIGHBOURHOOD_JOIN'
+          }]
+        }
+      }
+    },
+    chainB: {
+      config: {
+        joins: {
+          sendActionsTo: [{ alias: 'chainA' }],
+          provide: [{
+            alias: 'chainA',
+            path: ['state', 'props', 'path'],
+            joinName: 'FRIENDLY_NEIGHBOURHOOD_JOIN'
+          }]
+        }
+      }
+    }
+  }
+}
+```
+----
+
+The join configuration for a pair of static chains determines whether
+they will be authorized to share state or dispatch actions to each
+other. The joins must correspond to each other.
+
+Reference:
+
+- link:/architecture/chain_joins.adoc[Chain Joins]

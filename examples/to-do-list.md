@@ -101,7 +101,7 @@ Directory | Purpose
 `exports.js`              | A file to export anything that may be needed outside of this project (Ex. covenant action creators)
 `index.js`                | The file that creates the Redux store, attaches the [Interbit middleware](/reference/interbit-ui-tools/README.adoc), and runs the SPA
 `registerServiceWorker.js` | A file used by create-react-app to register a [service worker](https://developers.google.com/web/fundamentals/primers/service-workers/)
-`interbit.config.js`      | The [Interbit configuration file](/reference/interbit-cli/config.adoc)
+`interbit.config.js`      | The [Interbit configuration file](/reference/interbit-cli/config/README.adoc)
 `interbit.prod.config.js` | The production environment interbit configuration file
 `keyPair.js`              | A file to import a public private key pair from environment variables when in production
 `static.json`             | Used to serve a single page application (SPA) in Heroku. This describes where to fallback if routes are not matched (Returning 404)

@@ -1,0 +1,89 @@
+= The `joins` configuration object
+
+The `joins` configuration object appears within a
+link:staticChain.adoc[static chain configuration object]. It describes
+the join configuration for static chains.
+
+See link:/architecture/chain_joins.adoc[Chain Joins] for more
+information.
+
+
+[source,js]
+----
+{% include "joins.js" %}
+----
+
+The above example includes the entire `staticChains` configuration, so
+that you can see how the `joins` configuration objects relate to the
+overall configuration.
+
+There are four types of joins:
+
+* read join, consume state
+* read join, provide state
+* write join, send actions
+* write join, receive actions
+
+Each type of join is configured with specialized join specifications:
+
+[horizontal]
+[.api.p]`consume` [.api.t]__Array__ [.api.o]**Optional**::
+A list of consumer configuration objects, defining which blockchains to
+consume state from.
++
+--
+[horizontal]
+[.api.p]`alias` [.api.t]__String__ [.api.r]**Required**::
+The chain alias to consume state from.
+
+[.api.p]`path` [.api.t]__Array__ [.api.r]**Required**::
+A list of state keys describing which part of the state should be
+consumed by the providing blockchain.
+
+[.api.p]`joinName` [.api.t]__String__ [.api.r]**Required**::
+A string identifier for this join, matching the name configured for the
+provider blockchain.
+--
+
+[.api.p]`provide` [.api.t]__Array__ [.api.o]**Optional**::
+A list of provider configuration objects, defining which blockchains to
+provide state to.
++
+--
+[horizontal]
+[.api.p]`alias` [.api.t]__String__ [.api.r]**Required**::
+The chain alias to provide state to.
+
+[.api.p]`path` [.api.t]__Array__ [.api.r]**Required**::
+A list of state keys describing which part of the state should be
+provided to the consuming blockchain.
+
+[.api.p]`joinName` [.api.t]__String__ [.api.r]**Required**::
+A string identifier for this join, matching the name configured for the
+consumer blockchain.
+--
+
+[.api.p]`receiveActionFrom` [.api.t]__Array__ [.api.o]**Optional**::
+A list of receiver configuration objects, defining which actions are
+permitted to be received from a sender blockchain.
++
+--
+[horizontal]
+[.api.p]`alias` [.api.t]__String__ [.api.r]**Required**::
+The chain alias of the sender blockchain.
+
+[.api.p]`authorizedActions` [.api.t]__Array__ [.api.r]**Required**::
+The list of actions that are permitted to be received from the sender
+blockchain.
+--
+
+[.api.p]`sendActionTo` [.api.t]__Array__ [.api.o]**Optional**::
+The list of actions that should be sent to receiver blockchains.
++
+--
+[horizontal]
+[.api.p]`alias` [.api.t]__String__ [.api.r]**Required**::
+The chain alias of the receiver blockchain.
+--
+
+
