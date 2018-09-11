@@ -92,6 +92,8 @@
       * [covenant{}](reference/interbit-cli/config/covenant.adoc)
       * [app{}](reference/interbit-cli/config/app.adoc)
     * [Manifest file](reference/interbit-cli/manifest/README.adoc)
+      * [app{}](reference/interbit-cli/manifest/app.adoc)
+      * [deployment{}](reference/interbit-cli/manifest/deployment.adoc)
     * [build](reference/interbit-cli/build.adoc)
     * [create](reference/interbit-cli/create.adoc)
     * [deploy](reference/interbit-cli/deploy.adoc)
