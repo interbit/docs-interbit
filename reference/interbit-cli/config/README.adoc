@@ -43,8 +43,8 @@ Your `interbit.config.js` file would look something like this:
 The public and private keys used by your Interbit nodes and applications
 are used for identification, authentication, and authorization. They
 should be maintained securely, just as you should do with passwords and
-other sensitive information. Wherever possible, the keys should not be
-committed to version control.
+other sensitive information. The keys should never be committed to
+version control.
 
 The example configuration achieves this goal by using environment
 variables, for example: `process.env.PUBKEY_3`. See the

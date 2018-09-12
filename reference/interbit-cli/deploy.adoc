@@ -17,8 +17,8 @@ interbit **deploy** [--manifest _path/to/interbit.manifest.json_] \
 [horizontal]
 [.api.p]`--manifest` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=./interbit.manifest.json**::
 The path to an link:manifest/README.adoc[Interbit manifest file], used
-for deployment instructions. If a path is not is provided, the manifest
-is read from the `--artifacts` path (if specified), or the current
+for deployment instructions. If a path is not provided, the manifest is
+read from the `--artifacts` path (if specified), or the current
 directory.
 
 [.api.p]`--artifacts` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=./**::
@@ -26,7 +26,7 @@ The path to a directory of build artifacts to deploy. The directory
 should contain an link:manifest/README.adoc[Interbit manifest file] and
 one or more packed covenants. If `--artifacts` is not provided,
 artifacts are searched for in a folder called `dist` in the current
-working directory. An error is displayed if not valid build artifacts
+working directory. An error is displayed if no valid build artifacts
 are found.
 
 [.api.p]`--port` [.api.t]__Integer__::
@@ -39,9 +39,9 @@ generated.
 +
 [IMPORTANT]
 ===========
-If random key pairs are generated, permissions for these keys are not
-automatically generated. This means that the hypervisor cannot perform
-any actions and your blockchain cannot function.
+If random key pairs are generated, these keys are not included in the
+blockchain's access control list. This means that the hypervisor cannot
+perform any actions and your blockchain cannot function.
 ===========
 
 

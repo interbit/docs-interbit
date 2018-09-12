@@ -206,8 +206,8 @@
                 ]
               },
               {
-                alias: 'hub',
-                authorizedActions: ['DO_A_SPOKE_THING']
+                "alias": 'spoke1',
+                "authorizedActions": ["DO_A_HUB_THING"]
               }
             ],
             "sendActionTo": []
@@ -243,8 +243,8 @@
                 ]
               },
               {
-                alias: 'spoke',
-                authorizedActions: ['DO_A_HUB_THING']
+                "alias": 'hub',
+                "authorizedActions": ["DO_A_SPOKE_THING"]
               }
             ],
             "sendActionTo": [{ alias: 'spoke1' }]
