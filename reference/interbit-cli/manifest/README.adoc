@@ -22,7 +22,7 @@ invalid.
 
 [source,js]
 ----
-{% include "manifest.js" %}
+{% include "manifest.json" %}
 ----
 
 == Properties

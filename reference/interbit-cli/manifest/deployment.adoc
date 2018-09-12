@@ -7,7 +7,7 @@ its covenant, joins, and parent/child relationships.
 
 [source,js]
 ----
-{% include "deployment.js" %}
+{% include "deployment.json" %}
 ----
 
 == Properties

@@ -206,11 +206,11 @@
                 ]
               },
               {
-                "alias": 'spoke1',
+                "alias": "spoke1",
                 "authorizedActions": ["DO_A_HUB_THING"]
               }
             ],
-            "sendActionTo": []
+            "sendActionTo": [{ "alias": "spoke1" }]
           },
           "chains": {},
           "hash": "c9e8fb04cff4c84c4a812cd37f0740a02d1b222b"
@@ -243,11 +243,11 @@
                 ]
               },
               {
-                "alias": 'hub',
+                "alias": "hub",
                 "authorizedActions": ["DO_A_SPOKE_THING"]
               }
             ],
-            "sendActionTo": [{ alias: 'spoke1' }]
+            "sendActionTo": [{ "alias": "hub" }]
           },
           "chains": {},
           "hash": "2b499fe5a17403b3c8002ea4673dfc05fa95e425"

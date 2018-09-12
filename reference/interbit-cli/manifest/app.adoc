@@ -8,7 +8,7 @@ the browser nodes should load.
 
 [source,js]
 ----
-{% include "app.js" %}
+{% include "app.json" %}
 ----
 
 
