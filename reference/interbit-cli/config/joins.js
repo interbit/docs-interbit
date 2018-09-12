@@ -10,7 +10,7 @@ staticChains: {
         receiveActionFrom: [
           {
             alias: 'spoke',
-            authorizedActions: ['DO_A_THING']
+            authorizedActions: ['DO_A_HUB_THING']
           }
         ],
         sendActionTo: [
@@ -30,7 +30,7 @@ staticChains: {
         receiveActionFrom: [
           {
             alias: 'hub',
-            authorizedActions: ['DO_A_THING']
+            authorizedActions: ['DO_A_SPOKE_THING']
           }
         ],
         sendActionTo: [

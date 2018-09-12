@@ -1,8 +1,8 @@
 # Interbit CLI
 
 Interbit provides scripts that work with an app that is either created
-with create-interbit-app (coming soon...) or installed to a project with
-npm. It aids in developing and deploying Interbit applications.
+with `create-interbit-app` (coming soon...) or installed to a project
+with npm. It aids in developing and deploying Interbit applications.
 
 It is composed of two packages, `interbit` and `interbit-cli` which
 wraps the interbit package to provide a command line interface (CLI) to
@@ -21,7 +21,6 @@ It offers three main commands as well as several helper commands to make
 things easier:
 
 - [create](create.adoc)
-- [hoist](hoist.adoc)
 - [build](build.adoc)
 - [start](start.adoc)
 - [deploy](deploy.adoc)

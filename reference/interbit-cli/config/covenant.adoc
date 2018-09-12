@@ -2,9 +2,10 @@
 
 The `covenant` configuration object appears within an
 link:README.adoc[Interbit configuration file]. It describes the
-location in the filesystem where the covenant's code can be found. The
-covenant is packed into a binary file and is deployed to specific
-blockchains so that all nodes can process the covenant.
+location in the filesystem where the covenant's NPM package code can be
+found. The covenant cab be packed into a binary file and deployed to
+specific blockchains (based on configuration) so that nodes can apply
+the covenant.
 
 [source,js]
 ----

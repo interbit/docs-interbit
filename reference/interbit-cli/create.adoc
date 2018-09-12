@@ -1,6 +1,6 @@
 = `create`
 
-A command-line command that creates a new Interbit application with a
+An Interbit CLI command that creates a new Interbit application with a
 connected React front-end application.
 
 

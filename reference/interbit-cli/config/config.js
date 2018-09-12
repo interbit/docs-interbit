@@ -15,7 +15,7 @@ const config = {
           receiveActionFrom: [
             {
               alias: 'spoke',
-              authorizedActions: ['DO_A_THING']
+              authorizedActions: ['DO_A_HUB_THING']
             }
           ],
           sendActionTo: [{ alias: 'spoke1' }]
@@ -33,7 +33,7 @@ const config = {
           receiveActionFrom: [
             {
               alias: 'hub',
-              authorizedActions: ['DO_A_THING']
+              authorizedActions: ['DO_A_SPOKE_THING']
             }
           ],
           sendActionTo: [{ alias: 'hub' }]
@@ -47,7 +47,7 @@ const config = {
   },
   apps: {
     appName: {
-      peers: ['someotherhost'],
+      peers: ['localhost:5000'],
       chains: ['hub', 'spoke1'],
       indexLocation: path.join(__dirname, 'public/index.html'),
     }

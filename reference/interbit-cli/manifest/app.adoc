@@ -20,8 +20,9 @@ The alias of the blockchain that should load the application.
 
 [.app.p]`buildLocation` [.api.t]__String__::
 The filesystem path to the directory containing the built application.
-The application, when run, creates a browser node that connects to this
-manifest's blockchain network.
+When the manifest is built from configuration, the application's
+`index.html` is updated to include the peers and blockchains
+configuration (stored in a DOM element with `id="interbit"`.
 
 [.app.p]`browserChains` [.api.t]__Array__::
 The list of blockchain alias names that the browser nodes should load.

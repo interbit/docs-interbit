@@ -37,8 +37,8 @@ consume state from.
 The chain alias to consume state from.
 
 [.api.p]`path` [.api.t]__Array__ [.api.r]**Required**::
-A list of state keys describing which part of the state should be
-consumed by the providing blockchain.
+A list of state keys describing where, in this blockchain's state, the
+consumed state is to be placed.
 
 [.api.p]`joinName` [.api.t]__String__ [.api.r]**Required**::
 A string identifier for this join, matching the name configured for the

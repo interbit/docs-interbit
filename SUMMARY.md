@@ -97,7 +97,6 @@
     * [build](reference/interbit-cli/build.adoc)
     * [create](reference/interbit-cli/create.adoc)
     * [deploy](reference/interbit-cli/deploy.adoc)
-    * [hoist](reference/interbit-cli/hoist.adoc)
     * [start](reference/interbit-cli/start.adoc)
   * [interbit-covenant-tools](reference/interbit-covenant-tools/README.md)
     * [validate()](reference/interbit-covenant-tools/validate.adoc)

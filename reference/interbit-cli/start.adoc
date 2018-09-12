@@ -1,6 +1,6 @@
 = `start`
 
-A command-line command that starts the Developer mode hypervisor.
+An Interbit CLI command that starts the Developer mode hypervisor.
 
 
 == Syntax
@@ -19,7 +19,7 @@ interbit **start** [--config _path/to/interbit.config.js_] \
 The path to an Interbit configuration file to use for deployment.
 
 [.api.p]`--port` [.api.t]__Integer__ [.api.o]**Optional** [.api.d]**Default=5000**::
-The port that your Interbit app uses to communicate.
+The port that your Interbit node uses to communicate.
 
 [.api.p]`--dev` [.api.t]__Empty__::
 A switch to indicate that development mode should be used.

@@ -1,6 +1,6 @@
 = `deploy`
 
-A command-line command that deploys an application.
+An Interbit CLI command that deploys an application.
 
 
 == Syntax
@@ -24,15 +24,25 @@ directory.
 [.api.p]`--artifacts` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=./**::
 The path to a directory of build artifacts to deploy. The directory
 should contain an link:manifest/README.adoc[Interbit manifest file] and
-one or more packed covenants.
+one or more packed covenants. If `--artifacts` is not provided,
+artifacts are searched for in a folder called `dist` in the current
+working directory. An error is displayed if not valid build artifacts
+are found.
 
 [.api.p]`--port` [.api.t]__Integer__::
-The port number that your app uses to communicate.
+The port number that your deployed Interbit node uses to communicate.
 
 [.api.p]`--key-pair` [.api.t]__String__ [.api.o]**Optional**::
 The path to a Javascript or JSON file that exports a key pair to be used
 to boot the hypervisor. If a path is not provided, a random key pair is
-generated, which may not be permissioned on the chain network.
+generated.
++
+[IMPORTANT]
+===========
+If random key pairs are generated, permissions for these keys are not
+automatically generated. This means that the hypervisor cannot perform
+any actions and your blockchain cannot function.
+===========
 
 
 == Discussion
@@ -41,5 +51,5 @@ generated, which may not be permissioned on the chain network.
 provided manifest file.
 
 NOTE: Hosting the static `index.html` is a separate concern handled
-elsewhere. Deploy does not deploy your front-end application -- it only
-deploys your blockchain nodes.
+elsewhere. The `deploy` command does not deploy your front-end
+application, it only deploys your blockchain nodes.

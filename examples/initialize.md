@@ -109,10 +109,11 @@ await createChainsFromManifest(process.cwd(), cli, manifest)
 Please check out the
 [`web-auth-endpoint`](https://github.com/interbit/interbit/blob/master/packages/web-auth-endpoint/src/node.js)
 package for an example of deploying a node in code. Please note that
-this package has used and
-[interbit.config.js](/reference/interbit-cli/config/README.adoc) file
-and built a [manifest](/reference/interbit-cli/manifest/README.adoc)
-file from the config prior to deploying the node in code.
+this package has used an
+[`interbit.config.js`](/reference/interbit-cli/config/README.adoc)
+configuration file to build a
+[manifest](/reference/interbit-cli/manifest/README.adoc) file prior to
+deploying the Interbit node.
 
 
 Further Documentation:

@@ -49,9 +49,7 @@
               "consuming": [],
               "acl": {
                 "actionPermissions": {
-                  "*": [
-                    "root"
-                  ]
+                  "*": [ "root" ]
                 },
                 "roles": {
                   "root": [
@@ -92,9 +90,7 @@
               "consuming": [],
               "acl": {
                 "actionPermissions": {
-                  "*": [
-                    "root"
-                  ]
+                  "*": [ "root" ]
                 },
                 "roles": {
                   "root": [
@@ -135,9 +131,7 @@
               "consuming": [],
               "acl": {
                 "actionPermissions": {
-                  "*": [
-                    "root"
-                  ]
+                  "*": [ "root" ]
                 },
                 "roles": {
                   "root": [
@@ -179,12 +173,8 @@
         "provide": [],
         "receiveActionFrom": [],
         "sendActionTo": [
-          {
-            "alias": "hub"
-          },
-          {
-            "alias": "spoke1"
-          }
+          { "alias": "hub" },
+          { "alias": "spoke1" }
         ]
       },
       "chains": {
@@ -203,9 +193,7 @@
             "provide": [
               {
                 "alias": "spoke1",
-                "path": [
-                  "shared"
-                ],
+                "path": [ "shared" ],
                 "joinName": "SHARE"
               }
             ],
@@ -216,6 +204,10 @@
                 "authorizedActions": [
                   "@@MANIFEST/SET_MANIFEST"
                 ]
+              },
+              {
+                alias: 'hub',
+                authorizedActions: ['DO_A_SPOKE_THING']
               }
             ],
             "sendActionTo": []
@@ -238,9 +230,7 @@
             "consume": [
               {
                 "alias": "hub",
-                "path": [
-                  "mount", "state", "spoke1"
-                ],
+                "path": ["mount", "state", "spoke1"],
                 "joinName": "SHARE"
               }
             ],
@@ -251,9 +241,13 @@
                 "authorizedActions": [
                   "@@MANIFEST/SET_MANIFEST"
                 ]
+              },
+              {
+                alias: 'spoke',
+                authorizedActions: ['DO_A_HUB_THING']
               }
             ],
-            "sendActionTo": []
+            "sendActionTo": [{ alias: 'spoke1' }]
           },
           "chains": {},
           "hash": "2b499fe5a17403b3c8002ea4673dfc05fa95e425"
