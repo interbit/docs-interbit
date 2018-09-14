@@ -1,0 +1,23 @@
+= The `covenant` configuration object
+
+The `covenant` configuration object appears within an
+link:README.adoc[Interbit configuration file]. It describes the
+location in the filesystem where the covenant's NPM package code can be
+found. The covenant can be packed into a binary file and deployed to
+specific blockchains (based on configuration) so that nodes can apply
+the covenant.
+
+[source,js]
+----
+{% include "covenant.js" %}
+----
+
+== Properties
+
+[horizontal]
+[.api.p]`location` [.api.t]__String__ [.api.r]**Required**::
+The filesystem path to the covenant's NPM package directory.
++
+The covenant must be NPM packable from an external location due to
+the distribution of covenants across the network. This means no
+external, local, file references.

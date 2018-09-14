@@ -1,0 +1,48 @@
+= The `blockchain` deployment object
+
+The blockchain deployment object appears within a
+link:README.adoc[Interbit manifest file]. It describes all of the
+resolved configuration to deploy a blockchain to a network, including
+its covenant, joins, and parent/child relationships.
+
+[source,js]
+----
+{% include "deployment.json" %}
+----
+
+== Properties
+
+[horizontal]
+[.api.p]`alias` [.api.t]__String__::
+The alias name for this blockchain.
+
+[.api.p]`chainId` [.api.t]__String__::
+The blockchain ID for this blockchain.
+
+[.api.p]`chainIdMap` [.api.t]__Object__::
+A map of blockchain aliases to blockchain IDs, for all blockchains that
+are related or joined to this blockchain.
+
+[.api.p]`validators` [.api.t]__Array__::
+The list of authorized validator public keys for this blockchain.
+
+[.api.p]`covenant` [.api.t]__String__::
+The covenant alias of the covenant to be applied to this blockchain.
+
+[.api.p]`covenantHashMap` [.api.t]__Object__::
+A map of covenant aliases to covenant hashes for all covenants related
+to this blockchain.
+
+[.api.p]`joins` [.api.t]__Object__::
+Describes the join configuration for all blockchains joined to this
+blockchain. See the link:../config/joins.adoc[joins configuration
+object] for details.
+
+[.api.p]`chains` [.api.t]__Object__::
+A map of the child blockchain manifest configurations for which this
+blockchain is the parent. Each key is a child blockchain alias name.
+Each value is the blockchain deployment object for the respective child
+blockchain.
+
+[.api.p]`hash` [.api.t]__String__::
+The SHA1 hash of this deployment object.

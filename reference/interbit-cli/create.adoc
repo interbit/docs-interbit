@@ -1,0 +1,40 @@
+= `create`
+
+An Interbit CLI command that creates a new Interbit application with a
+connected React front-end application.
+
+
+== Syntax
+
+[listing,subs="quotes"]
+interbit **create** --name _app-name_
+
+
+== Options
+
+[horizontal]
+[.api.p]`--name` [.api.t]__String__ [.api.r]**Required**::
+Specifies the name of the application, and the name of the directory
+that is created to hold all of the code and assets for the application.
+
+
+== Discussion
+
+The application is created in a directory based on the `--name`
+provided. The new application comes with scripts to interact with the
+React app and the Interbit application. It is ready to go with Node.js
+modules already installed.
+
+To start the Interbit node, open a terminal window and run the following
+commands:
+
+[listing,subs="quotes"]
+cd _app-name_
+npm run interbit:start
+
+To start the React app (the web interface), open another terminal window
+and run the following commands:
+
+[listing,subs="quotes"]
+cd _app-name_
+npm start

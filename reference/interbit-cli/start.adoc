@@ -1,0 +1,52 @@
+= `start`
+
+An Interbit CLI command that starts the Developer mode hypervisor.
+
+
+== Syntax
+
+[listing,subs="quotes"]
+interbit **start** [--config _path/to/interbit.config.js_] \
+               [--port _number_] \
+               --dev \
+               --no-watch
+
+
+== Options
+
+[horizontal]
+[.api.p]`--config` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=./interbit.config.js**::
+The path to an Interbit configuration file to use for deployment.
+
+[.api.p]`--port` [.api.t]__Integer__ [.api.o]**Optional** [.api.d]**Default=5000**::
+The port that your Interbit node uses to communicate.
+
+[.api.p]`--dev` [.api.t]__Empty__::
+A switch to indicate that development mode should be used.
+Development mode does not output an updated manifest and it watches
+covenants for updates, deploying the updated covenants to the configured
+static chains automatically.
++
+**This does not update covenants applied to dynamic chains.**
+
+[.api.p]`--no-watch` [.api.t]__Empty__::
+A switch that, when combined with the `--dev` option, stops the
+automatic covenant updates.
+
+
+== Discussion
+
+The `start` command:
+
+- starts an Interbit hypervisor in developer mode,
+
+- creates the chains specified in the config file, attempting to use the
+  resolved chain IDs in the manifest (if available),
+
+- watches the files in your covenants and deploys updates,
+
+- updates your React app's `index.html` file with the temporary
+  developer mode chain ID,
+
+- starts the node from the port specified with `--port`, or `5000` if
+  none was specified.

@@ -1,34 +1,55 @@
 = `deploy`
 
-Deploys an application.
+An Interbit CLI command that deploys an application.
 
-NOTE: Hosting the static `index.html` is a separate concern handled
-elsewhere. Deploy does not deploy your front-end application -- it only
-deploys your blockchain nodes.
 
-Deploy tells the local hypervisor to host the chains described in the
-provided manifest file.
+== Syntax
+
+[listing,subs="quotes"]
+interbit **deploy** [--manifest _path/to/interbit.manifest.json_] \
+                [--artifacts _path/to/build/artifacts/directory_] \
+                --port _number_ \
+                [--key-pair _path/to/key/file_]
 
 
 == Options
 
-. `--manifest` *(Filepath)*: an Interbit manifest file used for
-  deployment instructions. If none is provided it will be read from
-  `{--artifacts}/interbit.manifest.json`.
+[horizontal]
+[.api.p]`--manifest` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=./interbit.manifest.json**::
+The path to an link:manifest/README.adoc[Interbit manifest file], used
+for deployment instructions. If a path is not provided, the manifest is
+read from the `--artifacts` path (if specified), or the current
+directory.
 
-. `--artifacts` *(Filepath)*: a directory of build artifacts to deploy.
-  Should contain a manifest file and packed covenants. If none is given
-  the current working directory is used.
+[.api.p]`--artifacts` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=./**::
+The path to a directory of build artifacts to deploy. The directory
+should contain an link:manifest/README.adoc[Interbit manifest file] and
+one or more packed covenants. If `--artifacts` is not provided,
+artifacts are searched for in a folder called `dist` in the current
+working directory. An error is displayed if no valid build artifacts
+are found.
 
-. `--port` *(number)*: The port number interbit will communicate on.
+[.api.p]`--port` [.api.t]__Integer__::
+The port number that your deployed Interbit node uses to communicate.
 
-. `--key-pair` *(filepath)*: a Javascript or JSON file exporting a key
-  pair to be used to boot the hypervisor. If none is provided, a random
-  key pair is generated, which may not be permissioned on the chain
-  network.
+[.api.p]`--key-pair` [.api.t]__String__ [.api.o]**Optional**::
+The path to a Javascript or JSON file that exports a key pair to be used
+to boot the hypervisor. If a path is not provided, a random key pair is
+generated.
++
+[IMPORTANT]
+===========
+If random key pairs are generated, these keys are not included in the
+blockchain's access control list. This means that the hypervisor cannot
+perform any actions and your blockchain cannot function.
+===========
 
 
-== Usage
+== Discussion
 
-[source,bash]
-interbit deploy --manifest [interbitManifestFile] --artifacts [buildArtifactsLocation] --port 8888 --key-pair [pathToKeys]
+`deploy` tells the local hypervisor to host the chains described in the
+provided manifest file.
+
+NOTE: Hosting the static `index.html` is a separate concern handled
+elsewhere. The `deploy` command does not deploy your front-end
+application, it only deploys your blockchain nodes.

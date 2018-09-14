@@ -1,0 +1,83 @@
+= `build`
+
+An Interbit CLI command that prepares a deployable, fully-resolved,
+Interbit link:manifest/README.adoc[manifest] from an
+link:config/README.adoc[Interbit configuration file].
+
+
+== Syntax
+
+[listing,subs="quotes"]
+interbit **build** [--config _configFilePath_] \
+               [--manifest _manifestFilePath_] \
+               [--artifacts _outputDir_]
+
+
+== Options
+
+[horizontal]
+[.api.p]`--config` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=./interbit.config.js**::
+The path to an link:config/README.adoc[Interbit configuration file].
++
+When not provided, the command looks for the file `interbit.config.js`
+in the current directory. If no configuration file is found, an error
+is displayed. The configuration file must be a valid Interbit
+configuration file, or an error is displayed.
+
+[.api.p]`--artifacts` [.api.t]__String__ [.api.o]**Optional** [.api.d]**Default=./dist**::
+The path where the build artifacts should be stored.
++
+The path is created if it does not already exist. If the path cannot be
+created, an error is displayed.
++
+When not provided, the command outputs artifacts to the `dist`
+directory, in the current directory.
+
+[.api.p]`--manifest` [.api.t]__Filepath__ [.api.o]**Optional** [.api.d]**Default=./interbit.manifest.js**::
+The path to an link:manifest/README.adoc[Interbit manifest file].
++
+When not provided, the command looks for the file `interbit.manifest.js`
+in the same directory specified by the `--artifacts` option, and then in
+the current directory. If no manifest file is found, one is generated
+from the configuration provided. The manifest file must be a valid
+Interbit manifest file, or an error is displayed.
++
+[IMPORTANT]
+===========
+If you wish to maintain consistent blockchain IDs, you should provide a
+previously-generated manifest file. This is important if you are
+deploying updates to the covenant or configuration.
+===========
+
+
+== Discussion
+
+__Fully-resolved__ means that:
+
+- All aliases are resolved to their blockchain IDs; the manifest uses
+  the blockchain IDs instead of the alias names used in the
+  configuration file.
+
+- All covenants have been packed into hashed binaries, with recorded
+  covenants hashes and file locations.
+
+This command:
+
+- generates a link:manifest/README.adoc[manifest] file based on the
+  provided link:config/README.adoc[configuration],
+
+- packs all covenants described in the configuration and outputs them to
+  `dist/covenants`,
+
+- updates the `index.html` files described in
+  link:config/README.adoc[configuration] with the chain IDs that were
+  resolved in the link:manifest/README.adoc[manifest]. This allows
+  browser nodes to connect to the associated blockchain networks.
+
+Coming soon:
+
+- Build your front end applications by executing the build steps
+  provided.
+
+- Update only the `index.html` file from the completed application
+  build.

@@ -1,0 +1,61 @@
+= The `staticChain` configuration object
+
+The `staticChain` configuration object appears within an
+link:README.adoc[Interbit configuration file]. It describes the
+configuration for a static blockchain (one that is created and deployed
+when an Interbit network is created, and persists for the duration of
+the network, unless explicitly removed by an administrator), including
+the covenant to apply, any child blockchains to permission, the list of
+validators (including the block master), and the join configuration.
+
+[source,js]
+----
+{% include "staticChain.js" %}
+----
+
+The above example includes two `staticChain` configuration objects, so
+that you can see the relationships involved for the chain joins
+configuration.
+
+
+== Properties
+
+[horizontal]
+[.api.p]`covenant` [.api.t]__String__ [.api.r]**Required**::
+Specifies the alias name of the covenant that should apply to this
+blockchain.
+
+[.api.p]`childChains` [.api.t]__Array__ [.api.o]**Optional**::
+A list of child blockchains. Each child is a string that expresses a
+configured chain alias within the same link:README.adoc[Interbit
+configuration file].
++
+A blockchain with child chains is called the _parent_ chain; it is
+responsible for sending each child chain an appropriate portion of the
+link:../manifest/README.adoc[manifest] during deployment, so that the
+child chains can apply updates. The parent chain can also access
+configuration information for its child chains within the manifest that
+it receives. Child chains cannot access configuration information for
+its parent chain.
+
+[.api.p]`config` [.api.t]__Object__ [.api.r]**Required**::
+Describes the primary configuration for this static chain.
++
+--
+[horizontal]
+[.api.p]`validators` [.api.t]__Array__ [.api.r]**Required**::
+The list of validator nodes that administer this static blockchain. Each
+entry in the list is the public key string of the respective
+validator. The first validator in the list is the _block master_ for
+this static blockchain. Any additional validators are given the _root_
+role in the blockchain access control list (ACL), and can perform any
+action.
++
+Interbit blockchains use Proof of Authority (PoA) consensus, so the
+block master_ node approves or ignores all blockchain updates and forms
+all new blocks for the blockchain.
+
+[.api.p]`joins` [.api.t]__Object__ [.api.o]**Optional**::
+Describes the join configuration between static chains. See the
+link:joins.adoc[joins configuration object] for details.
+--

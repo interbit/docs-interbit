@@ -1,0 +1,38 @@
+= The `app` configuration object
+
+The `app` configuration object appears within an
+link:README.adoc[Interbit configuration file]. It describes the run-time
+configuration for an Interbit application running in a web browser,
+specifying which peer nodes to connect to, which blockchains should be
+loaded into the browser, and the path to its `index.html` file so that
+the peers and chains information can be stored for run-time use.
+
+[source,js]
+----
+{% include "app.js" %}
+----
+
+In the above example, the app configuration is being applied to the
+`account` app.
+
+
+== Properties
+
+[horizontal]
+[.app.p]`peers` [.api.t]__Array__::
+The list of peer nodes that this application's browser nodes should
+connect to. Typically, you would not specify a port; applications served
+via HTTP (or HTTPS) automatically use the traditional port. However, if
+you run an Interbit node and an Interbit application on the same host,
+you should specify the port. Specify `host` or `host:port` as
+appropriate.
+
+[.app.p]`chains` [.api.t]__Array__::
+The list of blockchains that this application should load into the
+browser. Each entry in the list is a chain alias, that must already be
+defined in the link:README.adoc[Interbit configuration file].
+
+[.app.p]`indexLocation` [.api.t]__String__::
+The filesystem path to this application's `index.html` file. The
+information in `peers` and `chains` is updated in the `index.html`
+file, stored in a DOM element with `id="interbit"`.

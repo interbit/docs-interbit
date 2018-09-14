@@ -1,11 +1,12 @@
 = Configuration and Manifest File
 
-Interbit uses a link:/reference/interbit-cli/config.adoc[configuration]
-file so that you can describe your entire blockchain network in a single
-place. This file allows you to generate and manage networks based on the
+Interbit uses a
+link:/reference/interbit-cli/config/README.adoc[configuration] file so
+that you can describe your entire blockchain network in a single place.
+This file allows you to generate and manage networks based on the
 constraints described in the configuration.
 
-The link:/reference/interbit-cli/manifest.adoc[manifest] file is
-generated during the link:/reference/interbit-cli/build.md[`interbit
+The link:/reference/interbit-cli/manifest/README.adoc[manifest] file is
+generated during the link:/reference/interbit-cli/build.adoc[`interbit
 build`] step to describe a fully resolved and deployable blockchain
 network.

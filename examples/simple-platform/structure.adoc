@@ -41,7 +41,8 @@ When the `platform-deploy` package is built, it:
 
 - Generates a manifest file at
   `packages/platform-deploy/platform/interbit.manifest.json`. See
-  link:/reference/interbit-cli/manifest.adoc[Interbit CLI Manifest].
+  link:/reference/interbit-cli/manifest/README.adoc[Interbit CLI
+  Manifest].
 
 - Creates hashed covenant files for the Accounts and Template app
   covenants. See link:/key-concepts/covenants.adoc[Covenants].

@@ -1,0 +1,94 @@
+= The Interbit Configuration File
+
+The interbit configuration file contains instructions for the
+link:../build.adoc[build] script. It details how to read and bundle your
+covenants and deploy them to a network. The build script will consume a
+configuration and file and resolve the variables inside of it to
+generate a manifest file used to deploy your network.
+
+The configuration file is a Javascript file, typically called
+`interbit.config.js`, and contains:
+
+- configuration of each blockchain in the network,
+- network information for peer nodes,
+- public keys for each blockchain's validator nodes,
+- run-time configuration for each Interbit application's browser nodes,
+- the list of link:/key-concepts/covenants.adoc[covenants] to apply to
+  blockchains in the network.
+
+It contains network information such as peers, validator public keys,
+the different chains your network may run. It also contains a list
+of link:/key-concepts/covenants.adoc[covenants] and which blockchains
+they run on.
+
+[NOTE]
+======
+The configuration file is one that you manage; you can update it at any
+time. It is used to generate an link:../manifest/README.adoc[Interbit
+manifest file], which should never be manually edited.
+======
+
+
+== Example
+
+Your `interbit.config.js` file would look something like this:
+
+[source,js]
+----
+{% include "config.js" %}
+----
+
+[IMPORTANT]
+======
+The public and private keys used by your Interbit nodes and applications
+are used for identification, authentication, and authorization. They
+should be maintained securely, just as you should do with passwords and
+other sensitive information. The keys should never be committed to
+version control.
+
+The example configuration achieves this goal by using environment
+variables, for example: `process.env.PUBKEY_3`. See the
+link:/examples/simple-platform/README.adoc[Simple Platform Example] for
+a technique that automates setting up the environment variables without
+including them in version control.
+======
+
+
+== Top-level properties
+
+[horizontal]
+[.api.p]`peers` [.api.t]__Array__ [.api.o]**Optional**::
+The list of peer nodes in your network that this node should connect to.
+Only regular nodes should be specified; do not specify browser nodes.
++
+Each peer must specify a host and a port in the format `host:port`.
+
+[.api.p]`adminValidators` [.api.t]__Array__ [.api.r]**Required**::
+The list of validator nodes for the root blockchain that administers
+your network. Each entry in the list is the public key of the respective
+validator. The first validator in the list is the _block master_ for the
+root blockchain.
+
+[.api.p]`staticChains` [.api.t]__Object__ [.api.r]**Required**::
+Defines all of the blockchains that should be created and deployed at
+the genesis of the blockchain network, and should persist for the
+lifespan of the network (unless explicitly removed by an administrator).
+Dynamic chains, by contrast, are created, updated, or destroyed by
+other blockchains or applications.
++
+Each key within `staticChains` is a chain alias, a string representing
+a simple name for the blockchain. Each value is a
+link:staticChain.adoc[`staticChain` configuration object].
+
+[.api.p]`covenants` [.api.t]__Object__ [.api.r]**Required**::
+Defines all of the covenants which should be deployed on this node. Each
+key within `covenants` is a covenant alias, a string representing a
+simple name for the covenant. Each value is a
+link:covenant.adoc[`covenant` configuration object].
+
+[.api.p]`apps` [.api.t]__Object__ [.api.o]**Optional**::
+Defines the applications that should load blockchains from this
+configuration into browser nodes, and which peer nodes they should
+connect to. Each key is an app alias, a string representing a simple
+name for the application. Each value is an link:app.adoc[`app`
+configuration object].

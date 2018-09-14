@@ -1,0 +1,29 @@
+= The `app` resolution object
+
+The `app` resolution object appears within an link:README.adoc[Interbit
+manifest file]. It describes the resolved configuration for an Interbit
+application, describing which blockchain should load the application,
+the filesystem path to the built application, and the blockchains that
+the browser nodes should load.
+
+[source,js]
+----
+{% include "app.json" %}
+----
+
+
+== Properties
+
+[horizontal]
+[.app.p]`appChain` [.api.t]__String__::
+The alias of the blockchain that should load the application.
+
+[.app.p]`buildLocation` [.api.t]__String__::
+The filesystem path to the directory containing the built application.
+When the manifest is built from configuration, the application's
+`index.html` is updated to include the list of peers and blockchain
+IDs that the application should interact with (stored in a DOM element
+with `id="interbit"`).
+
+[.app.p]`browserChains` [.api.t]__Array__::
+The list of blockchain alias names that the browser nodes should load.

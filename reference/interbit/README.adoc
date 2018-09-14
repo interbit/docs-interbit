@@ -47,11 +47,11 @@ The private key.
 The working directory for this function/script.
 
 [.api.p]`manifest` [.api.t]__Object__::
-The contents of the loaded link:../interbit-cli/manifest.adoc[manifest]
-file.
+The contents of the loaded
+link:../interbit-cli/manifest/README.adoc[manifest] file.
 
 [.api.p]`config` [.api.t]__Object__::
-The contents of the loaded link:../interbit-cli/config.adoc[config]
+The contents of the loaded link:../interbit-cli/config/README.adoc[config]
 file.
 
 [.api.p]`port` [.api.t]__Number__::

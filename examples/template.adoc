@@ -1,7 +1,7 @@
 = Using the Template Application
 
 This walk-through starts where the
-link:../getting-started/README.md[Getting Started] guide left off.
+link:/getting-started/README.md[Getting Started] guide left off.
 
 The template application may seem like a lot but it comes with an
 architecture that allows each browser to interact with the application
@@ -102,7 +102,7 @@ for. We will exclude `.env`, `.gitignore`, `CHANGELOG.md`,
 
 | `index.js`
 | The file that creates the Redux store, attaches the
-  link:../reference/interbit-ui-tools/README.adoc[Interbit middleware],
+  link:/reference/interbit-ui-tools/README.adoc[Interbit middleware],
   and runs the single-page application (SPA)
 
 | `registerServiceWorker.js`
@@ -111,8 +111,8 @@ for. We will exclude `.env`, `.gitignore`, `CHANGELOG.md`,
   worker]
 
 | `interbit.config.js`
-| The link:../reference/interbit-cli/config.adoc[Interbit configuration
-  file]
+| The link:/reference/interbit-cli/config/README.adoc[Interbit
+  configuration file]
 
 | `interbit.prod.config.js`
 | The production environment interbit configuration file
@@ -239,7 +239,8 @@ This example does not demonstrate creation of dynamic chains.
 
 Further Reading:
 
-- link:/reference/interbit-cli/config.adoc[Interbit Configuration File]
+- link:/reference/interbit-cli/config/README.adoc[Interbit Configuration
+  File]
 
 
 === Configured Covenants
@@ -324,7 +325,8 @@ information.
 
 Further Reading
 
-- link:/reference/interbit-cli/config.adoc#apps[Apps Config]
+- link:/reference/interbit-cli/config/app.adoc[`app` configuration
+  object]
 
 
 [[covenants]]
@@ -578,6 +580,7 @@ Further Reading
 
 - link:/reference/interbit-ui-tools/README.adoc[interbit-ui-tools]
 - link:/key-concepts/actions.adoc[actions]
-- link:/reference/interbit-cli/manifest.adoc[Interbit Manifest File]
-- link:/reference/interbit-cli/build.md[build]
+- link:/reference/interbit-cli/manifest/README.adoc[Interbit Manifest
+  File]
+- link:/reference/interbit-cli/build.adoc[build]
 - link:/reference/interbit-cli/deploy.adoc[deploy]

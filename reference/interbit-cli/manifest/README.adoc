@@ -1,0 +1,83 @@
+= The Interbit Manifest File
+
+The Interbit manifest is a JSON file containing a fully-resolved set of
+declarations about how a network is to be deployed. The manifest is
+generated automatically by the link:../build.adoc[build] command, based
+on a link:../config/README.adoc[configuration file].
+
+IMPORTANT: The manifest should not be altered manually.
+
+The details contained in the manifest are similar to those found in the
+configuration file, but all variables have been fully resolved to permit
+deterministic deployments. These fully-resolved variables are covenant
+hashes, chain IDs, and genesis blocks. With these fully-resolved
+variables, the manifest contains all of the information required to
+deploy an Interbit node with consistent chain IDs, and to connect to the
+network.
+
+== Example
+
+NOTE: The hashes in the example are real SHA1 hashes, but they are
+invalid.
+
+[source,js]
+----
+{% include "manifest.json" %}
+----
+
+== Properties
+
+Most of the manifest properties mirror those found in the
+link:../config/README.adoc[Interbit configuration file]. The two major
+differences are the `manifest` and `genesisBlocks` properties.
+
+[horizontal]
+[.api.p]`peers` [.api.t]__Array__::
+The list of peer nodes in your network that this node should connect to.
+
+[.api.p]`apps` [.api.t]__Object__::
+Defines the applications that should load blockchains from this
+manifest into browser nodes, the filesystem path to the built
+applications, and which peer nodes they should connect to. Each key is
+an app alias, a string representing a simple name for the application.
+Each value is a link:app.adoc[`app` resolution object].
+
+[.api.p]`chains` [.api.t]__Object__::
+Defines the blockchains that this Interbit network hosts. Each key is a
+blockchain alias name. Each value is the corresponding blockchain ID.
+
+[.api.p]`covenants` [.api.t]__Object__::
+Defines the covenants required by this Interbit network. Each key is a
+covenant alias, a string representing a simple name for the covenant.
+Each value is an object, populated with the following keys:
++
+--
+[horizontal]
+[.api.p]`hash` [.api.t]__String__::
+The hash of the packed covenant binary.
+
+[.api.p]`filename` [.api.t]__String__::
+The covenant's filename in the cache of packed binary covenants.
+--
++
+IMPORTANT: Rebuild the manifest with the link:../build.adoc[build]
+command whenever your build a new version of your covenants. Without
+this step, the covenants and the manifest's hashes do not match, and so
+the covenants are not applied to your blockchains.
+
+[.api.p]`genesisBlocks` [.api.t]__Object__::
+Describes the full configuration for each blockchain (including the root
+blockchain) in the network. Each key is a blockchain alias. Each value
+is a fully-resolved genesis block for the respective blockchain, based
+on the configuration used to generate the manifest.
+
+[.api.p]`manifest` [.api.t]__Object__::
+Describes all of the resolved deployment configuration for the entire
+network. Each key is a blockchain alias. Each value is a
+link:deployment.adoc[blockchain deployment object], which contains the
+context required to deploy and configure each blockchain in the network
+including covenants, joins, and parent/child blockchain relationships.
+
+[.api.p]`hash` [.api.t]__String__::
+The SHA1 hash of the entire manifest. This value maintains the
+manifest's integrity from filesystem load to dispatching.
