@@ -25,17 +25,11 @@ software, which is available on [GitHub](https://github.com/):
     > Throughout the Getting Started section, this folder is called the
     > _repository root_.
 
-1.  <a name="dependencies"></a>**Install the dependencies:**
+1.  **Install the dependencies and build all packages:**
 
     ```sh
     cd interbit
     npm i
-    ```
-
-1.  <a name="modules"></a>**Build the modules:**
-
-    ```sh
-    npm run build:modules
     ```
 
 That's it! You now have the Interbit SDK installed, and all of the

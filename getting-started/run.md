@@ -8,11 +8,12 @@ Now all we need to do is run the new application:
 1.  **Start the Interbit blockchain node:**
 
     ```sh
+    cd interbit/packages/app-first
     npm run interbit:start
     ```
 
-    > This command continues to run until interrupted. Your application will not
-    > run unless this command is running.
+    > This command continues to run until interrupted. Your application
+    > cannot run unless this command is running.
 
 1.  **Start your application in a new terminal:**
 
@@ -21,9 +22,9 @@ Now all we need to do is run the new application:
     npm run start
     ```
 
-    A new browser window opens to `http://localhost:3000/` and displays your
-    application. Any updates made to the application while it is running
-    automatically refreshes the browser view.
+    A new browser window opens to `http://localhost:3000/` and displays
+    your application. Any updates made to the application while it is
+    running automatically refreshes the browser view.
 
 Congratulations! Your first Interbit application is now running.
 
