@@ -5,15 +5,19 @@
 between two or more parties, especially for the performance of some
 action.
 
-Interbit blockchain networks are governed by covenants. Each node in the
-blockchain's network agrees to apply the blockchain's covenant.
+An Interbit covenant describes the code and configuration that manages
+the evolution of a blockchain. When updates need to be made to the
+blockchain's state, the covenant defines how those changes are to be
+made.
 
-image:img/covenant-chains.svg["Each node in an Interbit blockchain
-network applies the same covenant", 500, 170, role="zoom center"]
+image:img/covenant-nodes.svg["Every node hosting an Interbit blockchain
+applies the same covenant to the associated blockchain", 700, 215,
+role="zoom center"]
 
-The covenant dictates how the blockchain can be changed over time. As a
-result, all participating nodes in the blockchain's network process
-actions and update the blockchain's state in a deterministic fashion.
+An Interbit blockchain is hosted by one or more nodes. Each node applies
+the same covenant to the associated blockchain. The covenant guarantees
+that, when the blockchain has to be updated, each node updates the
+blockchain's state in the same, deterministic way.
 
 
 == Anatomy
@@ -34,6 +38,9 @@ An Interbit covenant is comprised of several components:
 . A link:sagas.adoc[saga]. A saga is used to coordinate any
   non-deterministic operations such that only deterministic changes are
   made to the blockchain.
+
+. The initial state of the blockchain. This provides the shared starting
+  point that all nodes can process via the covenant.
 
 
 == Functional paradigm
@@ -125,7 +132,7 @@ These are contrived examples, but as you can see:
 == Covenants and blockchains
 
 An Interbit blockchain applies a single covenant. Therefore, the
-covenant fully controls how the blockchain's state can be modified.
+covenant controls how the blockchain's state can be modified.
 
 Other blockchains, such as the digital currencies BitCoin and Ethereum,
 use a single, public blockchain. This means that they have a single
@@ -167,6 +174,29 @@ Interbit blockchain technology, including blockchains for all of its
 citizens, service providers, policies, etc., there could be many
 millions of blockchains in use.
 
+A sophisticated application need not be monolithic. The Interbit
+platform provides tools so that Interbit applications can request access
+to blockchains via link:chain_joins.adoc[chain joins]. Similar to the
+narrow focus of a covenant, an individual Interbit app often represents
+a single, or narrow concern. By inter-operating with other applications,
+functionality only needs to be implemented once, even if the
+applications are hosted by distinct parties.
+
+image:img/covenant-city.svg["A blockchain-powered city, with citizen and
+service provider blockchain connections", role="zoom"]
+
+For example, the blockchain-powered city needs to know the identities of
+its citizens, so it would create (or contract) with an identity provider
+service. Then its citizens can login to access the city's services.
+Each service provider would create an application to permit interaction
+with its services, but those service provider applications don't need to
+implement authentication; once their service blockchains are connected
+to the city's blockchains, citizens can request connections to the
+service provider blockchains selectively, and they can choose which
+information to share with the service provider. The citizen-to-provider
+connections could be private; the city would not have to be aware what
+services each citizen is using.
+
 
 == Example
 
@@ -177,9 +207,9 @@ have to be published anywhere to run on the Interbit blockchain.
 ----
 // Covenant exports
 module.exports = {
-  reducer,
+  initialState,
   actionCreators,
-  actionTypes,
+  reducer,
   rootSaga
 }
 ----
