@@ -24,7 +24,6 @@ repo: https://github.com/interbit/interbit
       rm -f package-lock.json
       ```
 
-  1.  Repeat the [dependency installation](install.md#dependencies) and
-      [module build](install.md#modules) steps.
+  1.  Repeat the [installation](install.md) steps.
 
   1.  [Run your app](run.md) again.
