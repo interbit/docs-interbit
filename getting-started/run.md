@@ -3,9 +3,13 @@
 > To complete this section, make sure that you have already [created a
 > new Interbit application](create.md).
 
-Now all we need to do is run the new application:
+In this section, we run both the Interbit blockchain node, and the
+your application that connects to the node. This requires two terminal
+windows.
 
 1.  **Start the Interbit blockchain node:**
+
+    In the first terminal window, run the following commands:
 
     ```sh
     cd interbit/packages/app-first
@@ -15,7 +19,9 @@ Now all we need to do is run the new application:
     > This command continues to run until interrupted. Your application
     > cannot run unless this command is running.
 
-1.  **Start your application in a new terminal:**
+1.  **Start your application:**
+
+    In the second terminal window, run the following commands:
 
     ```sh
     cd interbit/packages/app-first
