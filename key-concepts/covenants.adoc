@@ -31,7 +31,7 @@ An Interbit covenant is comprised of several components:
   be made to a blockchain begin with an action creator that creates an
   action of a type known to the blockchain.
 
-. A link[smart_contracts.adoc[smart contract]. An Interbit smart
+. A link:smart_contracts.adoc[smart contract]. An Interbit smart
   contract is a block of Javascript code that processes each action
   dispatched to the blockchain.
 
