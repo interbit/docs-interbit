@@ -1,11 +1,204 @@
 = Covenants
 
-A covenant is a set of link:actions.adoc[action] creators and types, a
-reducer (which is a link:smart_contracts.adoc[smart contract], and a
-Redux link:sagas.adoc[saga] that together indicate the functioning of an
-Interbit blockchain. These actions, smart contract, and saga work
-together to fulfill the functionality of a single Interbit blockchain.
-The `rootSaga` in a smart contract is optional.
+[quote,Merriam Webster Dictionary]
+**covenant**: a written agreement or promise, usually under seal,
+between two or more parties, especially for the performance of some
+action.
+
+An Interbit covenant describes the code and configuration that manages
+the evolution of a blockchain. When updates need to be made to the
+blockchain's state, the covenant defines how those changes are to be
+made.
+
+image:img/covenant-nodes.svg["Every node hosting an Interbit blockchain
+applies the same covenant to the associated blockchain", 700, 215,
+role="zoom center"]
+
+An Interbit blockchain is hosted by one or more nodes. Each node applies
+the same covenant to the associated blockchain. The covenant guarantees
+that, when the blockchain has to be updated, each node updates the
+blockchain's state in the same, deterministic way.
+
+
+== Anatomy
+
+image:img/covenant-anatomy.svg["The anatomy of an Interbit covenant",
+522, 220, align="center" role="zoom center"]
+
+An Interbit covenant is comprised of several components:
+
+. A set of link:actions.adoc[action] creators and types. Any changes to
+  be made to a blockchain begin with an action creator that creates an
+  action of a type known to the blockchain.
+
+. A link:smart_contracts.adoc[smart contract]. An Interbit smart
+  contract is a block of Javascript code that processes each action
+  dispatched to the blockchain.
+
+. A link:sagas.adoc[saga]. A saga is used to coordinate any
+  non-deterministic operations such that only deterministic changes are
+  made to the blockchain.
+
+. The initial state of the blockchain. This provides the shared starting
+  point that all nodes can process via the covenant.
+
+
+== Functional paradigm
+
+Interbit blockchains, and their covenants, adopt the functional
+programming paradigm. Functional programming (FP) is the process of
+writing software that uses pure functions, and avoids shared state, side
+effects, and mutable data.
+
+Pure functions have several important properties:
+
+. Given the same input, they always return the same output.
+
+. Executing a pure function produces no side effects.
+
+. The call to a pure function can be replaced by its resulting value
+  without changing the meaning of the program.
+
+It may be helpful to contrast pure functions with non-pure functions, so
+that you can see how useful these properties can be:
+
+[cols="1a,1a",options="header"]
+|===
+| Pure function
+| Non-pure function
+
+|
+[source,js]
+----
+x = 2
+y = 3
+function add(number1, number2) {
+  result = number1 + number2
+  return result
+}
+
+console.log(add(x, y))
+console.log(add(x, y))
+console.log(add(2, 3))
+console.log(add(x, y))
+console.log(x, y)
+----
+
+Outputs:
+[source]
+5
+5
+5
+5
+2 3
+
+|
+[source,js]
+----
+x = 2
+y = 3
+function add(number1, number2) {
+  result = x = x + number1 + number2
+  return result
+}
+
+console.log(add(x, y))
+console.log(add(x, y))
+console.log(add(2, 3))
+console.log(add(x, y))
+console.log(x, y)
+----
+
+Outputs:
+[source]
+7
+17
+22
+47
+47 3
+
+|===
+
+These are contrived examples, but as you can see:
+
+- The pure function produces the same result each time, and `x` and `y`
+  are unmodified.
+
+- The non-pure function produces different results each time, even when
+  explicitly called with the initial inputs, and the value of `x` has
+  changed notably (a side effect of calling the function).
+
+
+== Covenants and blockchains
+
+An Interbit blockchain applies a single covenant. Therefore, the
+covenant controls how the blockchain's state can be modified.
+
+Other blockchains, such as the digital currencies BitCoin and Ethereum,
+use a single, public blockchain. This means that they have a single
+shared state that all participants must use. To provide flexibility,
+these blockchains permit arbitrary data storage on the blockchain.
+Unfortunately, this means that the state of these blockchains has become
+quite messy, and the storage requirements are surprising: in June 2018,
+BitCoin's blockchain size was 173 gigabytes, and in May 2018, Ethereum's
+blockchain size surpassed 1 terabyte).
+
+The Interbit philosophy is that each blockchain should represent a
+single concern. Instead of a single blockchain recording all of the
+personal details of a group of people, each person should record their
+personal details on their own blockchain, and the group should
+participate in a directory blockchain that records just the membership
+of each person in the group.
+
+This philosophy means that the covenant for an Interbit blockchain is
+often very simple. By itself, one blockchain with its covenant, performs
+a small set of tasks and maintains a small state. Simple covenants are
+easy to test. Confidence in the covenant, and therefore the blockchain,
+is high because it is easy to prove that it operates as designed.
+
+image:/architecture/topology/img/hub_and_spoke.svg["The Hub and Spoke
+molecule", 175, 194, role="right"]
+When several blockchains need to be used together, an administrative
+blockchain can be created, with a covenant that understands how those
+blockchains should inter-operate. The administrative covenant can also
+be simple, since it can be written knowing all of the actions that the
+blockchains support, and that they are going to behave as expected. This
+is the link:/architecture/topology/patterns.adoc#_hub_and_spoke[Hub and
+Spoke] topology.
+
+Eventually, a sophisticated application may manage many, many
+blockchains, performing complex operations that have been created almost
+entirely from the combined interaction of many simple blockchains. For
+example, if a small city powered all of its operations and services with
+Interbit blockchain technology, including blockchains for all of its
+citizens, service providers, policies, etc., there could be many
+millions of blockchains in use.
+
+A sophisticated application need not be monolithic. The Interbit
+platform provides tools so that Interbit applications can request access
+to blockchains via link:chain_joins.adoc[chain joins]. Similar to the
+narrow focus of a covenant, an individual Interbit app often represents
+a single, or narrow concern. By inter-operating with other applications,
+functionality only needs to be implemented once, even if the
+applications are hosted by distinct parties.
+
+image:img/covenant-city.svg["A blockchain-powered city, with citizen and
+service provider blockchain connections", role="zoom"]
+
+For example, the blockchain-powered city needs to know the identities of
+its citizens, so it would create (or contract) with an identity provider
+service. Then its citizens can login to access the city's services.
+Each service provider would create an application to permit interaction
+with its services, but those service provider applications don't need to
+implement authentication; once their service blockchains are connected
+to the city's blockchains, citizens can request connections to the
+service provider blockchains selectively, and they can choose which
+information to share with the service provider. The citizen-to-provider
+connections could be private; the city would not have to be aware what
+services each citizen is using.
+
+
+== Example
 
 A covenant should be packaged as an npm module but does not necessarily
 have to be published anywhere to run on the Interbit blockchain.
@@ -14,9 +207,15 @@ have to be published anywhere to run on the Interbit blockchain.
 ----
 // Covenant exports
 module.exports = {
-  reducer,
+  initialState,
   actionCreators,
-  actionTypes,
+  reducer,
   rootSaga
 }
 ----
+
+The `reducer` is the link:https://redux.js.org/[Redux] term for a
+link:smart_contracts.adoc[smart contract].
+
+The `rootSaga` in a smart contract is optional.
+
