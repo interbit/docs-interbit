@@ -176,13 +176,15 @@ millions of blockchains in use.
 
 A sophisticated application need not be monolithic. The Interbit
 platform provides tools so that Interbit applications can request access
-to blockchains via link:chain_joins.adoc[chain joins]. And, since
-Interbit applications are built on link:https://reactjs.org/[React], they
-can share components and functionality. This provides a high degree of
-modularity and streamlines development, but more importantly, Interbit
-applications can inter-operate even when they are hosted by distinct
-parties.
+to blockchains via link:chain_joins.adoc[chain joins]. Interbit
+applications are typically built on link:https://reactjs.org/[React],
+which makes it easy to share components and functionality. This provides
+a high degree of modularity and streamlines development, but more
+importantly, Interbit applications can inter-operate even when they are
+hosted by distinct parties.
 
+NOTE: Using React is not required; anything that interfaces with
+Javascript could be an Interbit application.
 
 image:img/covenant-city.svg["A blockchain-powered city, with citizen and
 service provider blockchain connections", role="zoom"]
