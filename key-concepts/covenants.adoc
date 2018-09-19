@@ -27,7 +27,10 @@ image:img/covenant-anatomy.svg["The anatomy of an Interbit covenant",
 
 An Interbit covenant is comprised of several components:
 
-. A set of link:actions.adoc[action] creators and types. Any changes to
+. The initial state of the blockchain. This provides the shared starting
+  point that all nodes can process via the covenant.
+
+. A set of link:actions.adoc[action] types and creators. Any changes to
   be made to a blockchain begin with an action creator that creates an
   action of a type known to the blockchain.
 
@@ -38,9 +41,6 @@ An Interbit covenant is comprised of several components:
 . A link:sagas.adoc[saga]. A saga is used to coordinate any
   non-deterministic operations such that only deterministic changes are
   made to the blockchain.
-
-. The initial state of the blockchain. This provides the shared starting
-  point that all nodes can process via the covenant.
 
 
 == Functional paradigm
@@ -131,16 +131,16 @@ These are contrived examples, but as you can see:
 
 == Covenants and blockchains
 
-An Interbit blockchain applies a single covenant. Therefore, the
+An Interbit blockchain applies a single covenant. Therefore, that
 covenant controls how the blockchain's state can be modified.
 
-Other blockchains, such as the digital currencies BitCoin and Ethereum,
+Other blockchains, such as the digital currencies Bitcoin and Ethereum,
 use a single, public blockchain. This means that they have a single
 shared state that all participants must use. To provide flexibility,
 these blockchains permit arbitrary data storage on the blockchain.
 Unfortunately, this means that the state of these blockchains has become
 quite messy, and the storage requirements are surprising: in June 2018,
-BitCoin's blockchain size was 173 gigabytes, and in May 2018, Ethereum's
+Bitcoin's blockchain size was 173 gigabytes, and in May 2018, Ethereum's
 blockchain size surpassed 1 terabyte).
 
 The Interbit philosophy is that each blockchain should represent a
@@ -176,11 +176,15 @@ millions of blockchains in use.
 
 A sophisticated application need not be monolithic. The Interbit
 platform provides tools so that Interbit applications can request access
-to blockchains via link:chain_joins.adoc[chain joins]. Similar to the
-narrow focus of a covenant, an individual Interbit app often represents
-a single, or narrow concern. By inter-operating with other applications,
-functionality only needs to be implemented once, even if the
-applications are hosted by distinct parties.
+to blockchains via link:chain_joins.adoc[chain joins]. Interbit
+applications are typically built on link:https://reactjs.org/[React],
+which makes it easy to share components and functionality. This provides
+a high degree of modularity and streamlines development, but more
+importantly, Interbit applications can inter-operate even when they are
+hosted by distinct parties.
+
+NOTE: Using React is not required; anything that interfaces with
+Javascript could be an Interbit application.
 
 image:img/covenant-city.svg["A blockchain-powered city, with citizen and
 service provider blockchain connections", role="zoom"]
