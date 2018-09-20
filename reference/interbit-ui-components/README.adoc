@@ -1,4 +1,71 @@
 = Interbit UI Components
 
-A set of react UI components specifically designed for use with Interbit.
+A library of React UI components specifically designed for use with Interbit.
 
+Interbit UI Components is intended to help developers with the frontend UI portion of developing Interbit applications.
+
+
+== Getting Started
+
+There are two ways to get started with Interbit UI Components. The easiest is to use the Interbit Template app as a starting point. You can also add Interbit UI Components to your own project by installing it as an `npm` package.
+
+=== Starting with the Interbit Template app
+
+Interbit comes with a link:/examples/template.adoc[Template app], which can be used a starting point for building your own Interbit applications. Follow the steps  link:/getting-started/create.md[here] to create your first Interbit app or modify the Template app and start using Interbit UI Components.
+
+=== Using Interbit UI Components in your own project
+
+Interbit UI Components is available as an `npm` package. You can install and save the dependency in your project's `package.json` by running:
+
+```
+npm install interbit-ui-components --save
+```
+
+Once `interbit-ui-components` is installed, import the CSS file in your application. Typically, the CSS file is imported at the root of your application, but you can import it whereever you wish to use the components. For example, in the Template app, the import happens in `index.js` at the root of the application:
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+...
+
+import 'interbit-ui-components/dist/css/interbit.css'
+import App from './App'
+...
+
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root')
+)
+```
+
+
+== Usage
+
+Interbit UI Components are typical React components. To use one in your application, simply import it and pass in the appropriate props. Documentation and examples for each component are provided below.
+
+For example, in the Template app, we use the `Header` component which displays the Interbit logo and a navigation menu.
+```js
+import React, { Component } from 'react'
+import { Header, Logo, IBIcon } from 'interbit-ui-components'
+...
+
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App ibweb app-interbit-io">
+        <Header
+          navItems={navigation.headerNav}
+          logo={<Logo className="sm hidden-xs" />}
+          logoSm={<IBIcon className="visible-xs hidden-sm" />}
+        />
+        ...
+      </div>
+    )
+  }
+}
+```
