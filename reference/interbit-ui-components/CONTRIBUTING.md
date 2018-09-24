@@ -117,3 +117,22 @@ npm run styleguide:build
 npm run styleguide
 ```
 
+## Modifying existing components
+
+### Tests
+
+Run the test watcher from the `interbit-ui-components` directory with:
+```
+npm run test
+```
+
+Fix any tests that were broken after modifying the component, and add tests for any new behaviour.
+
+### Documentation
+
+Update the JSdoc code comments and the React Styleguide examples to reflect the changes made to the component. Document any breaking changes.
+
+
+## Submitting your work
+
+Create a branch on the Interbit repo and create a [pull request](https://help.github.com/articles/creating-a-pull-request/) from your branch to the master branch. A member of the Interbit team will review your pull request, and once approved, will merge it into the master branch.
