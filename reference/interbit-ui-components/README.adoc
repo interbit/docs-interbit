@@ -30,7 +30,7 @@ npm install interbit-ui-components --save
 
 Once `interbit-ui-components` is installed, import the CSS file in your
 application. Typically, the CSS file is imported at the root of your
-application, but you can import it whereever you wish to use the components.
+application, but you can import it wherever you wish to use the components.
 For example, in the Template app, the import happens in `index.js` at the root
 of the application:
 

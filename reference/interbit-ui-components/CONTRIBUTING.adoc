@@ -55,7 +55,7 @@ are also located in this folder.
 | `src/tests/exports.tests.js`
 | A set of simple tests to check that exported components exist.
 
-| `src/tests/UiKit.test.js`
+| `src/tests/uiKit.test.js`
 | Rendering tests for UI Kit components.
 
 | `src/styleguide`
@@ -102,7 +102,7 @@ testing and rendering components.
 
 ==== Documentation
 
-Interbit pulls documentation out of JSdoc style code comments. For each
+Interbit pulls documentation out of JSDoc style code comments. For each
 component:
 - Give a brief description of the component before the class declaration.
 - Give a description of each prop that the component accepts
@@ -149,7 +149,7 @@ export default class LinkBar extends Component {
 
 Each UI Kit component should be accompanied by an example file,
 `MyComponent.md`. link:https://react-styleguidist.js.org/docs/documenting.html[React Styleguidist]
-will render the components and JSdoc comments in a styleguide.
+will render the components and JSDoc comments in a styleguide.
 
 The example file should include:
 - An example of the rendered component.
@@ -164,9 +164,9 @@ viewport width.
 
 ```jsx
 <div>
-  <LinkBar to="http://google.com" image="placeholder-md.png" title="Default LinkBar" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus, velit nec dignissim luctus." />
-  <LinkBar to="http://google.com" className="blue" image="placeholder-md.png" title="Blue LinkBar" content="Apply the 'blue' class to the component. Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-  <LinkBar to="http://google.com" className="dotted" image="placeholder-md.png" title="Dotted LinkBar" content="Apply the 'dotted' class to the component. Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+  <LinkBar to="http://google.com" image="placeholder-md.png" title="Default LinkBar" content="First were dominion third sea very years upon the. Over also moving also so let." />
+  <LinkBar to="http://google.com" className="blue" image="placeholder-md.png" title="Blue LinkBar" content="Apply the 'blue' class to the component. First were dominion third sea very years upon the." />
+  <LinkBar to="http://google.com" className="dotted" image="placeholder-md.png" title="Dotted LinkBar" content="Apply the 'dotted' class to the component. First were dominion third sea very years upon the." />
 </div>
 ```
 ````
@@ -188,11 +188,11 @@ npm run test
 ```
 
 Fix any tests that were broken after modifying the component, and add tests for
-any new behaviour.
+any new behavior.
 
 === Documentation
 
-Update the JSdoc code comments and the React Styleguide examples to reflect the
+Update the JSDoc code comments and the React Styleguide examples to reflect the
 changes made to the component. Document any breaking changes.
 
 
