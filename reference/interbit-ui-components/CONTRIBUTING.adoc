@@ -149,7 +149,7 @@ export default class LinkBar extends Component {
 
 Each UI Kit component should be accompanied by an example file,
 `MyComponent.md`. link:https://react-styleguidist.js.org/docs/documenting.html[React Styleguidist]
-will render the components and JSDoc comments in a styleguide.
+will render the components and JSDoc comments in a style guide.
 
 The example file should include:
 - An example of the rendered component.
@@ -171,7 +171,7 @@ viewport width.
 ```
 ````
 
-The styleguide can be run locally from the `interbit-ui-components` directory
+The style guide can be run locally from the `interbit-ui-components` directory
 by executing the following commands:
 ```sh
 npm run styleguide:build
@@ -192,8 +192,8 @@ any new behavior.
 
 === Documentation
 
-Update the JSDoc code comments and the React Styleguide examples to reflect the
-changes made to the component. Document any breaking changes.
+Update the JSDoc code comments and the React Styleguidist examples to reflect
+the changes made to the component. Document any breaking changes.
 
 
 == Submitting your work
