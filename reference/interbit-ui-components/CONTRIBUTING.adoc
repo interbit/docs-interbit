@@ -3,51 +3,48 @@
 This document is for developers who wish to contribute to the
 `interbit-ui-components` package within the `interbit` repo. For general
 information on contributing to
-link:https://github.com/interbit/interbit[Interbit], please see this
+link:https://github.com/interbit/interbit[Interbit], see this
 link:https://github.com/interbit/interbit/blob/master/CONTRIBUTING.md[Contribution Guide].
 
 
-== Creating components
-
-=== File structure
+== File structure
 
 [cols="1a,1a", options="header"]
 |===
-| Directory or file
+| Path
 | Description
 
-
-| `src/assets`
+| `src/assets/`
 | Location for image assets.
 
-| `src/components`
+| `src/components/`
 | React components exported from this package.
 
-| `src/components/BlockExplorer`
-| An interactive component displaying a chain's state, its blocks, and actions
-dispatched.
+| `src/components/BlockExplorer/`
+| An interactive component that displays a chain's state, its blocks, and
+actions dispatched.
 
-| `src/components/Covenant`
+| `src/components/Covenant/`
 | A set of forms to dispatch chain actions. It is wrapped by `LinkedCovenant`
 and uses `FormTable` components.
 
-| `src/components/Navigation`
+| `src/components/Navigation/`
 | A set of navigation components such as header, footer, and sidebar menus.
 
-| `src/components/ReduxForm`
+| `src/components/ReduxForm/`
 | Helper functions for creating and validating Redux forms.
 
-| `src/components/UIKit`
+| `src/components/UIKit/`
 | A set of simple UI components.
 
-| `src/help`
+| `src/help/`
 | Helper functionality for Redux forms, used with the `EditableTable`
 component. This directory is flagged for refactoring.
 
-| `src/scss/bootstrap`
+| `src/scss/bootstrap/`
 | SCSS files from React Bootstrap. These files should not be edited.
 
-| `src/scss/interbit`
+| `src/scss/interbit/`
 | SCSS files for Interbit styles. Each component has its own `scss` file which
 is imported in `interbit.scss`. Style overrides for React Bootstrap components
 are also located in this folder.
@@ -58,7 +55,7 @@ are also located in this folder.
 | `src/tests/uiKit.test.js`
 | Rendering tests for UI Kit components.
 
-| `src/styleguide`
+| `src/styleguide/`
 | Build files for React Styleguidist.
 
 | `index.js`
@@ -67,20 +64,25 @@ are also located in this folder.
 | `styleguide.config.js`
 | Configuration file for React Styleguidist.
 
+|===
+
+
+== Creating components
 
 === Code structure
 
 We are in the process of defining the code structure for
-Interbit UI Components. At this time, we ask that contributing developers use
+Interbit UI components. At this time, we ask that contributing developers use
 the existing code as an example of how to structure your component's code.
 
 Simple, presentational components should go in the `src/components/UIKit`
 directory. More complex components should be in their own directory within
-`src/components`. Each component must be exported from `src/index.js`
+`src/components`. Each component must be exported from `src/index.js`.
 
-==== SCSS
+=== SCSS
 
 For each component:
+
 - The styles should be in their own file, say `_my-component.scss`, in the
 `src/scss/interbit` directory. This file should be imported in
 `src/scss/interbit.scss`.
@@ -91,69 +93,39 @@ styles should be nested.
 - The CSS must be supported by the latest versions of Chrome, Firefox, Safari,
 and Edge. If in doubt, see link:https://caniuse.com/[caniuse.com].
 
-==== Tests
+=== Tests
 
 Components must have an export test in `src/tests/exports.test.js` for each
-(sub)-component exported from `src/index.js`.
+(sub)-component exported from `src/index.js`. This verifies that the component
+is in fact exported, and is usable externally.
 
 UI Kit components must have, at the minimum, rendering tests in
-`src/tests/uiKit.test.js`. Interbit UI Components uses Jest and Enzyme for
+`src/tests/uiKit.test.js`. Interbit UI components uses Jest and Enzyme for
 testing and rendering components.
 
-==== Documentation
+=== Documentation
 
 Interbit pulls documentation out of JSDoc style code comments. For each
 component:
+
 - Give a brief description of the component before the class declaration.
 - Give a description of each prop that the component accepts
 
 For example, the `LinkBar` component has the following code comments.
-```js
-/**
- * A call-to-action UI component. It functions as an `<a>` tag or `<Link>` component from `react-router-dom`, together with some additional presentational information (title, description, and image).
- */
-export default class LinkBar extends Component {
-  static propTypes = {
-    /**
-     * A short title describing the call-to-action for LinkBar
-     */
-    title: PropTypes.string.isRequired,
-    /**
-     * A description of the call-to-action for LinkBar
-     */
-    content: PropTypes.string.isRequired,
-    /**
-     * An image that provides context for the call-to-action
-     */
-    image: PropTypes.string,
-    /**
-     * A URL, relative path, or mailto link. E.g. `https://interbit.io`,  `/pages/foo`, or `mailto:foo@interbit.io`
-     */
-    to: PropTypes.string,
-    /**
-     * CSS classes to be applied to the component
-     */
-    className: PropTypes.string,
-    /**
-     * A flag. Set to `true` if the `to` property is a `mailto:` link
-     */
-    isMailto: PropTypes.bool,
-    /**
-     * A function that is fired when a user clicks on the LinkBar
-     */
-    clickHandler: PropTypes.func
-  }
-...
-}
-```
+
+[source,js]
+----
+{% include "linkBar.js" %}
+----
 
 Each UI Kit component should be accompanied by an example file,
 `MyComponent.md`. link:https://react-styleguidist.js.org/docs/documenting.html[React Styleguidist]
-will render the components and JSDoc comments in a style guide.
+renders the components and JSDoc comments in a style guide.
 
 The example file should include:
+
 - An example of the rendered component.
-- An example of each variant of the component. For example, we might apply
+- An example of each variant of the component. For instance, we might apply
 `className="blue"` to a button component to render a blue button.
 
 The following is `LinkBar`'s example `md` file:
@@ -198,8 +170,9 @@ the changes made to the component. Document any breaking changes.
 
 == Submitting your work
 
-Create a branch on the Interbit repo and create a
-link:https://help.github.com/articles/creating-a-pull-request/[pull request]
-from your branch to the master branch. A member of the Interbit team will
+Create a link:https://help.github.com/articles/fork-a-repo/[fork] of the
+Interbit repo and create a
+link:https://help.github.com/articles/creating-a-pull-request-from-a-fork/[pull request]
+from your fork to the Interbit repo. A member of the Interbit team will
 review your pull request, and once approved, will merge it into the master
 branch.
