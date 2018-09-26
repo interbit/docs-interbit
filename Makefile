@@ -1,59 +1,28 @@
-ASCIIDOCTOR := $(shell command -v asciidoctor 2> /dev/null)
-
 # The default target.
-all: setup book
+all: book clean
 
 # Declare our phony targets.
-.PHONY: book clean test spell proof css js tidy debug _debug setup \
-	setup_npm setup_gitbook setup_asciidoctor setup_javascript
+.PHONY: book clean cleanup test spell includes debug
 
-# Install everything needed to start authoring in GitBook
-setup: setup_npm setup_gitbook setup_asciidoctor
-
-# NPM setup
-setup_npm:
-	npm i
-
-# GitBook setup
-setup_gitbook:
-	./node_modules/.bin/gitbook install
-
-# Asciidoctor setup
-setup_asciidoctor:
-	@echo "Checking for asciidoctor..."
-ifndef ASCIIDOCTOR
-	echo "Asciidoctor is required to build this documentation. Installing..."
-	bundle install
-endif
-# Build the main artifacts.
-book: clean _book tidy
+book: _book
 
 _book:
-	./node_modules/.bin/gitbook build
+	_bin/make.sh
 
-# Remove all built artifacts.
 clean:
 	rm -rf _book
 
-# Remove artifacts that shouldn't be published.
-tidy:
-	rm -rf _book/Gemfile _book/Gemfile.lock _book/Makefile _book/make.sh _book/npm-debug.log _book/package.json _book/package-lock.json _book/index.js _book/local.js
+cleanup:
+	node run clean
 
-# 'test' the artifacts
-test: setup doc_ci missed
-
-# run the doc CI checks
-doc_ci:
+test: _book
 	npm run test
 
-# Check for unconverted topics in output folder; means they're missing
-# from the TOC.
-missed: _book
-	@echo "Checking for topics missing from the TOC..."
-	@find _book -name '*.adoc' | grep . && exit 1 || exit 0;
+spell:
+	npm run spell
 
-# Build the main artifacts with debugging output enabled.
-debug: clean _debug tidy
+includes:
+	npm run includes
 
-_debug:
+debug:
 	./node_modules/.bin/gitbook build --log=debug --debug
