@@ -45,10 +45,35 @@ documentation, and the dependencies required to generate HTML:
 To generate the HTML, run:
 
 ```sh
-./make.sh
+_bin/make.sh
+```
+
+OR, if you have `make` installed:
+
+```sh
+make
 ```
 
 GitBook, by default, generates a static website for the book. Generation
 depends on fresh copies of several plugins and theme packages, and there
-is some minor post-generation cleanup required. The `make.sh` script
+is some minor post-generation cleanup required. The `_bin/make.sh` script
 performs all of that work for you.
+
+
+## Tests
+
+A number of tests are available to verify various aspects of the
+documentation, include checks for broken links, image sizes, repeated
+works, spelling, etc.
+
+To run the tests:
+
+```sh
+npm run test
+```
+
+OR, if you have `make` installed:
+
+```sh
+make test
+```
