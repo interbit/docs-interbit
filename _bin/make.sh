@@ -20,13 +20,13 @@ echo -e "\033[34mCollecting API details...\033[0m"
 
 rm -rf _interbit
 git clone https://github.com/interbit/interbit.git _interbit
-./api.sh
+_bin/api.sh
 
 # Build the book's HTML
 echo -e "\033[34mBuilding the documentation...\033[0m"
 gitbook build
 
 # Post-build cleanup
-./cleanup.sh
+_bin/cleanup.sh
 
 echo -e "\033[1m\033[34mDone!\033[0m"

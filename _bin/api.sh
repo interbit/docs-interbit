@@ -20,6 +20,6 @@ packages=(
 )
 for pkg in ${packages[@]}; do
   echo "Processing package ${pkg}..."
-  jsdoc -r -X -c conf.jsdoc ${PKGDIR}/${pkg} > ${JSONDIR}/${pkg}.json
+  jsdoc -r -X -c _bin/conf.jsdoc ${PKGDIR}/${pkg} > ${JSONDIR}/${pkg}.json
   node_modules/gitbook-plugin-interbit/scripts/apijson2adoc.js -j ${JSONDIR}/${pkg}.json -d ${ADOCDIR} -p ${pkg}
 done

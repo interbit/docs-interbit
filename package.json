@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "build": "bash make.sh",
+    "build": "bash _bin/make.sh",
     "test": "node node_modules/gitbook-plugin-interbit/scripts/doc_checks.js",
     "spell": "node node_modules/gitbook-plugin-interbit/scripts/doc_checks.js -c spelling",
     "includes": "node node_modules/gitbook-plugin-interbit/scripts/doc_checks.js -c includes",
