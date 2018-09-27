@@ -93,6 +93,14 @@ styles should be nested.
 - The CSS must be supported by the latest versions of Chrome, Firefox, Safari,
 and Edge. If in doubt, see link:https://caniuse.com/[caniuse.com].
 
+=== Image assets
+
+Image assets such as icons and illustrations should be placed in `src/assets` and should satisfy the following:
+
+- Icons files are placed in `src/assets/icons`.
+- Image asset files are in `svg` format wherever possible.
+- Files should not exceed 25KB in size at this time.
+
 === Tests
 
 Components must have an export test in `src/tests/exports.test.js` for each
