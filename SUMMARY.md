@@ -101,8 +101,12 @@
   * [interbit-covenant-tools](reference/interbit-covenant-tools/README.md)
     * [validate()](reference/interbit-covenant-tools/validate.adoc)
   * [interbit-ui-components](reference/interbit-ui-components/README.md)
-    * [formatDate()](reference/interbit-ui-components/formatDate.adoc)
-    * [formatDateTime()](reference/interbit-ui-components/formatDateTime.adoc)
+    * Functions
+      * [formatDate()](reference/interbit-ui-components/formatDate.adoc)
+      * [formatDateTime()](reference/interbit-ui-components/formatDateTime.adoc)
+    * React Components
+      * [UIKit](reference/interbit-ui-components/UIKit/README.adoc)
+        * [LinkBar](reference/interbit-ui-components/UIKit/LinkBar.adoc)
   * [interbit-ui-tools](reference/interbit-ui-tools/README.adoc)
     * [actionCreators](reference/interbit-ui-tools/actionCreators.md)
     * [actionTypes](reference/interbit-ui-tools/actionTypes.md)
