@@ -1,0 +1,4 @@
+= UIKit
+
+The UIKit components provide the visual and interaction elements
+typically involved in Interbit applications.

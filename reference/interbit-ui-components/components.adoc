@@ -1,0 +1,4 @@
+= React components
+
+This section describes each of the React components provided by the
+`interbit-ui-components` package.

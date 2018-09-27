@@ -1,19 +1,22 @@
 # The default target.
-all: book clean
+all: clean book
 
 # Declare our phony targets.
-.PHONY: book clean cleanup test spell includes debug
+.PHONY: api book clean cleanup debug includes spell test
 
 book: _book
 
 _book:
 	_bin/make.sh
 
+api:
+	_bin/api.sh
+
 clean:
 	rm -rf _book
 
 cleanup:
-	node run clean
+	_bin/cleanup.sh
 
 test: _book
 	npm run test
@@ -25,4 +28,4 @@ includes:
 	npm run includes
 
 debug:
-	./node_modules/.bin/gitbook build --log=debug --debug
+	node_modules/.bin/gitbook build --log=debug --debug

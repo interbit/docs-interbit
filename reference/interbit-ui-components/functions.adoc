@@ -1,0 +1,4 @@
+= Functions
+
+This section describes functions provided by the `interbit-ui-tools`
+package.
