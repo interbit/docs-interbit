@@ -1,5 +1,5 @@
 # The default target.
-all: book clean
+all: clean book cleanup
 
 # Declare our phony targets.
 .PHONY: api book clean cleanup debug includes spell test
