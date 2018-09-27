@@ -130,7 +130,8 @@ The example file should include:
 
 The following is `LinkBar`'s example `md` file:
 
-````
+[source,md]
+----
 Full-sized examples. To see how the component behaves responsively, change your
 viewport width.
 
@@ -141,7 +142,7 @@ viewport width.
   <LinkBar to="http://google.com" className="dotted" image="placeholder-md.png" title="Dotted LinkBar" content="Apply the 'dotted' class to the component. First were dominion third sea very years upon the." />
 </div>
 ```
-````
+----
 
 The style guide can be run locally from the `interbit-ui-components` directory
 by executing the following commands:
