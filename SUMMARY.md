@@ -101,7 +101,7 @@
   * [interbit-covenant-tools](reference/interbit-covenant-tools/README.md)
     * [validate()](reference/interbit-covenant-tools/validate.adoc)
   * [interbit-ui-components](reference/interbit-ui-components/README.adoc)
-    * [Contributing](reference/interbit-ui-components/CONTRIBUTING.adoc)
+    * [Contributing](reference/interbit-ui-components/contributing.adoc)
     * [formatDate()](reference/interbit-ui-components/formatDate.adoc)
     * [formatDateTime()](reference/interbit-ui-components/formatDateTime.adoc)
   * [interbit-ui-tools](reference/interbit-ui-tools/README.adoc)
