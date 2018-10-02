@@ -1,0 +1,57 @@
+= Interbit UI components
+
+A library of React UI components specifically designed for use with Interbit.
+
+Interbit UI components are intended to help developers with the frontend UI
+portion of developing Interbit applications.
+
+
+== Getting Started
+
+There are two ways to get started with Interbit UI components. The easiest is
+to use the Interbit Template app as a starting point for a new Interbit app,
+and use Interbit UI components to build the app's UI.  You can also add
+Interbit UI components to your own project by installing it as an `npm`
+package.
+
+=== Starting with the Interbit Template app
+
+Interbit comes with a link:/examples/template.adoc[Template app], which can be
+used a starting point for building your own Interbit applications. Follow the
+link:/getting-started/create.md[Getting Start] steps to create your first
+Interbit app or modify the Template app and start using Interbit UI components.
+
+=== Using Interbit UI components in your own project
+
+Interbit UI components are available as an `npm` package. You can install and
+save the dependency in your project's `package.json` file by running:
+
+```
+npm install interbit-ui-components --save
+```
+
+Once the `interbit-ui-components` package is installed, import the CSS file in
+your application. Typically, the CSS file is imported at the root of your
+application, but you can import it wherever you wish to use the components.
+For example, in the Template app, the import happens in `index.js` at the root
+of the application:
+
+[source,js]
+----
+{% include "index.js" %}
+----
+
+
+== Usage
+
+Interbit UI components are typical React components. To use one in your
+application, simply import it and pass in the appropriate props. Documentation
+and examples for each component is pending.
+
+For example, in the Template app, we use the `Header` component which displays
+the Interbit logo and a navigation menu.
+
+[source,js]
+----
+{% include "app.js" %}
+----
