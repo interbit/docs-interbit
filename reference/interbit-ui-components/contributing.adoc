@@ -81,9 +81,9 @@ directory. More complex components should be in their own directory within
 
 Presentational components should be dumb components. They:
 
-- Receive data and callbacks as props exclusively.
-- Don't have their own state.
-- If components must have their own UI-related state (e.g. whether a modal is
+- receive data and callbacks as props exclusively.
+- don't have their own state.
+- if components must have their own UI-related state (e.g. whether a modal is
   open), the state is managed by Redux. Do not use local component state
   management with `this.setState()`.
 
