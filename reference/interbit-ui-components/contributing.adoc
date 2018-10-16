@@ -79,6 +79,14 @@ Simple, presentational components should go in the `src/components/UIKit`
 directory. More complex components should be in their own directory within
 `src/components`. Each component must be exported from `src/index.js`.
 
+Presentational components should be dumb components. They:
+
+- receive data and callbacks as props exclusively.
+- don't have their own state.
+- if components must have their own UI-related state (e.g. whether a modal is
+  open), the state is managed by Redux. Do not use local component state
+  management with `this.setState()`.
+
 === SCSS
 
 For each component:
