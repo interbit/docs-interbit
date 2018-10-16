@@ -79,7 +79,7 @@ Simple, presentational components should go in the `src/components/UIKit`
 directory. More complex components should be in their own directory within
 `src/components`. Each component must be exported from `src/index.js`.
 
-Presentational components should be dumb components where possible. They:
+Presentational components should be dumb components. They:
 
 - Receive data and callbacks as props exclusively.
 - Don't have their own state.
