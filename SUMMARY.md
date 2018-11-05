@@ -54,6 +54,7 @@
       * [getCovenants()](reference/interbit/config-selectors/getCovenants.adoc)
       * [getPeers()](reference/interbit/config-selectors/getPeers.adoc)
       * [joinTypes](reference/interbit/config-selectors/joinTypes.adoc)
+
     * [configureChains()](reference/interbit/configureChains.adoc)
     * [configureJoins()](reference/interbit/configureJoins.adoc)
     * [connectToPeers()](reference/interbit/connectToPeers.adoc)
@@ -61,6 +62,7 @@
     * [createChains](reference/interbit/createChains/README.adoc)
       * [createChainsFromConfig()](reference/interbit/createChains/createChainsFromConfig.adoc)
       * [createChainsFromManifest()](reference/interbit/createChains/createChainsFromManifest.adoc)
+
     * [deploy()](reference/interbit/deploy.adoc)
     * [deployCovenants()](reference/interbit/deployCovenants.adoc)
     * [generateDeploymentDetails()](reference/interbit/generateDeploymentDetails.adoc)
@@ -79,35 +81,43 @@
       * [getGenesisBlocks()](reference/interbit/manifest-selectors/getGenesisBlocks.adoc)
       * [getPeers()](reference/interbit/manifest-selectors/getPeers.adoc)
       * [getRootChildren()](reference/interbit/manifest-selectors/getRootChildren.adoc)
+
     * [packCovenants()](reference/interbit/packCovenants.adoc)
     * [setRootChainManifest()](reference/interbit/setRootChainManifest.adoc)
     * [start()](reference/interbit/start.adoc)
     * [startInterbit()](reference/interbit/startInterbit.adoc)
     * [updateIndexHtmls()](reference/interbit/updateIndexHtmls.adoc)
     * [validateConfig()](reference/interbit/validateConfig.adoc)
+
   * [interbit-cli](reference/interbit-cli/README.md)
     * [Configuration file](reference/interbit-cli/config/README.adoc)
       * [staticChain{}](reference/interbit-cli/config/staticChain.adoc)
         * [joins{}](reference/interbit-cli/config/joins.adoc)
       * [covenant{}](reference/interbit-cli/config/covenant.adoc)
       * [app{}](reference/interbit-cli/config/app.adoc)
+
     * [Manifest file](reference/interbit-cli/manifest/README.adoc)
       * [app{}](reference/interbit-cli/manifest/app.adoc)
       * [deployment{}](reference/interbit-cli/manifest/deployment.adoc)
+
     * [build](reference/interbit-cli/build.adoc)
     * [create](reference/interbit-cli/create.adoc)
     * [deploy](reference/interbit-cli/deploy.adoc)
     * [start](reference/interbit-cli/start.adoc)
+
   * [interbit-covenant-tools](reference/interbit-covenant-tools/README.md)
     * [validate()](reference/interbit-covenant-tools/validate.adoc)
+
   * [interbit-ui-components](reference/interbit-ui-components/README.adoc)
     * [Contributing](reference/interbit-ui-components/contributing.adoc)
     * [Functions](reference/interbit-ui-components/functions.adoc)
       * [formatDate()](reference/interbit-ui-components/formatDate.adoc)
       * [formatDateTime()](reference/interbit-ui-components/formatDateTime.adoc)
+
     * [React components](reference/interbit-ui-components/components.adoc)
       * [UIKit](reference/interbit-ui-components/UIKit/README.adoc)
         * [LinkBar](reference/interbit-ui-components/UIKit/LinkBar.adoc)
+
   * [interbit-ui-tools](reference/interbit-ui-tools/README.adoc)
     * [actionCreators](reference/interbit-ui-tools/actionCreators.md)
     * [actionTypes](reference/interbit-ui-tools/actionTypes.md)
@@ -118,5 +128,6 @@
     * [rootSaga](reference/interbit-ui-tools/rootSaga.md)
     * [Selectors](reference/interbit-ui-tools/selectors.adoc)
     * [Chain Sponsorship](reference/interbit-ui-tools/chainSponsorship.adoc)
+
 * [Report bugs](bugs.md)
 * [Glossary](GLOSSARY.md)
