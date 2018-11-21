@@ -24,7 +24,7 @@ will trigger `privateChainSaga` to create a private chain.
    `window.interbit.middleware`
 
 5. Use `cli.loadChain()` to load the public chain, hook up
-   `chain.subscribe()` to the redux store and waits\ for a block to
+   `chain.subscribe()` to the redux store and waits for a block to
    ensure valid state is available. The status of the public chain in
    the redux store at `interbit.chainData.[chainAlias]` will be marked
    as `BLOCKING`.
